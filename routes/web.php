@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\DashboardController;
@@ -13,24 +12,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicePageController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutPageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactPageController::class, 'contact'])->name('contact');
 Route::get('/service', [ServicePageController::class, 'service'])->name('service');
 
-//Admin
 Route::middleware('auth')->group(callback: function () {
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -44,7 +44,7 @@
                             <td>
                                 <img src="{{asset('images/slider/'. $sliderData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
-                            <td>{{$sliderData->link}}</td>
+                            <td>{{$sliderData->link? $sliderData->link:'N/A'}}</td>
                             <td>{!! Str::limit($sliderData->details, 30) !!}</td>
                             <td>{{$sliderData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">

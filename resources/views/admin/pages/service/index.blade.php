@@ -143,15 +143,13 @@
                     <form method="post" action="{{route('service.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Title</label>
                                     <input type="text" id="title" name="title"
                                            class="form-control" placeholder="Enter Title">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="example-fileinput" class="form-label">Image</label>
@@ -159,6 +157,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="row">
                             <div class="col-12">

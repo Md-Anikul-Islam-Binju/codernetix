@@ -147,13 +147,6 @@
                 <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
                 <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
                 </p>
-                <div class="d-flex align-items-center">
-                    <img src="{{URL::to('frontend/img/testimonial-1.jpg')}}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
-                    <div class="ms-3">
-                        <h5>Admin</h5>
-                        <p class="mb-0">October 9, 2025</p>
-                    </div>
-                </div>
             </div>
             <div class="blog-item p-4">
                 <div class="blog-img mb-4">
@@ -165,13 +158,6 @@
                 <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
                 <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
                 </p>
-                <div class="d-flex align-items-center">
-                    <img src="{{URL::to('frontend/img/testimonial-2.jpg')}}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
-                    <div class="ms-3">
-                        <h5>Admin</h5>
-                        <p class="mb-0">October 9, 2025</p>
-                    </div>
-                </div>
             </div>
             <div class="blog-item p-4">
                 <div class="blog-img mb-4">
@@ -183,13 +169,6 @@
                 <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
                 <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
                 </p>
-                <div class="d-flex align-items-center">
-                    <img src="{{URL::to('frontend/img/testimonial-3.jpg')}}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
-                    <div class="ms-3">
-                        <h5>Admin</h5>
-                        <p class="mb-0">October 9, 2025</p>
-                    </div>
-                </div>
             </div>
             <div class="blog-item p-4">
                 <div class="blog-img mb-4">
@@ -201,13 +180,6 @@
                 <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
                 <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
                 </p>
-                <div class="d-flex align-items-center">
-                    <img src="{{URL::to('frontend/img/testimonial-1.jpg')}}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
-                    <div class="ms-3">
-                        <h5>Admin</h5>
-                        <p class="mb-0">October 9, 2025</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -218,79 +190,29 @@
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Team</h4>
-            <h1 class="display-5 mb-4">Meet Our Advisers</h1>
-            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
+            <h1 class="display-5 mb-4">This highlights our team's expertise and contribution to success.</h1>
+            <p class="mb-0">At Codernetix, our team is the backbone of our success. Comprised of skilled developers, designers, and IT specialists, each team member brings unique expertise and a passion for innovation.
             </p>
         </div>
         <div class="row g-4">
+            @foreach($team as $teamData)
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="{{URL::to('frontend/img/team-1.jpg')}}" class="img-fluid" alt="">
+                        <img src="{{asset('images/team/'. $teamData->image )}}" class="img-fluid" alt="">
                     </div>
                     <div class="team-title">
-                        <h4 class="mb-0">David James</h4>
-                        <p class="mb-0">Profession</p>
+                        <h4 class="mb-0">{{$teamData->name}}</h4>
+                        <p class="mb-0">{{$teamData->designation}}</p>
                     </div>
                     <div class="team-icon">
                         <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{URL::to('frontend/img/team-1.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="team-title">
-                        <h4 class="mb-0">David James</h4>
-                        <p class="mb-0">Profession</p>
-                    </div>
-                    <div class="team-icon">
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{URL::to('frontend/img/team-1.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="team-title">
-                        <h4 class="mb-0">David James</h4>
-                        <p class="mb-0">Profession</p>
-                    </div>
-                    <div class="team-icon">
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{URL::to('frontend/img/team-1.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="team-title">
-                        <h4 class="mb-0">David James</h4>
-                        <p class="mb-0">Profession</p>
-                    </div>
-                    <div class="team-icon">
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -300,9 +222,9 @@
 <div class="container-fluid testimonial pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-            <h4 class="text-primary">Testimonial</h4>
-            <h1 class="display-5 mb-4">Our Clients Riviews</h1>
-            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
+            <h4 class="text-primary">Technology</h4>
+            <h1 class="display-5 mb-4">Technology we Use</h1>
+            <p class="mb-0">At Codernetix, we leverage cutting-edge technologies to deliver robust, scalable, and secure solutions.
             </p>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
@@ -319,8 +241,7 @@
                 </div>
                 <div class="testimonial-title">
                     <div>
-                        <h4 class="mb-0">Person Name</h4>
-                        <p class="mb-0">Profession</p>
+                        <h4 class="mb-0">Laravel</h4>
                     </div>
                     <div class="d-flex text-primary">
                         <i class="fas fa-star"></i>

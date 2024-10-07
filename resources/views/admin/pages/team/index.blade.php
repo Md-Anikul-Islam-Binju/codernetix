@@ -224,7 +224,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <div class="mb-3">
                                     <label for="example-fileinput" class="form-label">Image</label>
                                     <input type="file" name="image" id="example-fileinput" class="form-control">

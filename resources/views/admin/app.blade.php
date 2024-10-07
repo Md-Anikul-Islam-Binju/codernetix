@@ -86,12 +86,12 @@
 
     <div class="leftside-menu">
         <a href="{{route('dashboard')}}" class="logo logo-light">
-{{--            <span class="logo-lg">--}}
-{{--                <img src="#" alt="logo" style="height: 70px;">--}}
-{{--            </span>--}}
-{{--            <span class="logo-sm">--}}
-{{--                <img src="#" alt="small logo">--}}
-{{--            </span>--}}
+            {{--            <span class="logo-lg">--}}
+            {{--                <img src="#" alt="logo" style="height: 70px;">--}}
+            {{--            </span>--}}
+            {{--            <span class="logo-sm">--}}
+            {{--                <img src="#" alt="small logo">--}}
+            {{--            </span>--}}
             <h1 style="color:red">CoderNetix</h1>
         </a>
 

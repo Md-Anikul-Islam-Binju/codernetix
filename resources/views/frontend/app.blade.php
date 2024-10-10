@@ -56,22 +56,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-                <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-                <a href="{{route('service')}}" class="nav-item nav-link">Services</a>
-                <a href="{{route('project')}}" class="nav-item nav-link">Project</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                <a href="{{ route('service') }}" class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}">Services</a>
+                <a href="{{ route('project') }}" class="nav-item nav-link {{ request()->routeIs('project') ? 'active' : '' }}">Project</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link" data-bs-toggle="dropdown">
                         <span class="dropdown-toggle">Pages</span>
                     </a>
                     <div class="dropdown-menu m-0">
                         <a href="#" class="dropdown-item">Career</a>
-                        <a href="{{route('team')}}" class="dropdown-item">Our team</a>
+                        <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Our team</a>
                     </div>
                 </div>
             </div>
-            <a href="{{route('contact')}}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Contact Us</a>
+            <a href="{{ route('contact') }}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0 {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a>
         </div>
+
     </nav>
 
 

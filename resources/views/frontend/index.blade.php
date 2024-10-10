@@ -137,50 +137,19 @@
             </p>
         </div>
         <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
+            @foreach($project as $projectData)
             <div class="blog-item p-4">
                 <div class="blog-img mb-4">
-                    <img src="{{URL::to('frontend/img/service-1.jpg')}}" class="img-fluid w-100 rounded" alt="">
+                    <img src="{{asset('images/project/'. $projectData->image )}}" class="img-fluid w-100 rounded"  style="height: 200px;" alt="">
                     <div class="blog-title">
-                        <a href="#" class="btn">Dividend Stocks</a>
+                        <a href="{{$projectData->link}}" class="btn">Visit Site</a>
                     </div>
                 </div>
-                <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
+                <a href="#" class="h4 d-inline-block mb-3">{{$projectData->title}}</a>
+                <p class="mb-4">{!! Str::limit($projectData->details, 150) !!}
                 </p>
             </div>
-            <div class="blog-item p-4">
-                <div class="blog-img mb-4">
-                    <img src="{{URL::to('frontend/img/service-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                    <div class="blog-title">
-                        <a href="#" class="btn">Non-Dividend Stocks</a>
-                    </div>
-                </div>
-                <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
-                </p>
-            </div>
-            <div class="blog-item p-4">
-                <div class="blog-img mb-4">
-                    <img src="{{URL::to('frontend/img/service-3.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                    <div class="blog-title">
-                        <a href="#" class="btn">Dividend Stocks</a>
-                    </div>
-                </div>
-                <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
-                </p>
-            </div>
-            <div class="blog-item p-4">
-                <div class="blog-img mb-4">
-                    <img src="{{URL::to('frontend/img/service-4.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                    <div class="blog-title">
-                        <a href="#" class="btn">Non-Dividend Stocks</a>
-                    </div>
-                </div>
-                <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
-                </p>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -216,9 +185,8 @@
         </div>
     </div>
 </div>
-<!-- Team End -->
 
-<!-- Testimonial Start -->
+<!-- Technology Start -->
 <div class="container-fluid testimonial pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
@@ -228,20 +196,20 @@
             </p>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+            @foreach($technology as $technologyData)
             <div class="testimonial-item">
                 <div class="testimonial-quote-left">
                     <i class="fas fa-quote-left fa-2x"></i>
                 </div>
                 <div class="testimonial-img">
-                    <img src="{{URL::to('frontend/img/testimonial-1.jpg')}}" class="img-fluid" alt="Image">
+                    <img src="{{asset('images/technology/'. $technologyData->logo )}}" class="img-fluid" alt="Image">
                 </div>
                 <div class="testimonial-text">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                    </p>
+                    <p class="mb-0">{{$technologyData->details}}</p>
                 </div>
                 <div class="testimonial-title">
                     <div>
-                        <h4 class="mb-0">Laravel</h4>
+                        <h4 class="mb-0">{{$technologyData->name}}</h4>
                     </div>
                     <div class="d-flex text-primary">
                         <i class="fas fa-star"></i>
@@ -255,93 +223,35 @@
                     <i class="fas fa-quote-right fa-2x"></i>
                 </div>
             </div>
-            <div class="testimonial-item">
-                <div class="testimonial-quote-left">
-                    <i class="fas fa-quote-left fa-2x"></i>
-                </div>
-                <div class="testimonial-img">
-                    <img src="{{URL::to('frontend/img/testimonial-1.jpg')}}" class="img-fluid" alt="Image">
-                </div>
-                <div class="testimonial-text">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                    </p>
-                </div>
-                <div class="testimonial-title">
-                    <div>
-                        <h4 class="mb-0">Person Name</h4>
-                        <p class="mb-0">Profession</p>
-                    </div>
-                    <div class="d-flex text-primary">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="testimonial-quote-right">
-                    <i class="fas fa-quote-right fa-2x"></i>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-quote-left">
-                    <i class="fas fa-quote-left fa-2x"></i>
-                </div>
-                <div class="testimonial-img">
-                    <img src="{{URL::to('frontend/img/testimonial-1.jpg')}}" class="img-fluid" alt="Image">
-                </div>
-                <div class="testimonial-text">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                    </p>
-                </div>
-                <div class="testimonial-title">
-                    <div>
-                        <h4 class="mb-0">Person Name</h4>
-                        <p class="mb-0">Profession</p>
-                    </div>
-                    <div class="d-flex text-primary">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="testimonial-quote-right">
-                    <i class="fas fa-quote-right fa-2x"></i>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-quote-left">
-                    <i class="fas fa-quote-left fa-2x"></i>
-                </div>
-                <div class="testimonial-img">
-                    <img src="{{URL::to('frontend/img/testimonial-1.jpg')}}" class="img-fluid" alt="Image">
-                </div>
-                <div class="testimonial-text">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                    </p>
-                </div>
-                <div class="testimonial-title">
-                    <div>
-                        <h4 class="mb-0">Person Name</h4>
-                        <p class="mb-0">Profession</p>
-                    </div>
-                    <div class="d-flex text-primary">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="testimonial-quote-right">
-                    <i class="fas fa-quote-right fa-2x"></i>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
-<!-- Testimonial End -->
+
+<!-- Client Start -->
+<div class="container-fluid team pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Our Client</h4>
+            <h1 class="display-5 mb-4">Your Future, Our Focus.</h1>
+            <p class="mb-0">
+                If you can provide more information about the client’s business, target audience, and unique selling points, Codernetix help you craft a more tailored tagline!
+            </p>
+        </div>
+        <div class="row g-4">
+            @foreach($client as $clientData)
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="{{$clientData->link}}">
+                            <img src="{{asset('images/client/'. $clientData->logo )}}" style="height: 250px;" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
 
 @endsection

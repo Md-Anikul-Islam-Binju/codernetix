@@ -19,7 +19,7 @@
                                     </div>
                                     <div>
                                         <h4>Address</h4>
-                                        <p class="mb-0">123 Street New York.USA</p>
+                                        <p class="mb-0">{{$siteSetting->address}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                                     </div>
                                     <div>
                                         <h4>Mail Us</h4>
-                                        <p class="mb-0">info@example.com</p>
+                                        <p class="mb-0">{{$siteSetting->email}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -41,18 +41,7 @@
                                     </div>
                                     <div>
                                         <h4>Telephone</h4>
-                                        <p class="mb-0">(+012) 3456 7890</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-add-item">
-                                    <div class="contact-icon text-primary mb-4">
-                                        <i class="fab fa-firefox-browser fa-2x"></i>
-                                    </div>
-                                    <div>
-                                        <h4>Yoursite@ex.com</h4>
-                                        <p class="mb-0">(+012) 3456 7890</p>
+                                        <p class="mb-0">+88{{$siteSetting->phone}}</p>
                                     </div>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@ Route::get('/contact', [ContactPageController::class, 'contact'])->name('contact
 Route::get('/service', [ServicePageController::class, 'service'])->name('service');
 Route::get('/project', [ProjectSectionController::class, 'project'])->name('project');
 Route::get('/team', [TeamSectionController::class, 'team'])->name('team');
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+
 
 
 Route::middleware('auth')->group(callback: function () {

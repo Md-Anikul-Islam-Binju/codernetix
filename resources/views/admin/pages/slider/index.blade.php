@@ -102,11 +102,12 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label> Details </label>
-                                                            <textarea class="form-control editor" name="details" style="height: 500px;" placeholder="Enter the Description">{!! $sliderData->details !!}</textarea>
+                                                            <label>Details</label>
+                                                            <textarea id="summernoteEdit{{ $sliderData->id }}" name="details">{{ $sliderData->details }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="d-flex justify-content-end">
                                                     <button class="btn btn-primary" type="submit">Update</button>
                                                 </div>
@@ -179,7 +180,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label> Details </label>
-                                    <textarea class="form-control editor" name="details" style="height: 500px;" placeholder="Enter the Description"></textarea>
+                                    <textarea id="summernote" name="details"></textarea>
                                 </div>
                             </div>
                         </div>

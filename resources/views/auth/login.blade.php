@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+@php
+    $siteSetting = DB::table('site_settings')->first();
+@endphp
 <head>
     <meta charset="utf-8" />
     <title>Log In | CoderNetix Admin</title>
+    <link rel="shortcut icon" href="{{$siteSetting? $siteSetting->favicon:''}}">
+    <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS, ERP, etc." name="description" />
     <meta content="Your Name" name="author" />
@@ -25,13 +30,12 @@
                         <div class="col-lg-6">
                             <div class="d-flex flex-column h-100">
                                 <div class="auth-brand p-4">
-{{--                                    <a href="{{ url('/') }}" class="logo-light">--}}
-{{--                                        <img src="#" alt="logo" height="100">--}}
-{{--                                    </a>--}}
-{{--                                    <a href="{{ url('/') }}" class="logo-dark">--}}
-{{--                                        <img src="#" alt="dark logo" height="100">--}}
-{{--                                    </a>--}}
-                                    <h1 style="color:red">CoderNetix</h1>
+                                    <a href="{{ url('/') }}" class="logo-light">
+                                        <img src="{{$siteSetting->logo}}" alt="logo" height="80">
+                                    </a>
+                                    <a href="{{ url('/') }}" class="logo-dark">
+                                        <img src="{{$siteSetting->logo}}" alt="dark logo" height="80">
+                                    </a>
                                 </div>
                                 <div class="p-4 pt-0 my-auto">
                                     <h4 class="fs-20">Admin Sign In</h4>

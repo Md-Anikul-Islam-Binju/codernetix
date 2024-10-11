@@ -213,6 +213,11 @@
 <script src="{{asset('backend/js/pages/datatable.init.js')}}"></script>
 <script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('backend/js/app.min.js')}}"></script>
-
+<script >
+    var allEditors = document.querySelectorAll('.editor');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i]);
+    }
+</script>
 </body>
 </html>

@@ -1,8 +1,7 @@
 @extends('frontend.app')
 @section('content')
 @include('frontend.slider')
-
- <br>
+<br><br><br>
 <!-- Team Start -->
 <div class="container-fluid team pb-5">
     <div class="container pb-5">

@@ -2,7 +2,7 @@
 @section('content')
 @include('frontend.slider')
 
-    <br>
+<br><br><br>
 <!-- Contact Start -->
 <div class="container-fluid contact py-5">
     <div class="container py-5">
@@ -100,7 +100,7 @@
             <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
                 <div class="rounded h-100">
                     <iframe class="rounded h-100 w-100"
-                            style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                            style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.20394244246273!2d90.42973009084304!3d23.773644409619113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c78d8583ee4f%3A0x75f19c2d2c29b3e8!2zU291dGggQmFyaWRoYXJhIFJlc2lkZW50YWlsIEFyZWEsRC5JLlQuIFByb2plY3QsIOCmouCmvuCmleCmviAxMjEy!5e0!3m2!1sbn!2sbd!4v1710827452659!5m2!1sbn!2sbd" class=" w-100 h-100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>

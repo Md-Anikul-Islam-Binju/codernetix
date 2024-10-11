@@ -30,7 +30,6 @@
                         <th>S/N</th>
                         <th>Title</th>
                         <th>Image</th>
-                        <th>Details</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -43,7 +42,6 @@
                             <td>
                                 <img src="{{asset('images/service/'. $serviceData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
-                            <td>{!! Str::limit($serviceData->details, 30) !!}</td>
                             <td>{{$serviceData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -94,7 +92,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label> Details </label>
-                                                            <textarea class="form-control" name="details" rows="5" placeholder="Enter the Description">{{ strip_tags($serviceData->details) }}</textarea>
+                                                            <textarea class="form-control editor" name="details" style="height: 500px;" placeholder="Enter the Description">{!! $serviceData->details !!}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -158,12 +156,11 @@
                             </div>
                         </div>
 
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label> Details </label>
-                                    <textarea class="form-control" id="content" name="details" placeholder="Enter the Description" name="body"></textarea>
+                                    <textarea class="form-control editor" name="details" style="height: 500px;" placeholder="Enter the Description"></textarea>
                                 </div>
                             </div>
                         </div>

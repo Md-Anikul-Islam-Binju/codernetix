@@ -13,7 +13,7 @@
                         <div class="text-sm-center text-md-end">
                             <h2 class="text-primary fw-bold mb-4">Welcome To CoderNetix</h2>
                             <h1 class="display-4 text-white mb-4">{{$sliderData->title}}</h1>
-                            <p class="mb-5 fs-5">{{$sliderData->details}}</p>
+                            <p class="mb-5 fs-5">{!! $sliderData->details !!}</p>
                             <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
                                 <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
                                 <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>

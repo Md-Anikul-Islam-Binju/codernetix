@@ -3,7 +3,7 @@
 @include('frontend.slider')
 
 <!-- Services Start -->
-<br>
+<br><br><br>
 <div class="container-fluid feature pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
@@ -21,7 +21,7 @@
                             <img src="{{asset('images/service/'. $serviceData->image )}}" alt="Current Image" style="height: 80px; width: 90px;">
                         </div>
                         <h4>{{$serviceData->title}}</h4>
-                        <p class="mb-4"> {{$serviceData->details}}
+                        <p class="mb-4">{!! $serviceData->details !!}
                         </p>
                         <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                     </div>
@@ -51,7 +51,7 @@
                         <img src="{{asset('images/technology/'. $technologyData->logo )}}" class="img-fluid" alt="Image">
                     </div>
                     <div class="testimonial-text">
-                        <p class="mb-0">{{$technologyData->details}}</p>
+                        <p class="mb-0">{!! $technologyData->details !!}</p>
                     </div>
                     <div class="testimonial-title">
                         <div>

@@ -31,7 +31,6 @@
                         <th>Title</th>
                         <th>File</th>
                         <th>Link</th>
-                        <th>Details</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -45,7 +44,6 @@
                                 <img src="{{asset('images/project/'. $projectData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
                             <td>{{$projectData->link? $projectData->link:'N/A'}}</td>
-                            <td>{!! Str::limit($projectData->details, 30) !!}</td>
                             <td>{{$projectData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -104,7 +102,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label> Details </label>
-                                                            <textarea class="form-control" name="details" rows="5" placeholder="Enter the Description">{{ strip_tags($projectData->details) }}</textarea>
+                                                            <textarea class="form-control editor" name="details" style="height: 500px;" placeholder="Enter the Description">{!! $projectData->details !!}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -180,7 +178,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label> Details </label>
-                                    <textarea class="form-control" id="content" name="details" placeholder="Enter the Description" name="body"></textarea>
+                                    <textarea class="form-control editor" name="details" style="height: 500px;" placeholder="Enter the Description"></textarea>
                                 </div>
                             </div>
                         </div>

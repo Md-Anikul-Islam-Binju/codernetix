@@ -5,9 +5,18 @@
 @endphp
 <head>
     <meta charset="utf-8">
-    <title>CoderNetix</title>
+    <title>CoderNetix - Premier IT Solutions and Development Services</title>
+    <meta name="description" content="CoderNetix is an IT-based company offering web application development, mobile app development, custom website creation, and game development services. Our expert team provides top-notch solutions tailored to your needs.">
+    <meta name="keywords" content="CoderNetix, IT services, web application development, mobile app development, custom website creation, game development, software solutions">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph (OG) for social sharing -->
+    <meta property="og:title" content="CoderNetix - Premier IT Solutions and Development Services">
+    <meta property="og:description" content="Offering top IT services including web app, mobile app development, and game development tailored to your business needs.">
+    <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}">
+    <meta property="og:url" content="https://codernetix.com">
+    <meta property="og:type" content="website">
     <link rel="shortcut icon" href="{{$siteSetting? $siteSetting->favicon:''}}">
-    <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -21,7 +30,6 @@
 </head>
 
 <body>
-
 <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
     <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
         <span class="sr-only">Loading...</span>

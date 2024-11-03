@@ -27,6 +27,7 @@
                     <thead>
                     <tr>
                         <th>S/N</th>
+                        <th>Project Category</th>
                         <th>Project Name</th>
                         <th>Type</th>
                         <th>Start Date</th>
@@ -42,6 +43,8 @@
                     @foreach($project as $key => $history)
                         <tr>
                             <td>{{ $key + 1 }}</td>
+
+                            <td>{{ $history->category->name }}</td>
                             <td>{{ $history->project_name }}</td>
                             <td>{{ $history->project_type }}</td>
                             <td>{{ $history->project_start_date }}</td>

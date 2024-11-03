@@ -24,4 +24,9 @@ class ProjectHistory extends Model
         'client_phone',
         'client_address',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(ProjectCategory::class);
+    }
 }

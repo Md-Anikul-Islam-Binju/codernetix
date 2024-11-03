@@ -13,7 +13,7 @@ class ProjectHistoryController extends Controller
     public function index()
     {
         $category = ProjectCategory::all();
-        $project = ProjectHistory::latest()->get();
+        $project = ProjectHistory::with('category')->latest()->get();
         return view('admin.pages.inventory.project.index', compact('category','project'));
     }
 

@@ -148,6 +148,25 @@
                 </li>
 
                 <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarPagesInventory" aria-expanded="false" aria-controls="sidebarPagesInventory" class="side-nav-link">
+                        <i class="ri-pages-line"></i>
+                        <span> Inventory </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarPagesInventory">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('project.category.section')}}">Project Category</a>
+                            </li>
+                            <li>
+                                <a href="{{route('project.history.section')}}">Project History</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                         <i class="ri-pages-line"></i>
                         <span> Setting </span>

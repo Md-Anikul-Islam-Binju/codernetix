@@ -2,7 +2,9 @@
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ProjectCategoryController;
 use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\admin\ProjectHistoryController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -69,5 +71,18 @@ Route::middleware('auth')->group(callback: function () {
     //Site Setting
     Route::get('/site-setting', [SiteSettingController::class, 'index'])->name('site.setting');
     Route::post('/site-settings-store-update/{id?}', [SiteSettingController::class, 'createOrUpdate'])->name('site-settings.createOrUpdate');
+
+    //Our Simple Inventory
+    //project category Section
+    Route::get('/project-category-section', [ProjectCategoryController::class, 'index'])->name('project.category.section');
+    Route::post('/project-category-store', [ProjectCategoryController::class, 'store'])->name('project.category.store');
+    Route::put('/project-category-update/{id}', [ProjectCategoryController::class, 'update'])->name('project.category.update');
+    Route::get('/project-category-delete/{id}', [ProjectCategoryController::class, 'destroy'])->name('project.category.destroy');
+
+    //client project history Section
+    Route::get('/project-history-section', [ProjectHistoryController::class, 'index'])->name('project.history.section');
+    Route::post('/project-history-store', [ProjectHistoryController::class, 'store'])->name('project.history.store');
+    Route::put('/project-history-update/{id}', [ProjectHistoryController::class, 'update'])->name('project.history.update');
+    Route::get('/project-history-delete/{id}', [ProjectHistoryController::class, 'destroy'])->name('project.history.destroy');
 });
 require __DIR__.'/auth.php';

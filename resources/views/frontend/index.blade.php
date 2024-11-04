@@ -109,7 +109,7 @@
                 <div class="blog-img mb-4">
                     <img src="{{asset('images/project/'. $projectData->image )}}" class="img-fluid w-100 rounded"  style="height: 200px;" alt="">
                     <div class="blog-title">
-                        <a href="{{$projectData->link}}" class="btn">Visit Site</a>
+                        <a href="{{$projectData->link}}" class="btn" target="_blank">Visit Site</a>
                     </div>
                 </div>
                 <a href="#" class="h4 d-inline-block mb-3">{{$projectData->title}}</a>

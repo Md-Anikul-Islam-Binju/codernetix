@@ -11,9 +11,9 @@ class DashboardController extends Controller
     public function index()
     {
         $totalProject = ProjectHistory::count();
-        $totalProjectAmount = ProjectHistory::count('project_budget');
-        $totalProjectIncome = ProjectHistory::count('project_amount_paid');
-        $totalProjectDue = ProjectHistory::count('project_due');
+        $totalProjectAmount = ProjectHistory::sum('project_budget');
+        $totalProjectIncome = ProjectHistory::sum('project_amount_paid');
+        $totalProjectDue = ProjectHistory::sum('project_due');
         return view('admin.dashboard',compact('totalProject','totalProjectAmount',
         'totalProjectIncome','totalProjectDue'));
     }

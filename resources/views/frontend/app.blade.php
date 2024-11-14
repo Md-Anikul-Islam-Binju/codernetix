@@ -141,10 +141,10 @@
                         <p class="text-white mb-0">+88{{$siteSetting->phone}}</p>
                     </div>
                     <div class="d-flex">
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->facebook_link}}"><i class="fab fa-facebook-f text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->twitter_link}}"><i class="fab fa-twitter text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->instagram_link}}"><i class="fab fa-whatsapp text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="{{$siteSetting->linkedin_link}}"><i class="fab fa-linkedin-in text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->facebook_link}}" target="_blank"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->twitter_link}}" target="_blank"><i class="fab fa-twitter text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->instagram_link}}" target="_blank"><i class="fab fa-whatsapp text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="{{$siteSetting->linkedin_link}}" target="_blank"><i class="fab fa-linkedin-in text-white"></i></a>
                     </div>
                 </div>
             </div>

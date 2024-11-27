@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $totalProject = ProjectHistory::count();
         $totalProjectAmount = ProjectHistory::sum('project_budget');
         $totalProjectIncome = ProjectPayment::sum('project_amount_paid');
-        $totalProjectDue = ProjectPayment::sum('project_due');
+        $totalProjectDue = $totalProjectAmount-$totalProjectIncome;
         return view('admin.dashboard',compact('totalProject','totalProjectAmount',
         'totalProjectIncome','totalProjectDue'));
     }

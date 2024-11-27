@@ -33,8 +33,6 @@
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Budget</th>
-                        <th>Amount Paid</th>
-                        <th>Due</th>
                         <th>Client Name</th>
                         <th>Action</th>
                     </tr>
@@ -50,13 +48,12 @@
                             <td>{{ $history->project_start_date }}</td>
                             <td>{{ $history->project_end_date }}</td>
                             <td>{{ $history->project_budget }}</td>
-                            <td>{{ $history->project_amount_paid }}</td>
-                            <td>{{ $history->project_due }}</td>
                             <td>{{ $history->client_name }}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editHistoryModal{{$history->id}}">Edit</button>
                                     <a href="{{route('project.history.destroy',$history->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$history->id}}">Delete</a>
+                                    <a href="{{route('project.payment.history.section',$history->id)}}"class="btn btn-success btn-sm">Payment</a>
                                 </div>
                             </td>
                         </tr>
@@ -130,19 +127,6 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-6">
-                                                    <div class="mb-3">
-                                                        <label for="project_amount_paid" class="form-label">Amount Paid</label>
-                                                        <input type="number" name="project_amount_paid" class="form-control" value="{{ old('project_amount_paid', $history->project_amount_paid) }}" placeholder="Enter Amount Paid">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <div class="mb-3">
-                                                        <label for="project_due" class="form-label">Project Due</label>
-                                                        <input type="number" name="project_due" class="form-control" value="{{ old('project_due', $history->project_due) }}" placeholder="Enter Project Due">
-                                                    </div>
-                                                </div>
 
                                                 <div class="col-6">
                                                     <div class="mb-3">
@@ -279,20 +263,6 @@
                                 <div class="mb-3">
                                     <label for="project_budget" class="form-label">Project Budget</label>
                                     <input type="number" name="project_budget" class="form-control" placeholder="Enter Budget">
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="project_amount_paid" class="form-label">Amount Paid</label>
-                                    <input type="number" name="project_amount_paid" class="form-control" placeholder="Enter Amount Paid">
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="project_due" class="form-label">Project Due</label>
-                                    <input type="number" name="project_due" class="form-control" placeholder="Enter Project Due">
                                 </div>
                             </div>
 

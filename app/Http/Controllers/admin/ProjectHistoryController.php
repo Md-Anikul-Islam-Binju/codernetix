@@ -43,8 +43,6 @@ class ProjectHistoryController extends Controller
             $projectHistory->project_document = $filePath; // Save file path if uploaded
             $projectHistory->project_complete_duration = $request->project_complete_duration;
             $projectHistory->project_budget = $request->project_budget;
-            $projectHistory->project_amount_paid = $request->project_amount_paid;
-            $projectHistory->project_due = $request->project_due;
             $projectHistory->project_start_date = $request->project_start_date;
             $projectHistory->project_end_date = $request->project_end_date;
             $projectHistory->client_name = $request->client_name;
@@ -78,8 +76,6 @@ class ProjectHistoryController extends Controller
             $projectHistory->project_type = $request->project_type;
             $projectHistory->project_complete_duration = $request->project_complete_duration;
             $projectHistory->project_budget = $request->project_budget;
-            $projectHistory->project_amount_paid = $request->project_amount_paid;
-            $projectHistory->project_due = $request->project_due;
             $projectHistory->project_start_date = $request->project_start_date;
             $projectHistory->project_end_date = $request->project_end_date;
             $projectHistory->client_name = $request->client_name;

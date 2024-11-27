@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProjectCategoryController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProjectHistoryController;
+use App\Http\Controllers\admin\ProjectPaymentHistoryController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -84,5 +85,11 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/project-history-store', [ProjectHistoryController::class, 'store'])->name('project.history.store');
     Route::put('/project-history-update/{id}', [ProjectHistoryController::class, 'update'])->name('project.history.update');
     Route::get('/project-history-delete/{id}', [ProjectHistoryController::class, 'destroy'])->name('project.history.destroy');
+
+    //client project payment history Section
+    Route::get('/project-history-payment-section/{id}', [ProjectPaymentHistoryController::class, 'show'])->name('project.payment.history.section');
+    Route::post('/project-history-payment-store', [ProjectPaymentHistoryController::class, 'store'])->name('project.payment.history.store');
+    Route::put('/project-history-payment-update/{id}', [ProjectPaymentHistoryController::class, 'update'])->name('project.payment.history.update');
+    Route::get('/project-history-payment-delete/{id}', [ProjectPaymentHistoryController::class, 'destroy'])->name('project.payment.history.destroy');
 });
 require __DIR__.'/auth.php';

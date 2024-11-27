@@ -15,8 +15,6 @@ class ProjectHistory extends Model
         'project_document',
         'project_complete_duration',
         'project_budget',
-        'project_amount_paid',
-        'project_due',
         'project_start_date',
         'project_end_date',
         'client_name',
@@ -28,5 +26,10 @@ class ProjectHistory extends Model
     public function category()
     {
         return $this->belongsTo(ProjectCategory::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(ProjectPayment::class, 'project_id');
     }
 }

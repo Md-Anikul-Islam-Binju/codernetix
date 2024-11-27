@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('project_document')->nullable();
             $table->integer('project_complete_duration')->nullable();
             $table->integer('project_budget')->nullable();
-            $table->integer('project_amount_paid')->nullable();
-            $table->integer('project_due')->nullable();
             $table->date('project_start_date')->nullable();
             $table->date('project_end_date')->nullable();
             $table->string('client_name')->nullable();

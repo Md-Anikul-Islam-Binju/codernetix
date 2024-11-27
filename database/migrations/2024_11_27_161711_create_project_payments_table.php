@@ -19,7 +19,6 @@ return new class extends Migration
             $table->decimal('project_due', 15, 2);
             $table->date('payment_date');
             $table->timestamps();
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 

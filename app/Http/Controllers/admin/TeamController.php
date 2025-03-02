@@ -54,6 +54,7 @@ class TeamController extends Controller
             $team->designation = $request->designation;
             $team->facebook = $request->facebook;
             $team->linkedin = $request->linkedin;
+            $team->status = $request->status;
             if ($request->image) {
                 $file = time() . '.' . $request->image->extension();
                 $request->image->move(public_path('images/team'), $file);

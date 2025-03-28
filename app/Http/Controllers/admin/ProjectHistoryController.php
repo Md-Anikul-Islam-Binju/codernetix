@@ -13,8 +13,12 @@ class ProjectHistoryController extends Controller
     public function index()
     {
         $category = ProjectCategory::all();
-        $project = ProjectHistory::with('category')->latest()->get();
-        return view('admin.pages.inventory.project.index', compact('category','project'));
+        $project = ProjectHistory::with(['category', 'payments'])->latest()->get();
+
+        $totalBudget = $project->sum('project_budget');
+        $totalPaid = $project->sum(fn($project) => $project->payments->sum('project_amount_paid'));
+        $totalDue = $totalBudget - $totalPaid;
+        return view('admin.pages.inventory.project.index', compact('category','project','totalBudget','totalPaid','totalDue'));
     }
 
     public function store(Request $request)

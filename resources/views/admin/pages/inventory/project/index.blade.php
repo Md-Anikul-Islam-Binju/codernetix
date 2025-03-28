@@ -33,6 +33,8 @@
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Budget</th>
+                        <th>Paid</th>
+                        <th>Due</th>
                         <th>Client Name</th>
                         <th>Action</th>
                     </tr>
@@ -47,7 +49,15 @@
                             <td>{{ $history->project_type }}</td>
                             <td>{{ $history->project_start_date }}</td>
                             <td>{{ $history->project_end_date }}</td>
-                            <td>{{ $history->project_budget }}</td>
+                            <td>
+                               <span class="badge bg-primary"> {{ $history->project_budget }}</span>
+                            </td>
+                            <td>
+                                <span class="badge bg-success">{{ $history->payments->sum('project_amount_paid') }}</span>
+                            </td>
+                            <td>
+                                <span class="badge bg-danger">{{ $history->project_budget - $history->payments->sum('project_amount_paid') }}</span>
+                            </td>
                             <td>{{ $history->client_name }}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -197,6 +207,15 @@
                         </div>
                     @endforeach
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="6"><strong>Total:</strong></td>
+                        <td><span class="badge bg-primary">{{ $totalBudget }}</span></td>
+                        <td><span class="badge bg-success">{{ $totalPaid }}</span></td>
+                        <td><span class="badge bg-danger">{{ $totalDue }}</span></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

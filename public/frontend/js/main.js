@@ -1,6 +1,24 @@
 (function ($) {
     "use strict";
 
+    function equalizeCardHeights() {
+        var maxHeight = 0;
+        $('.owl-carousel .blog-item').css('height', 'auto').each(function () {
+          if ($(this).height() > maxHeight) {
+            maxHeight = $(this).height();
+          }
+        });
+        $('.owl-carousel .blog-item').height(maxHeight);
+      }
+      
+      // Call it after Owl Carousel has been initialized
+      $('.owl-carousel').on('initialized.owl.carousel', function () {
+        equalizeCardHeights();
+      });
+      
+      // Optional: call again on resize or slide change
+      $(window).on('resize', equalizeCardHeights);
+      
 
     // Sponsors Carousel
 	if ($('.sponsors-carousel').length) {

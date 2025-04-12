@@ -1,6 +1,11 @@
 @extends('frontend.app')
 @section('content')
-@include('frontend.slider')
+
+<section class="cover-pic-header">
+    <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">
+    <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle">
+        Service</h1>
+</section>
 
 <!-- Services Start -->
 <br><br><br>
@@ -32,46 +37,30 @@
     </div>
 </div>
 
-<!-- Technology Start -->
-<div class="container-fluid testimonial pb-5">
-    <div class="container pb-5">
+<!-- Technology section Start -->
+<section class="Technology-section pb-120">
+    <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Technology</h4>
             <h1 class="display-5 mb-4">Technology we Use</h1>
             <p class="mb-0">At Codernetix, we leverage cutting-edge technologies to deliver robust, scalable, and secure solutions.
             </p>
         </div>
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+        <div class="row align-items-center mt-md-5 justify-content-center gap-2 gap-md-4">
             @foreach($technology as $technologyData)
-                <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
+                <div class="col-5 col-md-4 col-lg-2 text-center p-3 rounded value-card">
+                    <div class="mb-1 fs-1">
+                        <img
+                            src="{{asset('images/technology/'. $technologyData->logo )}}"
+                            alt="tech-product-1"
+                            class="img-fluid object-fit-contain"
+                        />
                     </div>
-                    <div class="testimonial-img">
-                        <img src="{{asset('images/technology/'. $technologyData->logo )}}" class="img-fluid" alt="Image">
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">{!! $technologyData->details !!}</p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">{{$technologyData->name}}</h4>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
-                    </div>
+                    <h4 class="">{{$technologyData->name}}</h4>
                 </div>
             @endforeach
         </div>
     </div>
-</div>
+</section>
 
 @endsection

@@ -54,16 +54,15 @@
                 </div>
             </div>
             <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                <div class="bg-primary rounded position-relative overflow-hidden">
+                <div class="rounded position-relative overflow-hidden">
                     <div class="rounded-bottom">
-                        <img src="{{URL::to('frontend/img/about.png')}}" class="img-fluid rounded-bottom w-100" alt="">
+                        <img src="{{URL::to('frontend/img/about12.png')}}" class="img-fluid rounded-bottom w-100" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- Services Start -->
 <div class="container-fluid feature pb-5">
@@ -105,67 +104,51 @@
         </div>
         <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
             @foreach($project as $projectData)
-            <div class="blog-item p-4">
-                <div class="blog-img mb-4">
-                    <img src="{{asset('images/project/'. $projectData->image )}}" class="img-fluid w-100 rounded"  style="height: 200px;" alt="">
-                    <div class="blog-title">
-                        <a href="{{$projectData->link}}" class="btn" target="_blank">Visit Site</a>
+                <div class="blog-item p-4">
+                    <div class="blog-img mb-4">
+                        <img src="{{asset('images/project/'. $projectData->image )}}" class="img-fluid w-100 rounded"  style="height: 200px;" alt="">
+                        <div class="blog-title">
+                            <a href="{{$projectData->link}}" class="btn" target="_blank">Visit Site</a>
+                        </div>
                     </div>
+                    <a href="#" class="h4 d-inline-block mb-3">{{$projectData->title}}</a>
+                    <p class="mb-4">{!! Str::limit($projectData->details, 150) !!}
+                    </p>
                 </div>
-                <a href="#" class="h4 d-inline-block mb-3">{{$projectData->title}}</a>
-                <p class="mb-4">{!! Str::limit($projectData->details, 150) !!}
-                </p>
-            </div>
             @endforeach
         </div>
     </div>
 </div>
 
-<!-- Technology Start -->
-<div class="container-fluid testimonial pb-5">
-    <div class="container pb-5">
+<!-- Technology section Start -->
+<section class="Technology-section pb-120">
+    <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Technology</h4>
             <h1 class="display-5 mb-4">Technology we Use</h1>
             <p class="mb-0">At Codernetix, we leverage cutting-edge technologies to deliver robust, scalable, and secure solutions.
             </p>
         </div>
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+        <div class="row align-items-center mt-md-5 justify-content-center gap-2 gap-md-4">
             @foreach($technology as $technologyData)
-            <div class="testimonial-item">
-                <div class="testimonial-quote-left">
-                    <i class="fas fa-quote-left fa-2x"></i>
+            <div class="col-5 col-md-4 col-lg-2 text-center p-3 rounded value-card">
+                <div class="mb-1 fs-1">
+                    <img
+                        src="{{asset('images/technology/'. $technologyData->logo )}}"
+                        alt="tech-product-1"
+                        class="img-fluid object-fit-contain"
+                    />
                 </div>
-                <div class="testimonial-img">
-                    <img src="{{asset('images/technology/'. $technologyData->logo )}}" class="img-fluid" alt="Image">
-                </div>
-                <div class="testimonial-text">
-                    <p class="mb-0"> {!! $technologyData->details !!}</p>
-                </div>
-                <div class="testimonial-title">
-                    <div>
-                        <h4 class="mb-0">{{$technologyData->name}}</h4>
-                    </div>
-                    <div class="d-flex text-primary">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="testimonial-quote-right">
-                    <i class="fas fa-quote-right fa-2x"></i>
-                </div>
+                <h4 class="">{{$technologyData->name}}</h4>
             </div>
             @endforeach
         </div>
     </div>
-</div>
+</section>
 
-<!-- Client Start -->
-<div class="container-fluid team pb-5">
-    <div class="container pb-5">
+<!-- Clients Section -->
+<section class="clients-section py-5" id="clients">
+    <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Client</h4>
             <h1 class="display-5 mb-4">Your Future, Our Focus.</h1>
@@ -173,20 +156,23 @@
                 If you can provide more information about the client’s business, target audience, and unique selling points, Codernetix help you craft a more tailored tagline!
             </p>
         </div>
-        <div class="row g-4">
-            @foreach($client as $clientData)
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="team-img">
+        <div class="inner-container margin-bottom">
+            <div class="sponsors-outer">
+                <!--Sponsors Carousel-->
+                <ul class="sponsors-carousel owl-carousel owl-theme list-unstyled d-flex align-items-center">
+                    @foreach($client as $clientData)
+                    <li class="slide-item">
+                        <figure class="image-box">
                             <a href="{{$clientData->link}}">
-                            <img src="{{asset('images/client/'. $clientData->logo )}}" style="height: 250px;" class="img-fluid" alt="">
+                                <img src="{{asset('images/client/'. $clientData->logo )}}" alt="">
                             </a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+                        </figure>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 @endsection

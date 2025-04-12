@@ -1,0 +1,128 @@
+/***
+
+====================================================================
+	Clients Section
+====================================================================
+
+***/
+
+.auto-container{
+    position:static;
+    max-width:1200px;
+    padding:0px 15px;
+    margin:0 auto;
+}
+.clients-section{
+    position: relative;
+    padding: 0px 0px 0px;
+    text-align: center;
+}
+
+.clients-section .inner-container{
+    position:relative;
+    padding:25px 55px;
+    background-color:#ffffff;
+    box-shadow:0px 0px 25px rgba(0,0,0,0.06);
+}
+
+.clients-section .inner-container.margin-bottom{
+    /* margin-bottom:-140px; */
+    z-index:1;
+}
+
+.clients-section .sponsors-outer .owl-dots,
+.clients-section .sponsors-outer .owl-nav{
+    position:relative;
+    display:none;
+}
+
+.clients-section .sponsors-outer .image-box{
+    position:relative;
+    text-align:center;
+    margin:0px 24px;
+    padding:10px 0px;
+    -webkit-transition:all 300ms ease;
+    -ms-transition:all 300ms ease;
+    -o-transition:all 300ms ease;
+    -moz-transition:all 300ms ease;
+    transition:all 300ms ease;
+    border:1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .clients-section .sponsors-outer .image-box:hover{
+	border-color:#58468c;
+} */
+
+.clients-section .sponsors-outer .image-box img{
+    max-width:100%;
+    width: 100px;
+    height: 50px;
+    opacity:0.8;
+    display:inline-block;
+    filter: grayscale(100%);
+    -webkit-transition:all 300ms ease;
+    -ms-transition:all 300ms ease;
+    -o-transition:all 300ms ease;
+    -moz-transition:all 300ms ease;
+    transition:all 300ms ease;
+}
+
+.clients-section .sponsors-outer .image-box img:hover{
+    opacity:1;
+    filter: grayscale(0%);
+}
+@media only screen and (max-width: 767px) {
+    .clients-section .inner-container{
+        padding-left:15px;
+        padding-right:15px;
+    }
+}
+
+/*=============================
+	06. Technology-Section CSS start
+===============================*/
+.pb-120{
+    padding-bottom: 120px;
+}
+.Technology-section .value-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #47b16a;
+}
+@media (max-width: 575.98px) {
+    .Technology-section h4 {
+        font-size: 0.9rem;
+    }
+}
+.Technology-section .value-card {
+    -webkit-transition: all linear 0.3s;;
+    transition: all linear 0.3s;
+    /* border: 1px solid #e5e5e5; */
+}
+.Technology-section .value-card div {
+    color: #0044eb;
+}
+.Technology-section .value-card div img {
+    max-width: 100px;
+}
+.Technology-section .value-card:hover {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 20px rgba(71, 177, 106, 0.781);
+}
+
+
+/* for breadcrumb banner */
+.cover-pic-header {
+    color: white !important;
+    text-align: center;
+    position: relative;
+    height: 30vh;
+    z-index: 1;
+}
+.cover-pic-header h1 {
+    color: white !important;
+}

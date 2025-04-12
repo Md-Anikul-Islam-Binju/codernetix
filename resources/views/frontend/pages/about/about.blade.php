@@ -1,6 +1,12 @@
 @extends('frontend.app')
 @section('content')
-@include('frontend.slider')
+
+<section class="cover-pic-header">
+    <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">
+    <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle">
+        About</h1>
+</section>
+
 <!-- About Start -->
 <div class="container-fluid about py-5">
     <div class="container py-5">
@@ -52,9 +58,9 @@
                 </div>
             </div>
             <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                <div class="bg-primary rounded position-relative overflow-hidden">
+                <div class="rounded position-relative overflow-hidden">
                     <div class="rounded-bottom">
-                        <img src="{{URL::to('frontend/img/about.png')}}" class="img-fluid rounded-bottom w-100" alt="">
+                        <img src="{{URL::to('frontend/img/about12.png')}}" class="img-fluid rounded-bottom w-100" alt="">
                     </div>
                 </div>
             </div>

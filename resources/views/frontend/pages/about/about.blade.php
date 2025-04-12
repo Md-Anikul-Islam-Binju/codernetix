@@ -2,6 +2,14 @@
 @section('content')
 @include('frontend.slider')
 <!-- About Start -->
+ <!-- breadcrumb cover pic -->
+ <section class="cover-pic-header">
+        <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">
+        <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle">
+            About</h1>
+    </section>
+    <!-- breadcrumb cover pic -->
+
 <div class="container-fluid about py-5">
     <div class="container py-5">
         <div class="row g-5 align-items-center">

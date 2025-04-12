@@ -115,3 +115,14 @@
   }
   
 
+/* for breadcrumb banner */
+.cover-pic-header {
+    color: white !important;
+    text-align: center;
+    position: relative;
+    height: 30vh;
+    z-index: 1;
+  }
+  .cover-pic-header h1 {
+    color: white !important;
+  }

@@ -80,3 +80,37 @@
 		padding-right:15px;
 	}
 }
+
+/*=============================
+	06. Technology-Section CSS start
+===============================*/
+.pb-120{
+    padding-bottom: 120px;
+}
+  .Technology-section .value-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #47b16a;
+  }
+  @media (max-width: 575.98px) {
+    .Technology-section h4 {
+      font-size: 0.9rem;
+    }
+  }
+  .Technology-section .value-card {
+    -webkit-transition: all linear 0.3s;;
+    transition: all linear 0.3s;
+    /* border: 1px solid #e5e5e5; */
+  }
+  .Technology-section .value-card div {
+    color: #0044eb;
+  }
+  .Technology-section .value-card div img {
+    max-width: 100px;
+  }
+  .Technology-section .value-card:hover {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    box-shadow: 0px 0px 20px rgba(71, 177, 106, 0.781);
+  }
+  

@@ -1,7 +1,10 @@
 @extends('frontend.app')
 @section('content')
-@include('frontend.slider')
-
+    <section class="cover-pic-header">
+        <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">
+        <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle">
+            Contact Us</h1>
+    </section>
 <br><br><br>
 <!-- Contact Start -->
 <div class="container-fluid contact py-5">

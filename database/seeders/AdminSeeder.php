@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@codernetix.com',
-            'password' => bcrypt('codernetix2645')
+            'password' => bcrypt('12345678')
         ]);
 
     }

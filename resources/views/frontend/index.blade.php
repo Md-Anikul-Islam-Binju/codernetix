@@ -163,9 +163,11 @@
     </div>
 </div>
 
-<!-- Client Start -->
-<div class="container-fluid team pb-5">
-    <div class="container pb-5">
+
+
+<!-- Clients Section -->
+<section class="clients-section py-5" id="clients">
+        <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Client</h4>
             <h1 class="display-5 mb-4">Your Future, Our Focus.</h1>
@@ -173,20 +175,22 @@
                 If you can provide more information about the client’s business, target audience, and unique selling points, Codernetix help you craft a more tailored tagline!
             </p>
         </div>
-        <div class="row g-4">
-            @foreach($client as $clientData)
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <a href="{{$clientData->link}}">
-                            <img src="{{asset('images/client/'. $clientData->logo )}}" style="height: 250px;" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+            <div class="inner-container margin-bottom">
+				<div class="sponsors-outer">
+					<!--Sponsors Carousel-->
+					<ul class="sponsors-carousel owl-carousel owl-theme list-unstyled d-flex align-items-center">
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1710177945.png')}}" alt=""></a></figure></li>
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1710178731.png')}}" alt=""></a></figure></li>
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1710178006.png')}}" alt=""></a></figure></li>
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1710177973.png')}}" alt=""></a></figure></li>
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1728552850.png')}}" alt=""></a></figure></li>
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1710178762.png')}}" alt=""></a></figure></li>
+						<li class="slide-item"><figure class="image-box"><a href="#"><img src="{{URL::to('images/client/1710178747.png')}}" alt=""></a></figure></li>
+					</ul>
+				</div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!-- End Clients Section -->
 
 @endsection

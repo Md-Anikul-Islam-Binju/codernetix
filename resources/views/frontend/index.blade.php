@@ -54,9 +54,9 @@
                 </div>
             </div>
             <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                <div class="bg-primary rounded position-relative overflow-hidden">
+                <div class="rounded position-relative overflow-hidden">
                     <div class="rounded-bottom">
-                        <img src="{{URL::to('frontend/img/about.png')}}" class="img-fluid rounded-bottom w-100" alt="">
+                        <img src="{{URL::to('frontend/img/about12.png')}}" class="img-fluid rounded-bottom w-100" alt="">
                     </div>
                 </div>
             </div>

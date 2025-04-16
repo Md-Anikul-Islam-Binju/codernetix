@@ -1,6 +1,54 @@
 (function ($) {
     "use strict";
 
+    function equalizeCardHeights() {
+        var maxHeight = 0;
+        $('.owl-carousel .blog-item').css('height', 'auto').each(function () {
+            if ($(this).height() > maxHeight) {
+                maxHeight = $(this).height();
+            }
+        });
+        $('.owl-carousel .blog-item').height(maxHeight);
+    }
+
+    // Call it after Owl Carousel has been initialized
+    $('.owl-carousel').on('initialized.owl.carousel', function () {
+        equalizeCardHeights();
+    });
+
+    // Optional: call again on resize or slide change
+    $(window).on('resize', equalizeCardHeights);
+
+
+    // Sponsors Carousel
+    if ($('.sponsors-carousel').length) {
+        $('.sponsors-carousel').owlCarousel({
+            loop:true,
+            margin:0,
+            nav:true,
+            smartSpeed: 500,
+            autoplay: 4000,
+            navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+            responsive:{
+                0:{
+                    items:1
+                },
+                480:{
+                    items:2
+                },
+                600:{
+                    items:3
+                },
+                800:{
+                    items:4
+                },
+                1024:{
+                    items:5
+                }
+            }
+        });
+    }
+
     // Spinner
     var spinner = function () {
         setTimeout(function () {
@@ -10,8 +58,8 @@
         }, 1);
     };
     spinner(0);
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 

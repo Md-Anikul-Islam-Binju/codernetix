@@ -61,6 +61,6 @@
             @endforeach
         </div>
     </div>
-</section>
+</section><br>
 
 @endsection

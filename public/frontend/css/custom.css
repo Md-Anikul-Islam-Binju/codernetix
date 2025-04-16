@@ -100,6 +100,7 @@
 .Technology-section .value-card {
     -webkit-transition: all linear 0.3s;;
     transition: all linear 0.3s;
+    border: 1px solid #00d084 !important;
     /* border: 1px solid #e5e5e5; */
 }
 .Technology-section .value-card div {
@@ -107,6 +108,7 @@
 }
 .Technology-section .value-card div img {
     max-width: 100px;
+    height: 80px;
 }
 .Technology-section .value-card:hover {
     -webkit-transform: translateY(-10px);

@@ -2,6 +2,8 @@
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ExpenseCategoryController;
+use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\ProjectCategoryController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProjectHistoryController;
@@ -91,5 +93,19 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/project-history-payment-store', [ProjectPaymentHistoryController::class, 'store'])->name('project.payment.history.store');
     Route::put('/project-history-payment-update/{id}', [ProjectPaymentHistoryController::class, 'update'])->name('project.payment.history.update');
     Route::get('/project-history-payment-delete/{id}', [ProjectPaymentHistoryController::class, 'destroy'])->name('project.payment.history.destroy');
+
+    //Expense Category Section
+    Route::get('/expense-category-section', [ExpenseCategoryController::class, 'index'])->name('expense.category.section');
+    Route::post('/expense-category-store', [ExpenseCategoryController::class, 'store'])->name('expense.category.store');
+    Route::put('/expense-category-update/{id}', [ExpenseCategoryController::class, 'update'])->name('expense.category.update');
+    Route::get('/expense-category-delete/{id}', [ExpenseCategoryController::class, 'destroy'])->name('expense.category.destroy');
+
+
+    //Expense Section
+    Route::get('/expense-section', [ExpenseController::class, 'index'])->name('expense.section');
+    Route::post('/expense-store', [ExpenseController::class, 'store'])->name('expense.store');
+    Route::put('/expense-update/{id}', [ExpenseController::class, 'update'])->name('expense.update');
+    Route::get('/expense-delete/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
+
 });
 require __DIR__.'/auth.php';

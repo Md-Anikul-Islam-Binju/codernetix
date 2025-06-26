@@ -159,7 +159,15 @@
                                 <a href="{{route('project.category.section')}}">Project Category</a>
                             </li>
                             <li>
-                                <a href="{{route('project.history.section')}}">Project History</a>
+                                <a href="{{route('project.history.section')}}">Project Income History</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('expense.category.section')}}">Expense Category</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('expense.section')}}">Expense History</a>
                             </li>
                         </ul>
                     </div>

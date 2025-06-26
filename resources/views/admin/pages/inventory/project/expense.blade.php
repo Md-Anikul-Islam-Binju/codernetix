@@ -114,8 +114,8 @@
                                                         <div class="mb-3">
                                                             <label for="example-select" class="form-label">Status</label>
                                                             <select name="status" class="form-select">
-                                                                <option value="1" {{ $expenseData->status === 1 ? 'selected' : '' }}>Active</option>
-                                                                <option value="0" {{ $expenseData->status === 0 ? 'selected' : '' }}>Inactive</option>
+                                                                <option value="1" {{ $expenseData->status == 1 ? 'selected' : '' }}>Active</option>
+                                                                <option value="0" {{ $expenseData->status == 0 ? 'selected' : '' }}>Inactive</option>
                                                             </select>
                                                         </div>
                                                     </div>

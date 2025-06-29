@@ -70,7 +70,7 @@
                                             <div class="row">
 
 
-                                                <input  name="project_id" value="{{$history->project_id}}">
+                                                <input type="hidden"  name="project_id" value="{{$history->project_id}}">
                                                 <div class="col-12">
                                                     <div class="mb-3">
                                                         <label for="project_budget" class="form-label">Project Budget</label>

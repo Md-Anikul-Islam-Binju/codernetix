@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\ProjectCategory;
 use App\Models\ProjectHistory;
+use App\Models\ProjectPayment;
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
 
@@ -75,6 +76,11 @@ class ProjectHistoryController extends Controller
                 'project_document' => 'nullable|file|mimes:pdf',
             ]);
             $projectHistory = ProjectHistory::find($id);
+
+            // Check if project_budget is being changed
+            $budgetChanged = $projectHistory->project_budget != $request->project_budget;
+            $oldBudget = $projectHistory->project_budget;
+
             $projectHistory->category_id = $request->category_id;
             $projectHistory->project_name = $request->project_name;
             $projectHistory->project_type = $request->project_type;
@@ -92,6 +98,18 @@ class ProjectHistoryController extends Controller
                 $projectHistory->project_document = $file;
             }
             $projectHistory->save();
+
+            // If budget was changed, update all related payment records
+            if ($budgetChanged) {
+                $payments = ProjectPayment::where('project_id', $id)->get();
+                foreach ($payments as $payment) {
+                    // Calculate the new due amount based on the budget change
+                    $budgetDifference = $request->project_budget - $oldBudget;
+                    $payment->project_budget = $request->project_budget;
+                    $payment->project_due += $budgetDifference;
+                    $payment->save();
+                }
+            }
             Toastr::success('Project History Updated Successfully', 'Success');
             return redirect()->back();
         } catch (\Exception $e) {

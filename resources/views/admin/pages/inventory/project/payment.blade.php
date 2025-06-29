@@ -17,9 +17,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
+                @if($currentDue > 0)
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewHistoryModal">Add Payment History</button>
                 </div>
+                @endif
             </div>
             <div class="card-body">
                 <table id="project-histories-datatable" class="table table-striped dt-responsive nowrap w-100">
@@ -68,6 +70,7 @@
                                             <div class="row">
 
 
+                                                <input  name="project_id" value="{{$history->project_id}}">
                                                 <div class="col-12">
                                                     <div class="mb-3">
                                                         <label for="project_budget" class="form-label">Project Budget</label>

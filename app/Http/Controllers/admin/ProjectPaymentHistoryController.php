@@ -20,6 +20,8 @@ class ProjectPaymentHistoryController extends Controller
             ->latest('id')
             ->first();
         $currentDue = $lastPayment ? $lastPayment->project_due : $projectHistory->project_budget;
+
+        //dd($currentDue, $projectHistory, $projectPayment);
         return view('admin.pages.inventory.project.payment', compact('projectPayment','projectHistory','currentDue'));
     }
 
@@ -59,6 +61,7 @@ class ProjectPaymentHistoryController extends Controller
     public function update(Request $request, $id)
     {
 
+        //dd($request->all());
         try {
             $projectPaymentHistory = ProjectPayment::find($id);
             $projectPaymentHistory->project_id = $request->project_id;

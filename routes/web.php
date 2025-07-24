@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
+use App\Http\Controllers\admin\ProductCategoryController;
 use App\Http\Controllers\admin\ProjectCategoryController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProjectHistoryController;
@@ -82,6 +83,14 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/project-category-store', [ProjectCategoryController::class, 'store'])->name('project.category.store');
     Route::put('/project-category-update/{id}', [ProjectCategoryController::class, 'update'])->name('project.category.update');
     Route::get('/project-category-delete/{id}', [ProjectCategoryController::class, 'destroy'])->name('project.category.destroy');
+
+    //product category Section
+    Route::get('/product-category-section', [ProductCategoryController::class, 'index'])->name('product.category.section');
+    Route::post('/product-category-store', [ProductCategoryController::class, 'store'])->name('product.category.store');
+    Route::put('/product-category-update/{id}', [ProductCategoryController::class, 'update'])->name('product.category.update');
+    Route::get('/product-category-delete/{id}', [ProductCategoryController::class, 'destroy'])->name('product.category.destroy');
+
+
 
     //client project history Section
     Route::get('/project-history-section', [ProjectHistoryController::class, 'index'])->name('project.history.section');

@@ -175,6 +175,23 @@
 
 
                 <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarPagesProduct" aria-expanded="false" aria-controls="sidebarPagesProduct" class="side-nav-link">
+                        <i class="ri-pages-line"></i>
+                        <span>Ready Product </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarPagesProduct">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('product.category.section')}}">Product Category</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                         <i class="ri-pages-line"></i>
                         <span> Setting </span>

@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a href="{{route('home')}}" class="navbar-brand p-0">
             <span class="logo-lg">
-                <img src="{{$siteSetting->logo}}" alt="logo" style="height: 80px;">
+                <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 80px;">
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -100,7 +100,7 @@
 
                     <a href="index.html" class="p-0">
                         <h4 class="text-white">
-                            <img src="{{$siteSetting->logo}}" alt="logo" style="height: 50px;">
+                            <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 50px;">
                         </h4>
                     </a>
 

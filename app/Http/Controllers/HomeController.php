@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Product;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\SiteSetting;
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $service = Service::where('status',1)->get();
         $team = Team::where('status',1)->get();
         $project = Project::where('status',1)->get();
-        return view('frontend.index',compact('technology','client','service','team','project'));
+        $product  = Product::where('status',1)->get();
+        return view('frontend.index',compact('technology','client','service','team','project','product'));
     }
 }

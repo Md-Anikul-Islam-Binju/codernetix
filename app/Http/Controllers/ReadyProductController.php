@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ReadyProductController extends Controller
 {
-    public function readyProduct()
+    public function readyProduct($id)
     {
-        return view('frontend.pages.product.readyProduct');
+        $product = Product::where('id',$id)->first();
+        return view('frontend.pages.product.readyProduct',compact('product'));
     }
 
 }

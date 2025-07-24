@@ -67,6 +67,7 @@
 
 
 <!-- Services Start -->
+@if($product->count() > 0)
 <div class="container-fluid service py-5">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
@@ -76,48 +77,25 @@
             </p>
         </div>
         <div class="row g-4">
+            @foreach($product as $productData)
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{URL::to('frontend/img/service-1.jpg')}}" class="img-fluid rounded-top w-100" alt="Image">
+                        <img src="{{asset('images/product/'. $productData->image )}}" class="img-fluid rounded-top w-100" alt="Image">
                     </div>
                     <div class="rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-4"> Strategy Consulting</a>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint? Excepturi facilis neque nesciunt similique officiis veritatis,
+                        <a href="#" class="h4 d-inline-block mb-4">{{$productData->title}}</a>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
                         </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product')}}">Project More Details</a>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product',$productData->id)}}">Project More Details</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{{URL::to('frontend/img/service-1.jpg')}}" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-4"> Strategy Consulting</a>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint? Excepturi facilis neque nesciunt similique officiis veritatis,
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product')}}">Project More Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{{URL::to('frontend/img/service-1.jpg')}}" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-4"> Strategy Consulting</a>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint? Excepturi facilis neque nesciunt similique officiis veritatis,
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product')}}">Project More Details</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+@endif
 
 <!-- Services Start -->
 <div class="container-fluid feature pb-5">

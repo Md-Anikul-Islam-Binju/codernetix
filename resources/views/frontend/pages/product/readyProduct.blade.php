@@ -14,10 +14,10 @@
             <!-- Banner Image (9 cols) -->
             <div class="col-md-9 d-flex">
                 <div class="position-relative shadow rounded overflow-hidden w-100" style="height:500px;">
-                    <img src="{{ URL::to('frontend/img/offer-1.jpg') }}"
+                    <img src="{{asset('images/product/'. $product->image )}}"
                          class="w-100 h-100 object-fit-cover"
                          alt="Banner Image">
-                    <a href="">
+                    <a  href="{{$product->link}}">
                         <span class="badge bg-success position-absolute top-0 start-0 m-3 px-3 py-2 fs-6">Live Link</span>
                     </a>
 

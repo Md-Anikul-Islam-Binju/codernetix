@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\ProductCategoryController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProjectCategoryController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProjectHistoryController;
@@ -48,6 +49,14 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/project-store', [ProjectController::class, 'store'])->name('project.store');
     Route::put('/project-update/{id}', [ProjectController::class, 'update'])->name('project.update');
     Route::get('/project-delete/{id}', [ProjectController::class, 'destroy'])->name('project.destroy');
+
+
+    //Product Section
+    Route::get('/product-section', [ProductController::class, 'index'])->name('product.section');
+    Route::post('/product-store', [ProductController::class, 'store'])->name('product.store');
+    Route::put('/product-update/{id}', [ProductController::class, 'update'])->name('product.update');
+    Route::get('/product-delete/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+
 
     //Technology Section
     Route::get('/technology-section', [TechnologyController::class, 'index'])->name('technology.section');

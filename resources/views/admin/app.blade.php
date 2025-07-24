@@ -185,6 +185,10 @@
                             <li>
                                 <a href="{{route('product.category.section')}}">Product Category</a>
                             </li>
+                            <li>
+                                <a href="{{route('product.section')}}">Product</a>
+                            </li>
+
 
                         </ul>
                     </div>
@@ -267,12 +271,23 @@
             height: 200,
         });
 
+        $('#summernotelong').summernote({
+            height: 200,
+        });
+
         // Initialize Summernote for edit modals
         $('[id^=summernoteEdit]').each(function () {
             $(this).summernote({
                 height: 200,
             });
         });
+        // Initialize Summernote for edit modals
+        $('[id^=summernoteEditLong]').each(function () {
+            $(this).summernote({
+                height: 200,
+            });
+        });
+
     });
 </script>
 </body>

@@ -115,8 +115,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label>Short Details</label>
-                                                            <textarea id="summernoteEdit{{ $productData->id }}" name="short_details">{{ $productData->short_details }}</textarea>
+                                                            <label>Key Highlights</label>
+                                                            <textarea id="summernoteEdit{{ $productData->id }}" name="key_highlights">{{ $productData->key_highlights }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,8 +212,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label> Short Details </label>
-                                    <textarea id="summernote" name="short_details"></textarea>
+                                    <label> Key Highlights </label>
+                                    <textarea id="summernote" name="key_highlights"></textarea>
                                 </div>
                             </div>
                         </div>

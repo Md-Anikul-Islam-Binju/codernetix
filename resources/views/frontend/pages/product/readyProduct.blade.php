@@ -30,14 +30,9 @@
                     <div class="card-body overflow-auto">
                         <h5 class="fw-bold mb-3 text-primary">Key Highlights</h5>
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-2">✅ High performance</li>
-                            <li class="mb-2">✅ Easy integration</li>
-                            <li class="mb-2">✅ Cost-effective</li>
-                            <li class="mb-2">✅ Scalable solution</li>
-                            <li class="mb-2">✅ 24/7 support</li>
-                            <li class="mb-2">✅ Secure technology</li>
-                            <li class="mb-2">✅ User-friendly UI</li>
-                            <li class="mb-2">✅ Trusted by experts</li>
+
+                            <p> {!! $product->key_highlights  ? $product->key_highlights : 'No description available.' !!}</p>
+
                         </ul>
                     </div>
                 </div>

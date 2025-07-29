@@ -29,7 +29,7 @@ class ProductController extends Controller
             $product = new Product();
             $product->product_category_id = $request->product_category_id;
             $product->title = $request->title;
-            $product->short_details = $request->short_details;
+            $product->key_highlights = $request->key_highlights;
             $product->long_details = $request->long_details;
             $product->link = $request->link;
             $product->image = $file;
@@ -52,7 +52,7 @@ class ProductController extends Controller
             $product = Product::find($id);
             $product->product_category_id = $request->product_category_id;
             $product->title = $request->title;
-            $product->short_details = $request->short_details;
+            $product->key_highlights = $request->key_highlights;
             $product->long_details = $request->long_details;
             $product->link = $request->link;
             $product->status = $request->status;

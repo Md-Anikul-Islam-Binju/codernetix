@@ -13,7 +13,7 @@ class Product extends Model
         'title',
         'image',
         'link',
-        'short_details',
+        'key_highlights',
         'long_details',
         'status',
     ];

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('image')->nullable();
             $table->string('link')->nullable();
-            $table->text('short_details')->nullable();
+            $table->text('key_highlights')->nullable();
             $table->longText('long_details')->nullable();
             $table->tinyInteger('status')->default(1); // 1 for active, 0 for inactive
             $table->timestamps();

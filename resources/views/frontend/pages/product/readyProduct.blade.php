@@ -17,7 +17,7 @@
                     <img src="{{asset('images/product/'. $product->image )}}"
                          class="w-100 h-100 object-fit-cover"
                          alt="Banner Image">
-                    <a  href="{{$product->link}}">
+                    <a  href="{{$product->link}}" target="_blank">
                         <span class="badge bg-success position-absolute top-0 start-0 m-3 px-3 py-2 fs-6">Live Link</span>
                     </a>
 
@@ -47,12 +47,13 @@
 
         <!-- Bottom row -->
         <div class="row mt-5">
-            <div class="col-12 text-center">
+            <div class="col-12">
                 <div class="p-4 shadow-sm rounded bg-light">
-                    <h2 class="fw-bold mb-3">The stock market provides a venue...</h2>
-                    <p class="text-muted fs-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis amet sequi molestiae tenetur eum mollitia,
-                        blanditiis, magnam illo magni error dolore unde perspiciatis tempore et totam corrupti dignissimos aut praesentium?
+                    <h2 class="fw-bold mb-3 text-center">{{$product->title}}</h2>
+
+
+                    <p class="text-muted fs-3">
+                        {!! $product->long_details  ? $product->long_details : 'No description available.' !!}
                     </p>
                     <a class="btn btn-success rounded-pill px-5 py-2 fs-5" href="#">Request For Product</a>
                 </div>

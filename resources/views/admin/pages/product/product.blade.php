@@ -78,7 +78,7 @@
                                                     </div>
 
 
-                                                    <div class="col-12">
+                                                    <div class="col-6">
                                                         <div class="mb-3">
                                                             <label for="title" class="form-label">Title</label>
                                                             <input type="text" id="title" name="title" value="{{$productData->title}}"

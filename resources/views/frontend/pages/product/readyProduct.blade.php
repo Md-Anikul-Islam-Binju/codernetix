@@ -1,20 +1,5 @@
 @extends('frontend.app')
 @section('content')
-{{--    <style>--}}
-{{--        @media (max-width: 768px) {--}}
-{{--            .position-relative img {--}}
-{{--                max-height: 300px !important;--}}
-{{--            }--}}
-{{--            .btn,--}}
-{{--            .badge {--}}
-{{--                font-size: 0.875rem;--}}
-{{--                padding: 6px 12px;--}}
-{{--            }--}}
-{{--        }--}}
-{{--    </style>--}}
-
-
-
 
     <section class="cover-pic-header">
         <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">

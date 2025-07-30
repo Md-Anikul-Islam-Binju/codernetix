@@ -1,17 +1,17 @@
 @extends('frontend.app')
 @section('content')
-    <style>
-        @media (max-width: 768px) {
-            .position-relative img {
-                max-height: 300px !important;
-            }
-            .btn,
-            .badge {
-                font-size: 0.875rem;
-                padding: 6px 12px;
-            }
-        }
-    </style>
+{{--    <style>--}}
+{{--        @media (max-width: 768px) {--}}
+{{--            .position-relative img {--}}
+{{--                max-height: 300px !important;--}}
+{{--            }--}}
+{{--            .btn,--}}
+{{--            .badge {--}}
+{{--                font-size: 0.875rem;--}}
+{{--                padding: 6px 12px;--}}
+{{--            }--}}
+{{--        }--}}
+{{--    </style>--}}
 
 
 
@@ -21,7 +21,7 @@
         <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle">
            Product Details - Ecommerch</h1>
     </section>
-    <br><br><br>
+    <br>
 
     <section class="container my-5">
         <div class="row g-4 align-items-stretch">

@@ -73,7 +73,9 @@
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Ready Product</h4>
             <h1 class="display-5 mb-4">We Services Ready Product Best Price</h1>
-            <p class="mb-0">CoderNetix delivers ready-to-use products and services.We ensure top quality at the best possible price.Our solutions are immediately deployable, saving you development time.Experience optimal value and rapid results with CoderNetix offerings.
+            <p class="mb-0"> CoderNetix delivers ready-to-use products and services. We ensure top quality at the best possible price.
+                Our solutions are immediately deployable, saving you development time. Experience optimal value and rapid
+                results with CoderNetix offerings.
             </p>
         </div>
         <div class="row g-4">
@@ -81,7 +83,7 @@
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{asset('images/product/'. $productData->image )}}" class="img-fluid rounded-top w-100" alt="Image">
+                        <img style="height: 250px;" src="{{asset('images/product/'. $productData->image )}}" class="img-fluid rounded-top w-100" alt="Image">
                     </div>
                     <div class="rounded-bottom p-4">
                         <a href="#" class="h4 d-inline-block mb-4">{{$productData->title}}</a>

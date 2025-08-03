@@ -11,14 +11,22 @@
     <section class="container my-5">
         <div class="row g-4 align-items-stretch">
 
+{{--            <div class="col-md-9">--}}
+{{--                <div class="position-relative shadow rounded overflow-hidden w-100 product-image-wrapper">--}}
+{{--                    <img src="{{ asset('images/product/' . $product->image) }}"--}}
+{{--                         class="w-100 h-100 product-image"--}}
+{{--                         alt="Product Image">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
             <div class="col-md-9">
-                <div class="position-relative shadow rounded overflow-hidden w-100 product-image-wrapper">
+                <div class="position-relative shadow rounded overflow-hidden w-100" style="height: 500px;">
                     <img src="{{ asset('images/product/' . $product->image) }}"
-                         class="w-100 h-100 product-image"
+                         class="w-100 h-100"
+                         style="object-fit: cover;"
                          alt="Product Image">
                 </div>
             </div>
-
 
 
             <!-- Short details (3 cols) -->

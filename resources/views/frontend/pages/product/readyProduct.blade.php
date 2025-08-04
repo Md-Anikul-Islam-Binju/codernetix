@@ -23,12 +23,21 @@
                         <div class="flex-grow-1">
                             <p>{!! $product->key_highlights  ? $product->key_highlights : 'No description available.' !!}</p>
                         </div>
-                        <div class="mt-auto">
+                        <div class="mt-auto d-flex gap-2">
                             <a target="_blank" class="btn btn-secondary rounded-pill py-2 px-4 product-btn"
                                href="{{ $product->link }}">
-                                Visit Project Link
+                                Visit Product
                             </a>
+
+                            <button type="button"
+                                    class="btn btn-success rounded-pill py-2 px-4"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#productRequestModal"
+                                    data-product-id="{{ $product->id }}">
+                                Request
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </div>

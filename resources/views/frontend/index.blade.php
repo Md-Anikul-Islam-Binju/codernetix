@@ -86,9 +86,9 @@
                         <img style="height: 250px;" src="{{asset('images/product/'. $productData->image )}}" class="img-fluid rounded-top w-100" alt="Image">
                     </div>
                     <div class="rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-4">{{$productData->title}}</a>
+                        <a href="{{route('product.details',$productData->id)}}" class="h4 d-inline-block mb-4">{{$productData->title}}</a>
                        {{--<p class="mb-4">Lorem ipsum dolor sit amet consectetur</p>--}}
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product',$productData->id)}}">Learn Project Details</a>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product.details',$productData->id)}}">Learn Project Details</a>
                     </div>
                 </div>
             </div>

@@ -7,47 +7,32 @@
            Product Details - Ecommerch</h1>
     </section>
     <br>
-
     <section class="container my-5">
-        <div class="row g-4 align-items-stretch">
-
-{{--            <div class="col-md-9">--}}
-{{--                <div class="position-relative shadow rounded overflow-hidden w-100 product-image-wrapper">--}}
-{{--                    <img src="{{ asset('images/product/' . $product->image) }}"--}}
-{{--                         class="w-100 h-100 product-image"--}}
-{{--                         alt="Product Image">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-            <div class="col-md-9">
-                <div class="position-relative shadow rounded overflow-hidden w-100" style="height: 500px;">
+        <div class="row g-4 align-items-stretch" style="min-height:500px;">
+            <div class="col-md-9 d-flex">
+                <div class="position-relative shadow rounded overflow-hidden w-100 h-100">
                     <img src="{{ asset('images/product/' . $product->image) }}"
-                         class="w-100 h-100"
-                         style="object-fit: cover;"
+                         class="w-100 h-100 object-fit-cover"
                          alt="Product Image">
                 </div>
             </div>
 
-
-            <!-- Short details (3 cols) -->
             <div class="col-md-3 d-flex">
-                <div class="card shadow-sm border-0 w-100" style="height:500px;">
-                    <div class="card-body overflow-auto">
+                <div class="card shadow-sm border-0 w-100 h-100">
+                    <div class="card-body overflow-auto d-flex flex-column">
                         <h5 class="fw-bold mb-3 text-primary">Key Highlights</h5>
-                        <ul class="list-unstyled mb-0">
-
-                            <p> {!! $product->key_highlights  ? $product->key_highlights : 'No description available.' !!}</p>
-
-                        </ul>
-                        <div class="position-absolute bottom-0 start-0 m-3">
-                            <a target="_blank" class="btn btn-secondary rounded-pill py-2 px-4 product-btn" href="{{ $product->link }}">
+                        <div class="flex-grow-1">
+                            <p>{!! $product->key_highlights  ? $product->key_highlights : 'No description available.' !!}</p>
+                        </div>
+                        <div class="mt-auto">
+                            <a target="_blank" class="btn btn-secondary rounded-pill py-2 px-4 product-btn"
+                               href="{{ $product->link }}">
                                 Visit Project Link
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- Bottom row -->

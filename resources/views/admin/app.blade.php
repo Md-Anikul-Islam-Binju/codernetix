@@ -188,6 +188,9 @@
                             <li>
                                 <a href="{{route('product.section')}}">Product</a>
                             </li>
+                            <li>
+                                <a href="{{route('request.product')}}">Product Request</a>
+                            </li>
 
 
                         </ul>

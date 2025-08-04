@@ -32,7 +32,7 @@ Route::get('/service', [ServicePageController::class, 'service'])->name('service
 Route::get('/project', [ProjectSectionController::class, 'project'])->name('project');
 Route::get('/team', [TeamSectionController::class, 'team'])->name('team');
 Route::get('/product/{id}/details', [ReadyProductController::class, 'readyProductDetails'])->name('product.details');
-
+Route::post('/product-request', [ReadyProductController::class, 'storeProductRequest'])->name('product.request.submit');
 
 Route::middleware('auth')->group(callback: function () {
     //Dashboard
@@ -56,6 +56,8 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/product-store', [ProductController::class, 'store'])->name('product.store');
     Route::put('/product-update/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::get('/product-delete/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('/product-request', [ProductController::class, 'productRequest'])->name('request.product');
+    Route::get('/product-request-delete/{id}', [ProductController::class, 'productRequestDelete'])->name('request.product.destroy');
 
 
     //Technology Section

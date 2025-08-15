@@ -61,4 +61,89 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Project Payment Chart</h4>
+                    <div style="width: 380px;height:380px; margin: 0 auto;">
+                        <canvas id="doughnut"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById('doughnut').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: @json($data['labels']),
+                                datasets: [{
+                                    data: @json($data['value']),
+                                    backgroundColor: [
+                                        'rgba(255, 206, 86, 0.7)',
+                                        'rgba(75, 192, 192, 0.7)',
+                                        'rgba(153, 102, 255, 0.7)',
+
+
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Project Overview Chart</h4>
+                    <div class="text-center">
+                        <div id="bars_basic" style="width: 600px;height:380px; margin: 0 auto;"></div>
+                    </div>
+                    <script type="text/javascript">
+                        var bars_basic_element = document.getElementById('bars_basic');
+                        if (bars_basic_element) {
+                            var bars_basic = echarts.init(bars_basic_element);
+                            bars_basic.setOption({
+                                color: ['#3398DB'],
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: {
+                                        type: 'shadow'
+                                    }
+                                },
+                                xAxis: {
+                                    type: 'category',
+                                    data: ['Total Project', 'Complete', 'Ongoing']
+                                },
+                                yAxis: {
+                                    type: 'value'
+                                },
+                                series: [
+                                    {
+                                        data: [
+                                            {{$totalProject}},
+                                            {{$completeProject}},
+                                            {{$ongoingProject}},
+                                        ],
+                                        type: 'bar'
+                                    }
+                                ]
+
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @endsection

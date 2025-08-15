@@ -28,6 +28,9 @@
     <script src="{{asset('backend/js/config.js')}}"></script>
     <link href="{{asset('backend/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style" />
     <link href="{{asset('backend/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <script src="{{asset('backend/js/chart.js')}}"></script>
+    <script src="{{asset('backend/js/echarts.min.js')}}"></script>
 </head>
 
 <body>

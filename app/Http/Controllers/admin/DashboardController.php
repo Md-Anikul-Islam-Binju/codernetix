@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProjectHistory;
 use App\Models\ProjectPayment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -15,7 +16,24 @@ class DashboardController extends Controller
         $totalProjectAmount = ProjectHistory::sum('project_budget');
         $totalProjectIncome = ProjectPayment::sum('project_amount_paid');
         $totalProjectDue = $totalProjectAmount-$totalProjectIncome;
+        //Project
+        $latestPayments = DB::table('project_payments as pp')
+            ->select('pp.project_id', 'pp.project_due')
+            ->join(DB::raw('(SELECT project_id, MAX(id) as max_id
+                     FROM project_payments
+                     GROUP BY project_id) as latest'), function($join) {
+                $join->on('pp.project_id', '=', 'latest.project_id')
+                    ->on('pp.id', '=', 'latest.max_id');
+            });
+        $completeProject = ProjectHistory::whereIn('id', $latestPayments->clone()->where('pp.project_due', 0)->pluck('project_id'))->count();
+        $ongoingProject = ProjectHistory::whereIn('id', $latestPayments->clone()->where('pp.project_due', '>', 0)->pluck('project_id'))->count();
+        $data =  [
+            'labels' => ['Total Amount', 'Amount Recived', 'Amount Pending'],
+            'value' => [$totalProjectAmount, $totalProjectIncome, $totalProjectDue],
+        ];
+
+
         return view('admin.dashboard',compact('totalProject','totalProjectAmount',
-        'totalProjectIncome','totalProjectDue'));
+        'totalProjectIncome','totalProjectDue','data','completeProject','ongoingProject'));
     }
 }

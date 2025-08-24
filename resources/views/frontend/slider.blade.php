@@ -1,5 +1,6 @@
 @php
     $slider = DB::table('sliders')->where('status',1)->get();
+    $siteSetting = DB::table('site_settings')->first();
 @endphp
 <div class="header-carousel owl-carousel">
     @foreach($slider as $sliderData)
@@ -21,10 +22,9 @@
                             <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                                 <h2 class="text-white me-2">Follow Us:</h2>
                                 <div class="d-flex justify-content-end ms-2">
-                                    <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-youtube"></i></a>
-                                    <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-md-square btn-light rounded-circle me-2" href="{{$siteSetting->facebook_link}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-md-square btn-light rounded-circle mx-2" href="{{$siteSetting->twitter_link}}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-md-square btn-light rounded-circle ms-2" href="{{$siteSetting->instagram_link}}"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>

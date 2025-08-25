@@ -24,4 +24,15 @@ class HomeController extends Controller
         $product  = Product::where('status',1)->get();
         return view('frontend.index',compact('technology','client','service','team','project','product'));
     }
+
+    public function privacyPolicy()
+    {
+        return view('frontend.pages.support.privacyPolicy');
+    }
+
+    public function career()
+    {
+        return view('frontend.pages.career.career');
+    }
+
 }

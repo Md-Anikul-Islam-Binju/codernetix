@@ -60,6 +60,7 @@
                 <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 80px;">
             </span>
         </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
@@ -74,7 +75,7 @@
                         <span class="dropdown-toggle">Pages</span>
                     </a>
                     <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Career</a>
+                        <a href="{{route('career')}}" class="dropdown-item">Career</a>
                         <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Our team</a>
                     </div>
                 </div>
@@ -104,7 +105,6 @@
                         </h4>
                     </a>
 
-
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-2">
@@ -114,16 +114,13 @@
                     <a href="{{route('project')}}"><i class="fas fa-angle-right me-2"></i> Project</a>
                     <a href="{{route('service')}}"><i class="fas fa-angle-right me-2"></i> Service</a>
                     <a href="{{route('team')}}"><i class="fas fa-angle-right me-2"></i> Team</a>
-                    <a href="{{route('contact')}}"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Support</h4>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Support</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a>
+                    <a href="{{route('privacy.policy')}}"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                    <a href="{{route('contact')}}"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">

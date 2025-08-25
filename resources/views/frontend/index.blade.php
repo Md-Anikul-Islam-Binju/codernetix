@@ -118,7 +118,7 @@
                     <h4>{{$serviceData->title}}</h4>
                     <p class="mb-4"> {!! $serviceData->details !!}
                     </p>
-                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                    <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('privacy.policy')}}">Learn More</a>
                 </div>
 
             </div>

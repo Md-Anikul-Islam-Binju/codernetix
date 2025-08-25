@@ -20,7 +20,7 @@
 
 .clients-section .inner-container{
     position:relative;
-    padding:40px 55px;
+    padding:30px 55px;
     background-color:#ffffff;
     box-shadow:0px 0px 25px rgba(0,0,0,0.06);
 }
@@ -59,7 +59,7 @@
 .clients-section .sponsors-outer .image-box img{
     max-width:100%;
     width: 170px;
-    height: 70px;
+    height: 50px;
     opacity:0.8;
     display:inline-block;
     filter: grayscale(100%);

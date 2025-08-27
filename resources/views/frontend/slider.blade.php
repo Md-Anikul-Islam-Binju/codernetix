@@ -16,7 +16,11 @@
                             <h1 class="display-4 text-white mb-4">{{$sliderData->title}}</h1>
                             <p class="mb-5 fs-5">{!! $sliderData->details !!}</p>
                             <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
-                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2"
+                                   href="https://wa.me/8801905256528"
+                                   target="_blank">
+                                    <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                                </a>
                                 <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="{{route('about')}}">Learn More</a>
                             </div>
                             <div class="d-flex align-items-center justify-content-center justify-content-md-end">

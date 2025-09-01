@@ -110,49 +110,49 @@
 
                 <li class="side-nav-item">
                     <a href="{{route('slider.section')}}" class="side-nav-link">
-                        <i class="ri-dashboard-3-line"></i>
+                        <i class="ri-slideshow-3-line"></i>
                         <span> Slider </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
                     <a href="{{route('technology.section')}}" class="side-nav-link">
-                        <i class="ri-dashboard-3-line"></i>
+                        <i class="ri-cpu-line"></i>
                         <span> Technology </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
                     <a href="{{route('client.section')}}" class="side-nav-link">
-                        <i class="ri-dashboard-3-line"></i>
+                        <i class="ri-user-star-line"></i>
                         <span> Client </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
                     <a href="{{route('service.section')}}" class="side-nav-link">
-                        <i class="ri-dashboard-3-line"></i>
+                        <i class="ri-tools-line"></i>
                         <span> Service </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
                     <a href="{{route('team.section')}}" class="side-nav-link">
-                        <i class="ri-dashboard-3-line"></i>
+                        <i class="ri-team-line"></i>
                         <span> Team </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
                     <a href="{{route('project.section')}}" class="side-nav-link">
-                        <i class="ri-dashboard-3-line"></i>
+                        <i class="ri-folder-chart-line"></i>
                         <span> Project </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPagesInventory" aria-expanded="false" aria-controls="sidebarPagesInventory" class="side-nav-link">
-                        <i class="ri-pages-line"></i>
+                        <i class="ri-archive-line"></i>
                         <span> Inventory </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -179,7 +179,7 @@
 
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPagesProduct" aria-expanded="false" aria-controls="sidebarPagesProduct" class="side-nav-link">
-                        <i class="ri-pages-line"></i>
+                        <i class="ri-box-3-line"></i>
                         <span>Ready Product </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -203,7 +203,7 @@
 
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                        <i class="ri-pages-line"></i>
+                        <i class="ri-settings-3-line"></i>
                         <span> Setting </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -215,6 +215,15 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="side-nav-item">
+                    <a href="{{ url('/') }}" target="_blank" class="side-nav-link" style="color: #00d084;">
+                        <i class="ri-home-4-line" style="color: #00d084;"></i>
+                        <span> Frontend Home </span>
+                    </a>
+                </li>
+
+
             </ul>
             <div class="clearfix"></div>
         </div>

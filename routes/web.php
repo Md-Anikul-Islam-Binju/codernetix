@@ -131,4 +131,11 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/expense-delete/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
 
 });
+
+
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
+
 require __DIR__.'/auth.php';
+

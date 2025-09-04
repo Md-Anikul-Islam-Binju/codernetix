@@ -66,7 +66,7 @@
 
 
 
-<!-- Services Start -->
+<!-- Product Start -->
 @if($product->count() > 0)
 <div class="container-fluid service py-5">
     <div class="container py-5">

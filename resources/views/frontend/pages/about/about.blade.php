@@ -86,8 +86,8 @@
                                 <img src="{{URL::to('frontend/img/work_flow.png')}}" class="img-fluid w-100 rounded" alt="">
                             </div>
                             <div class="col-md-5">
-                                <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
-                                <p class="mb-4">We begin by understanding your business needs, creating a tailored plan that prioritizes eco-friendly solutions. Our UI/UX design focuses on clean, optimized interfaces that minimize resource consumption. During development, we use lightweight frameworks and efficient coding practices to ensure high performance with reduced energy use.
+                                <h1 class="display-5 mb-4">Agile Scrum Workflow Process</h1>
+                                <p class="mb-4">Development takes place within a time-boxed sprint, supported by daily scrums for progress tracking. Each sprint ends with a review, a retrospective for improvement, and the delivery of a potentially shippable product increment. This cycle repeats until the final product is delivered, promoting collaboration, adaptability, and continuous improvement.
                                 </p>
                             </div>
                         </div>

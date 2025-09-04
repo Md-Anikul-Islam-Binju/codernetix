@@ -70,13 +70,18 @@
                 <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
                 <a href="{{ route('service') }}" class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}">Services</a>
                 <a href="{{ route('project') }}" class="nav-item nav-link {{ request()->routeIs('project') ? 'active' : '' }}">Project</a>
+
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link" data-bs-toggle="dropdown">
                         <span class="dropdown-toggle">Pages</span>
                     </a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{route('career')}}" class="dropdown-item">Career</a>
+                        <a href="{{ route('product') }}" class="dropdown-item {{ request()->routeIs('product') ? 'active' : '' }}">Ready Product</a>
                         <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Our team</a>
+                        <a href="{{route('career')}}" class="dropdown-item">Career</a>
+
+
                     </div>
                 </div>
             </div>

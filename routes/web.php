@@ -33,6 +33,7 @@ Route::get('/contact', [ContactPageController::class, 'contact'])->name('contact
 Route::get('/service', [ServicePageController::class, 'service'])->name('service');
 Route::get('/project', [ProjectSectionController::class, 'project'])->name('project');
 Route::get('/team', [TeamSectionController::class, 'team'])->name('team');
+Route::get('/products', [ReadyProductController::class, 'readyProduct'])->name('product');
 Route::get('/product/{id}/details', [ReadyProductController::class, 'readyProductDetails'])->name('product.details');
 Route::post('/product-request', [ReadyProductController::class, 'storeProductRequest'])->name('product.request.submit');
 

@@ -9,6 +9,14 @@ use Yoeunes\Toastr\Facades\Toastr;
 
 class ReadyProductController extends Controller
 {
+
+    public function readyProduct()
+    {
+        $product = Product::where('status',1)->get();
+        return view('frontend.pages.product.product',compact('product'));
+    }
+
+
     public function readyProductDetails($id)
     {
         $product = Product::where('id',$id)->first();

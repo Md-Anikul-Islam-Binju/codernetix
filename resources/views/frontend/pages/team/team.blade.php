@@ -17,7 +17,7 @@
         </div>
         <div class="row g-4">
             @foreach($team as $teamData)
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp h-100" data-wow-delay="0.2s">
                     <div class="team-item">
                         <div class="team-img">
                             <img src="{{asset('images/team/'. $teamData->image )}}" class="img-fluid" alt="">
@@ -34,6 +34,9 @@
                     </div>
                 </div>
             @endforeach
+
+
+
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@
             <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
                 <div>
                     <h4 class="text-primary">About Us</h4>
-                    <h1 class="display-5 mb-4">At Codernetix, we specialize in transforming visionary ideas into cutting-edge digital solutions. </h1>
+                    <h3 class="display-6 mb-4">At Codernetix, we specialize in transforming visionary ideas into cutting-edge digital solutions. </h3>
                     <p class="mb-4">At Codernetix, we believe in harnessing the power of technology to turn ideas into reality while ensuring that our clients achieve their goals efficiently. From startups to established enterprises, we tailor our services to meet unique business needs, always delivering results that exceed expectations.
                     </p>
                     <div class="row g-4">
@@ -86,7 +86,7 @@
                                 <img src="{{URL::to('frontend/img/work_flow.png')}}" class="img-fluid w-100 rounded" alt="">
                             </div>
                             <div class="col-md-5">
-                                <h1 class="display-5 mb-4">Agile Scrum Workflow Process</h1>
+                                <h1 class="display-5 mb-4">Workflow Process</h1>
                                 <p class="mb-4">Development takes place within a time-boxed sprint, supported by daily scrums for progress tracking. Each sprint ends with a review, a retrospective for improvement, and the delivery of a potentially shippable product increment. This cycle repeats until the final product is delivered, promoting collaboration, adaptability, and continuous improvement.
                                 </p>
                             </div>

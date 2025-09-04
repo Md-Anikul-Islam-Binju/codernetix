@@ -10,7 +10,7 @@
             <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
                 <div>
                     <h4 class="text-primary">About Us</h4>
-                    <h1 class="display-5 mb-4">At Codernetix, we specialize in transforming visionary ideas into cutting-edge digital solutions. </h1>
+                    <h3 class="display-6 mb-4">At Codernetix, we specialize in transforming visionary ideas into cutting-edge digital solutions. </h3>
                     <p class="mb-4">At Codernetix, we believe in harnessing the power of technology to turn ideas into reality while ensuring that our clients achieve their goals efficiently. From startups to established enterprises, we tailor our services to meet unique business needs, always delivering results that exceed expectations.
                     </p>
                     <div class="row g-4">
@@ -68,11 +68,11 @@
 
 <!-- Product Start -->
 @if($product->count() > 0)
-<div class="container-fluid service py-5">
+<div class="container-fluid service">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Ready Product</h4>
-            <h1 class="display-5 mb-4">We Services Ready Product Best Price</h1>
+            <h1 class="display-5 mb-4">Ready Product Best Price</h1>
             <p class="mb-0"> CoderNetix delivers ready-to-use products and services. We ensure top quality at the best possible price.
                 Our solutions are immediately deployable, saving you development time. Experience optimal value and rapid
                 results with CoderNetix offerings.

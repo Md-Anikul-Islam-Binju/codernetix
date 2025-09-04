@@ -3,8 +3,8 @@
 
 <section class="cover-pic-header">
     <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">
-    <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle">
-        About</h1>
+    <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle mt-5">
+        About Us</h1>
 </section>
 
 <!-- About Start -->

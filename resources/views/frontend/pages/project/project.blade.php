@@ -1,14 +1,18 @@
 @extends('frontend.app')
 @section('content')
 
-<section class="cover-pic-header">
-    <img src="{{URL::to('images/slider/1727969148.jpg')}}" class="h-100 w-100" alt="">
-    <h1 class="text-center fw-bold text-uppercase display-5 position-absolute top-50 start-50 translate-middle  mt-5">
-        Project</h1>
-</section>
-<br><br><br>
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Project</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-primary">Projects</li>
+            </ol>
+        </div>
+    </div>
 <!-- Project Start -->
-<div class="container-fluid blog pb-5">
+<div class="container-fluid blog pb-5 mt-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Project</h4>

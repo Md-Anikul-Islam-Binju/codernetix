@@ -16,8 +16,8 @@
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Project</h4>
-            <h1 class="display-5 mb-4">Our Successfully Completed Projects</h1>
-            <p class="mb-0">At Codernetix, we take pride in delivering innovative and high-quality IT solutions. Our completed projects showcase our expertise in transforming complex challenges into seamless, efficient systems that drive business success.
+            <h1 class="display-5 mb-4">Our Successfully Completed Client Projects</h1>
+            <p class="mb-0">At Codernetix, we take pride in delivering innovative, reliable, and high-quality IT solutions. Each project reflects our commitment to excellence—transforming complex challenges into seamless, scalable systems that empower businesses, enhance efficiency, and fuel long-term success
             </p>
         </div>
         <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
@@ -45,7 +45,7 @@
             <h4 class="text-primary">Our Client</h4>
             <h1 class="display-5 mb-4">Your Future, Our Focus.</h1>
             <p class="mb-0">
-                If you can provide more information about the client’s business, target audience, and unique selling points, Codernetix help you craft a more tailored tagline!
+                At Codernetix, we partner with businesses to understand their vision, audience, and unique strengths—crafting tailored digital solutions that drive growth and long-term success.
             </p>
         </div>
         <div class="inner-container margin-bottom">

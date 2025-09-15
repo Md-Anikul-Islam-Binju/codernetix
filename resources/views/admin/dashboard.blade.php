@@ -22,7 +22,7 @@
                     <div class="float-end">
                         <i class="ri-app-store-line widget-icon"></i>
                     </div>
-                    <h6 class="text-uppercase mt-0" title="Customers">Total Project</h6>
+                    <h6 class="text-uppercase mt-0" title="Customers">Total Client Project</h6>
                     <h2 class="my-2">{{$totalProject}}</h2>
                 </div>
             </div>

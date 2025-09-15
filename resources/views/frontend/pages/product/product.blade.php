@@ -18,10 +18,8 @@
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Ready Product</h4>
-                    <h1 class="display-5 mb-4">Ready Product Best Price</h1>
-                    <p class="mb-0"> CoderNetix delivers ready-to-use products and services. We ensure top quality at the best possible price.
-                        Our solutions are immediately deployable, saving you development time. Experience optimal value and rapid
-                        results with CoderNetix offerings.
+                    <h1 class="display-5 mb-4">Products Ready For Sale</h1>
+                    <p class="mb-0"> Codernetix offers ready-to-buy products and services, combining top quality with cost efficiency. Get solutions that save development time, deliver fast results, and provide maximum value for your business.
                     </p>
                 </div>
                 <div class="row g-4">

@@ -19,8 +19,8 @@
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Services</h4>
-            <h1 class="display-5 mb-4">Codernetix full range of offerings and highlights the company</h1>
-            <p class="mb-0">At Codernetix, we offer a comprehensive suite of IT services designed to transform your business, streamline operations, and fuel innovation. Our solutions are customized to meet your specific needs, ensuring you get the most value out of your technology investments.
+            <h1 class="display-5 mb-4">Codernetix offers a full range of IT services</h1>
+            <p class="mb-0">At Codernetix, we provide a complete range of IT solutions that empower businesses to grow, optimize operations, and innovate with confidence. From custom software to advanced digital systems, our services are tailored to your unique needs—delivering maximum value and long-term success
             </p>
         </div>
         <div class="row g-4">

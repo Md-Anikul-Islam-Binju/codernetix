@@ -72,10 +72,8 @@
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Ready Product</h4>
-            <h1 class="display-5 mb-4">Ready Product Best Price</h1>
-            <p class="mb-0"> CoderNetix delivers ready-to-use products and services. We ensure top quality at the best possible price.
-                Our solutions are immediately deployable, saving you development time. Experience optimal value and rapid
-                results with CoderNetix offerings.
+            <h1 class="display-5 mb-4">Products Ready For Sale</h1>
+            <p class="mb-0"> Codernetix offers ready-to-buy products and services, combining top quality with cost efficiency. Get solutions that save development time, deliver fast results, and provide maximum value for your business.
             </p>
         </div>
         <div class="row g-4">
@@ -103,8 +101,8 @@
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Services</h4>
-            <h1 class="display-5 mb-4">Codernetix full range of offerings and highlights the company</h1>
-            <p class="mb-0">At Codernetix, we offer a comprehensive suite of IT services designed to transform your business, streamline operations, and fuel innovation. Our solutions are customized to meet your specific needs, ensuring you get the most value out of your technology investments.
+            <h1 class="display-5 mb-4">Codernetix offers a full range of IT services</h1>
+            <p class="mb-0">At Codernetix, we provide a complete range of IT solutions that empower businesses to grow, optimize operations, and innovate with confidence. From custom software to advanced digital systems, our services are tailored to your unique needs—delivering maximum value and long-term success
             </p>
         </div>
         <div class="row g-4">
@@ -132,8 +130,8 @@
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Project</h4>
-            <h1 class="display-5 mb-4">Our Successfully Completed Projects</h1>
-            <p class="mb-0">At Codernetix, we take pride in delivering innovative and high-quality IT solutions. Our completed projects showcase our expertise in transforming complex challenges into seamless, efficient systems that drive business success.
+            <h1 class="display-5 mb-4">Our Successfully Completed Client Projects</h1>
+            <p class="mb-0">At Codernetix, we take pride in delivering innovative, reliable, and high-quality IT solutions. Each project reflects our commitment to excellence—transforming complex challenges into seamless, scalable systems that empower businesses, enhance efficiency, and fuel long-term success
             </p>
         </div>
         <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
@@ -146,7 +144,7 @@
                         </div>
                     </div>
                     <a href="#" class="h4 d-inline-block mb-3">{{$projectData->title}}</a>
-                    <p class="mb-4">{!! Str::limit($projectData->details, 150) !!}
+                    <p class="mb-4">{!! Str::limit($projectData->details, 250) !!}
                     </p>
                 </div>
             @endforeach
@@ -188,7 +186,7 @@
             <h4 class="text-primary">Our Client</h4>
             <h1 class="display-5 mb-4">Your Future, Our Focus.</h1>
             <p class="mb-0">
-                If you can provide more information about the client’s business, target audience, and unique selling points, Codernetix help you craft a more tailored tagline!
+                At Codernetix, we partner with businesses to understand their vision, audience, and unique strengths—crafting tailored digital solutions that drive growth and long-term success.
             </p>
         </div>
         <div class="inner-container margin-bottom">

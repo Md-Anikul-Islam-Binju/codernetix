@@ -30,7 +30,7 @@
                     <div>
                         <h4 class="text-primary">Send Your Message</h4>
                         <form>
-                            <div class="row g-3">
+                            <div class="row g-4">
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
@@ -43,13 +43,18 @@
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-xl-12">
+                                <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
                                         <label for="phone">Your Phone</label>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="project" placeholder="Project">
+                                        <label for="project">Your Project</label>
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
@@ -58,7 +63,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
                                         <label for="message">Message</label>
                                     </div>
 

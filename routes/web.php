@@ -131,6 +131,8 @@ Route::middleware('auth')->group(callback: function () {
     Route::put('/expense-update/{id}', [ExpenseController::class, 'update'])->name('expense.update');
     Route::get('/expense-delete/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
 
+
+
 });
 
 

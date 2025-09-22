@@ -5,30 +5,68 @@
 @endphp
 <head>
     <meta charset="utf-8">
-    <title>CoderNetix - Premier IT Solutions and Development Services</title>
-    <meta name="description" content="CoderNetix is an IT-based company offering web application development, mobile app development, custom website creation, and game development services. Our expert team provides top-notch solutions tailored to your needs.">
-    <meta name="keywords" content="CoderNetix, IT services, web application development, mobile app development, custom website creation, game development, software solutions">
-    <meta name="robots" content="index, follow">
+    <title>CoderNetix | IT Solutions, Web & Mobile App Development Services</title>
+    <meta name="description" content="CoderNetix delivers expert IT solutions including web application development, mobile app development, custom website creation, and game development. Boost your business with our tailored software solutions.">
+    <meta name="keywords" content="CoderNetix, IT solutions, web development, mobile app development, software company, custom websites, game development, digital solutions, IT services Bangladesh, software development company">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph (OG) for social sharing -->
-    <meta property="og:title" content="CoderNetix - Premier IT Solutions and Development Services">
-    <meta property="og:description" content="Offering top IT services including web app, mobile app development, and game development tailored to your business needs.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codernetix.com" />
+
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:site_name" content="CoderNetix">
+    <meta property="og:title" content="CoderNetix | IT Solutions, Web & Mobile App Development Services">
+    <meta property="og:description" content="We offer world-class IT services: web apps, mobile apps, custom websites, and game development. Discover innovative solutions with CoderNetix.">
     <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}">
     <meta property="og:url" content="https://codernetix.com">
     <meta property="og:type" content="website">
-    <link rel="shortcut icon" href="{{$siteSetting? $siteSetting->favicon:''}}">
+
+    <!-- Twitter Card (X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CoderNetix | IT Solutions & Development Services">
+    <meta name="twitter:description" content="Expert IT services in web & mobile app development, custom websites, and game development. Powered by CoderNetix.">
+    <meta name="twitter:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}">
+    <meta name="twitter:site" content="@CoderNetix">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{$siteSetting? $siteSetting->favicon:''}}">
+
+    <!-- Preload & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{asset('frontend/lib/animate/animate.min.css')}}"/>
     <link href="{{asset('frontend/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+    <!-- Custom Styles -->
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/custom.css')}}" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD for Google Rich Snippets) -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "CoderNetix",
+          "url": "https://codernetix.com",
+          "logo": "{{$siteSetting? $siteSetting->favicon:''}}",
+      "description": "CoderNetix is an IT solutions company specializing in web applications, mobile apps, custom websites, and game development.",
+      "sameAs": [
+        "https://www.facebook.com/CoderNetix",
+        "https://www.linkedin.com/company/codernetix",
+        "https://twitter.com/CoderNetix"
+      ]
+    }
+    </script>
 </head>
+
 
 <body>
 <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">

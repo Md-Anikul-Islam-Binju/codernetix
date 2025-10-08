@@ -11,8 +11,9 @@
             </ol>
         </div>
     </div>
+
 <!-- Project Start -->
-<div class="container-fluid blog pb-5 mt-5">
+<div class="container-fluid blog pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Our Project</h4>
@@ -30,7 +31,7 @@
                         </div>
                     </div>
                     <a href="#" class="h4 d-inline-block mb-3">{{$projectData->title}}</a>
-                    <p class="mb-4">{!! Str::limit($projectData->details, 150) !!}
+                    <p class="mb-4">{!! Str::limit($projectData->details, 250) !!}
                     </p>
                 </div>
             @endforeach

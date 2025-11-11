@@ -3,7 +3,7 @@
 
 <div class="container-fluid bg-breadcrumb">
     <div class="container text-center py-5" style="max-width: 900px;">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Ready Product</h4>
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Best Sealing Product</h4>
         <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pages</a></li>
@@ -17,7 +17,7 @@
         <div class="container-fluid service py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Ready Product</h4>
+                    <h4 class="text-primary">Our Best Sealing Product</h4>
                     <h1 class="display-5 mb-4">Products Ready For Sale</h1>
                     <p class="mb-0"> Codernetix offers ready-to-buy products and services, combining top quality with cost efficiency. Get solutions that save development time, deliver fast results, and provide maximum value for your business.
                     </p>

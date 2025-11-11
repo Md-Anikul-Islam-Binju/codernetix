@@ -67,34 +67,34 @@
 
 
 <!-- Product Start -->
-@if($product->count() > 0)
-<div class="container-fluid service">
-    <div class="container py-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-            <h4 class="text-primary">Our Ready Product</h4>
-            <h1 class="display-5 mb-4">Products Ready For Sale</h1>
-            <p class="mb-0"> Codernetix offers ready-to-buy products and services, combining top quality with cost efficiency. Get solutions that save development time, deliver fast results, and provide maximum value for your business.
-            </p>
-        </div>
-        <div class="row g-4">
-            @foreach($product as $productData)
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img style="height: 250px;" src="{{asset('images/product/'. $productData->image )}}" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="rounded-bottom p-4">
-                        <a href="{{route('product.details',$productData->id)}}" class="h4 d-inline-block mb-4">{{$productData->title}}</a>
-                       {{--<p class="mb-4">Lorem ipsum dolor sit amet consectetur</p>--}}
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product.details',$productData->id)}}">Learn Project Details</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endif
+{{--@if($product->count() > 0)--}}
+{{--<div class="container-fluid service">--}}
+{{--    <div class="container py-5">--}}
+{{--        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">--}}
+{{--            <h4 class="text-primary">Our Ready Product</h4>--}}
+{{--            <h1 class="display-5 mb-4">Products Ready For Sale</h1>--}}
+{{--            <p class="mb-0"> Codernetix offers ready-to-buy products and services, combining top quality with cost efficiency. Get solutions that save development time, deliver fast results, and provide maximum value for your business.--}}
+{{--            </p>--}}
+{{--        </div>--}}
+{{--        <div class="row g-4">--}}
+{{--            @foreach($product as $productData)--}}
+{{--            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">--}}
+{{--                <div class="service-item">--}}
+{{--                    <div class="service-img">--}}
+{{--                        <img style="height: 250px;" src="{{asset('images/product/'. $productData->image )}}" class="img-fluid rounded-top w-100" alt="Image">--}}
+{{--                    </div>--}}
+{{--                    <div class="rounded-bottom p-4">--}}
+{{--                        <a href="{{route('product.details',$productData->id)}}" class="h4 d-inline-block mb-4">{{$productData->title}}</a>--}}
+{{--                       --}}{{--<p class="mb-4">Lorem ipsum dolor sit amet consectetur</p>--}}
+{{--                        <a class="btn btn-primary rounded-pill py-2 px-4" href="{{route('product.details',$productData->id)}}">Learn Project Details</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--@endif--}}
 
 <!-- Services Start -->
 <div class="container-fluid feature pb-5">

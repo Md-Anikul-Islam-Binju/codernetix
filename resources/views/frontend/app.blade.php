@@ -115,7 +115,7 @@
                         <span class="dropdown-toggle">Pages</span>
                     </a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('product') }}" class="dropdown-item {{ request()->routeIs('product') ? 'active' : '' }}">Ready Product</a>
+                        <a href="{{ route('product') }}" class="dropdown-item {{ request()->routeIs('product') ? 'active' : '' }}">Best Seal Product</a>
                         <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Our team</a>
                         <a href="{{route('career')}}" class="dropdown-item">Career</a>
 
@@ -142,7 +142,7 @@
                 <div class="footer-item">
 
 
-                    <a href="index.html" class="p-0">
+                    <a href="/" class="p-0">
                         <h4 class="text-white">
                             <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 50px;">
                         </h4>

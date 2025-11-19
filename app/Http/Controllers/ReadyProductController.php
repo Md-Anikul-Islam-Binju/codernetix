@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class ReadyProductController extends Controller
@@ -33,7 +34,20 @@ class ReadyProductController extends Controller
                 'email'      => 'required|email',
                 'phone'      => 'required|string|max:20',
                 'address'    => 'required|string|max:500',
+                'g-recaptcha-response' => 'required'
             ]);
+
+            // Verify Google reCAPTCHA
+            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret'   => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $request->input('g-recaptcha-response'),
+            ]);
+
+            $recaptcha = $response->json();
+
+            if (!($recaptcha['success'] ?? false)) {
+                return back()->withErrors(['captcha' => 'reCAPTCHA verification failed, please try again.']);
+            }
 
             $productRequest = new ProductRequest();
             $productRequest->product_id = $request->product_id;

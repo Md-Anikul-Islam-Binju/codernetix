@@ -106,7 +106,13 @@
                             <textarea name="address" class="form-control" rows="2" required></textarea>
                         </div>
 
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                        </div>
+
                     </div>
+
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Send Request</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -115,6 +121,8 @@
             </form>
         </div>
     </div>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function () {

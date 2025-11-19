@@ -1,4 +1,15 @@
 <?php return array (
+  'anhskohbo/no-captcha' => 
+  array (
+    'aliases' => 
+    array (
+      'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
+    ),
+    'providers' => 
+    array (
+      0 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 

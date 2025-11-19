@@ -37,7 +37,7 @@ class ReadyProductController extends Controller
                 'g-recaptcha-response' => 'required'
             ]);
 
-            //Google reCAPTCHA
+            //Verify Google reCAPTCHA
             $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
                 'secret'   => env('RECAPTCHA_SECRET_KEY'),
                 'response' => $request->input('g-recaptcha-response'),

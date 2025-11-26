@@ -210,7 +210,7 @@
                     <div class="collapse" id="sidebarPages">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('site.setting')}}">Site</a>
+                                <a href="{{route('site.setting')}}">Site Setting</a>
                             </li>
 
                             <li>

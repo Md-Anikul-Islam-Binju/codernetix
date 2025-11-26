@@ -115,8 +115,8 @@
                         <span class="dropdown-toggle">Pages</span>
                     </a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('product') }}" class="dropdown-item {{ request()->routeIs('product') ? 'active' : '' }}">Our Product</a>
-                        <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Our team</a>
+                        <a href="{{ route('product') }}" class="dropdown-item {{ request()->routeIs('product') ? 'active' : '' }}">Product</a>
+                        <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Team</a>
                         <a href="{{route('career')}}" class="dropdown-item">Career</a>
 
 

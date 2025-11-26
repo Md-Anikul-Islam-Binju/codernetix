@@ -29,44 +29,42 @@
                 <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.4s">
                     <div>
                         <h4 class="text-primary">Send Your Message</h4>
-                        <form>
+                        <form action="{{route('contact.store')}}" method="post">
+                            @csrf
                             <div class="row g-4">
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
+                                        <input type="text" class="form-control border-0" id="name" name="name" placeholder="Your Name">
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
+                                        <input type="email" name="email" class="form-control border-0" id="email" placeholder="Your Email">
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-lg-12 col-xl-126">
                                     <div class="form-floating">
-                                        <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
+                                        <input type="phone" name="phone" class="form-control border-0" id="phone" placeholder="Phone">
                                         <label for="phone">Your Phone</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="project" placeholder="Project">
-                                        <label for="project">Your Project</label>
-                                    </div>
-                                </div>
+
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
+                                        <input type="text" name="subject" class="form-control border-0" id="subject" placeholder="Subject">
                                         <label for="subject">Subject</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                                        <textarea class="form-control border-0" name="message" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
                                         <label for="message">Message</label>
                                     </div>
-
+                                </div>
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3">Send Message</button>
@@ -134,5 +132,5 @@
             </div>
         </div>
     </div>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endsection

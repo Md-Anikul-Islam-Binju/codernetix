@@ -30,7 +30,7 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('p
 Route::get('/career', [HomeController::class, 'career'])->name('career');
 Route::get('/about', [AboutPageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactPageController::class, 'contact'])->name('contact');
-Route::get('/contact-store', [ContactPageController::class, 'store'])->name('contact.store');
+Route::post('/contact-store', [ContactPageController::class, 'store'])->name('contact.store');
 Route::get('/service', [ServicePageController::class, 'service'])->name('service');
 Route::get('/project', [ProjectSectionController::class, 'project'])->name('project');
 Route::get('/team', [TeamSectionController::class, 'team'])->name('team');

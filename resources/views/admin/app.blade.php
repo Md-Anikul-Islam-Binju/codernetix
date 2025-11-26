@@ -212,6 +212,10 @@
                             <li>
                                 <a href="{{route('site.setting')}}">Site</a>
                             </li>
+
+                            <li>
+                                <a href="{{route('contact.section')}}">Contact</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\admin\ClientController;
+use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TechnologyController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectSectionController;
@@ -132,6 +132,9 @@ Route::middleware('auth')->group(callback: function () {
     Route::put('/expense-update/{id}', [ExpenseController::class, 'update'])->name('expense.update');
     Route::get('/expense-delete/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
 
+    //Service Section
+    Route::get('/contact-section', [ContactController::class, 'index'])->name('contact.section');
+    Route::get('/contact-delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 
 });

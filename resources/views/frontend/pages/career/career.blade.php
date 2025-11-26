@@ -24,13 +24,13 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-light py-5">
+    <div class="container-fluid bg-white py-5">
         <div class="container py-5">
             @if($career->count() > 0)
                 <div class="row">
                     @foreach($career as $job)
                         <div class="col-lg-12 col-md-12 mb-4">
-                            <div class="card shadow-sm border-0 h-100">
+                            <div class="card shadow-lg border-0 h-100">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>

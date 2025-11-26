@@ -43,7 +43,7 @@
                             <td>{{$contactData->subject}}</td>
                             <td>{{$contactData->message}}</td>
                             <td style="width: 100px;">
-                                <div class="d-flex justify-content-end gap-1">
+                                <div class="d-flex">
                                     <a href="{{route('contact.destroy',$contactData->id)}}" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$contactData->id}}">Delete</a>
                                 </div>
                             </td>

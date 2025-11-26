@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
 use App\Models\Client;
 use App\Models\Product;
 use App\Models\Project;
@@ -32,7 +33,8 @@ class HomeController extends Controller
 
     public function career()
     {
-        return view('frontend.pages.career.career');
+        $career = Career::where('status',1)->get();
+        return view('frontend.pages.career.career',compact('career'));
     }
 
 }

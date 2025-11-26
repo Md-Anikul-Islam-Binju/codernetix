@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\DashboardController;
@@ -135,6 +136,12 @@ Route::middleware('auth')->group(callback: function () {
     //Service Section
     Route::get('/contact-section', [ContactController::class, 'index'])->name('contact.section');
     Route::get('/contact-delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+    //Expense Section
+    Route::get('/career-section', [CareerController::class, 'index'])->name('career.section');
+    Route::post('/career-store', [CareerController::class, 'store'])->name('career.store');
+    Route::put('/career-update/{id}', [CareerController::class, 'update'])->name('career.update');
+    Route::get('/career-delete/{id}', [CareerController::class, 'destroy'])->name('career.destroy');
 
 
 });

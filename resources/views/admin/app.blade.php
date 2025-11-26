@@ -216,6 +216,12 @@
                             <li>
                                 <a href="{{route('contact.section')}}">Contact</a>
                             </li>
+
+                            <li>
+                                <a href="{{route('career.section')}}">Career</a>
+                            </li>
+
+
                         </ul>
                     </div>
                 </li>

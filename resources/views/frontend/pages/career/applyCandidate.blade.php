@@ -15,7 +15,7 @@
     <!-- Header End -->
 
     <div class="container py-5">
-        <div class="row g-5">
+        <div class="row">
 
             <!-- LEFT SIDE: JOB DETAILS -->
             <div class="col-lg-8">

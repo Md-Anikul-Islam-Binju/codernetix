@@ -32,18 +32,22 @@
                         <div class="col-lg-12 col-md-12 mb-4">
                             <div class="card shadow-lg border-0 h-100">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div>
+                                    <div class="row align-items-center gy-3">
+                                        <div class="col-12 col-md-8">
                                             <h4 class="card-title mb-1">{{ $job->title }}</h4>
                                             <p class="text-muted mb-1"><strong>Type:</strong> Full-Time</p>
                                             <p class="text-muted mb-0"><strong>Circular Date:</strong> {{ date('d-m-Y', strtotime($job->created_at)) }}</p>
                                         </div>
-
-                                        <div class="d-flex gap-2">
-                                            <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#showNewModalId{{$job->id}}"> View Details</button>
-                                            <a href="{{ route('career.details', $job->id) }}" class="btn btn-primary rounded-pill px-4"> Apply Now</a>
+                                        <div class="col-12 col-md-4 text-md-end">
+                                            <div class="d-flex flex-column flex-md-row gap-2">
+                                                <button type="button" class="btn btn-primary rounded-pill px-4 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#showNewModalId{{$job->id}}">
+                                                    View Details
+                                                </button>
+                                                <a href="{{ route('career.details', $job->id) }}" class="btn btn-primary rounded-pill px-4 w-100 w-md-auto">
+                                                    Apply Now
+                                                </a>
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -79,4 +83,6 @@
         </div>
     </div>
 
+
 @endsection
+

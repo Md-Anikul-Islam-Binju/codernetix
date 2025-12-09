@@ -35,7 +35,7 @@
                         <div class="mt-auto d-flex gap-2">
                             <a target="_blank" class="btn btn-secondary rounded-pill py-2 px-4 product-btn"
                                href="{{ $product->link }}">
-                                Visit Product
+                                Visit
                             </a>
 
                             <button type="button"

@@ -38,8 +38,12 @@
                                             <p class="text-muted mb-1"><strong>Type:</strong> Full-Time</p>
                                             <p class="text-muted mb-0"><strong>Circular Date:</strong> {{ date('d-m-Y', strtotime($job->created_at)) }}</p>
                                         </div>
-                                        <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#showNewModalId{{$job->id}}"> View Details</button>
-                                        <a href="{{ route('career.details', $job->id) }}" class="btn btn-success rounded-pill px-4"> Apply Now</a>
+
+                                        <div class="d-flex gap-2">
+                                            <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#showNewModalId{{$job->id}}"> View Details</button>
+                                            <a href="{{ route('career.details', $job->id) }}" class="btn btn-primary rounded-pill px-4"> Apply Now</a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

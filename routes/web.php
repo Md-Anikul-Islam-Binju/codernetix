@@ -28,7 +28,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy.policy');
+
 Route::get('/career', [HomeController::class, 'career'])->name('career');
+Route::get('career/{id}', [HomeController::class, 'applyCandidate'])->name('career.details');
+Route::post('career/apply', [HomeController::class, 'applyCandidateStore'])->name('apply.candidate.store');
+
+
 Route::get('/about', [AboutPageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactPageController::class, 'contact'])->name('contact');
 Route::post('/contact-store', [ContactPageController::class, 'store'])->name('contact.store');
@@ -142,7 +147,8 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/career-store', [CareerController::class, 'store'])->name('career.store');
     Route::put('/career-update/{id}', [CareerController::class, 'update'])->name('career.update');
     Route::get('/career-delete/{id}', [CareerController::class, 'destroy'])->name('career.destroy');
-
+    Route::get('/candidate-application/{job_id}', [CareerController::class, 'application'])->name('candidate.application');
+    Route::get('/application-delete/{id}', [CareerController::class, 'applicationDelete'])->name('application.destroy');
 
 });
 

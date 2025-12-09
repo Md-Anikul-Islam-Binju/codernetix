@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ApplyCandidate;
 use App\Models\Career;
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
@@ -67,6 +68,40 @@ class CareerController extends Controller
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
+
+    public function application($job_id)
+    {
+        $applyCandidates = ApplyCandidate::where('job_id', $job_id)->get();
+        return view('admin.pages.career.application', compact('applyCandidates'));
+    }
+
+    public function applicationDelete($id)
+    {
+        try {
+            $application = ApplyCandidate::findOrFail($id);
+
+            // DELETE CV FILE
+            if ($application->cv_or_resume) {
+                $cvPath = public_path('images/cv/' . $application->cv_or_resume);
+                if (file_exists($cvPath)) {
+                    unlink($cvPath);
+                }
+            }
+
+            // DELETE DB ROW
+            $application->delete();
+
+            Toastr::success('Application Deleted Successfully', 'Success');
+            return redirect()->back();
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        }
+    }
+
+
+
+
 
 
 

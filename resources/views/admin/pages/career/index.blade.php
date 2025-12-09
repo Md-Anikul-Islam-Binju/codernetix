@@ -45,9 +45,10 @@
                             <td>{{$careerData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
+                                    <a href="{{route('candidate.application',$careerData->id)}}" class="btn btn-info btn-sm">Application</a>
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$careerData->id}}">Edit</button>
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#showNewModalId{{$careerData->id}}">Show</button>
-                                    <a href="{{route('career.destroy',$careerData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$careerData->id}}">Delete</a>
+                                    <a href="{{route('career.destroy',$careerData->id)}}" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$careerData->id}}">Delete</a>
                                 </div>
                             </td>
 

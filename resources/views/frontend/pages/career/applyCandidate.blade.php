@@ -84,7 +84,7 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" id="salary_field">
                                 <label class="form-label">Expected Salary (BDT)</label>
                                 <input type="number" name="expected_salary" class="form-control">
                             </div>
@@ -141,6 +141,7 @@
             joinType.addEventListener("change", toggleSalaryField);
         });
     </script>
+
 
 
 @endsection

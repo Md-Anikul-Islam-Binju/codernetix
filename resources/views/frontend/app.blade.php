@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="CoderNetix">
     <meta property="og:title" content="CoderNetix | IT Solutions, Web & Mobile App Development Services">
     <meta property="og:description" content="We offer world-class IT services: web apps, mobile apps, custom websites, and game development. Discover innovative solutions with CoderNetix.">
-    <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}">
+    <meta property="og:image" content="{{ URL::to('/'.$siteSetting->site_preview_image) }}">
     <meta property="og:url" content="https://codernetix.com">
     <meta property="og:type" content="website">
 
@@ -26,11 +26,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CoderNetix | IT Solutions & Development Services">
     <meta name="twitter:description" content="Expert IT services in web & mobile app development, custom websites, and game development. Powered by CoderNetix.">
-    <meta name="twitter:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}">
+    <meta name="twitter:image" content="{{ URL::to('/'.$siteSetting->site_preview_image) }}">
     <meta name="twitter:site" content="@CoderNetix">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{$siteSetting? $siteSetting->favicon:''}}">
+    <link rel="icon" type="image/png" href="{{ URL::to('/'.$siteSetting->favicon) }}">
+    <link rel="icon" href="{{ URL::to('/'.$siteSetting->favicon) }}" sizes="32x32">
+    <link rel="icon" href="{{ URL::to('/'.$siteSetting->favicon) }}" sizes="192x192">
+    <link rel="apple-touch-icon" href="{{ URL::to('/'.$siteSetting->favicon) }}">
+
+
 
     <!-- Preload & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,20 +55,21 @@
     <link href="{{asset('frontend/css/custom.css')}}" rel="stylesheet">
 
     <!-- Structured Data (JSON-LD for Google Rich Snippets) -->
+    <!-- SINGLE & CORRECT JSON-LD (Google Logo + Brand Box) -->
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "CoderNetix",
           "url": "https://codernetix.com",
-          "logo": "{{$siteSetting? $siteSetting->favicon:''}}",
-      "description": "CoderNetix is an IT solutions company specializing in web applications, mobile apps, custom websites, and game development.",
-      "sameAs": [
-        "https://www.facebook.com/CoderNetix",
-        "https://www.linkedin.com/company/codernetix",
-        "https://twitter.com/CoderNetix"
-      ]
-    }
+          "logo": "{{ URL::to('/'.$siteSetting->logo) }}",
+          "description": "CoderNetix delivers expert IT solutions including web application development, mobile apps, custom website creation, and game development.",
+          "sameAs": [
+            "https://www.facebook.com/CoderNetix",
+            "https://www.linkedin.com/company/codernetix",
+            "https://twitter.com/CoderNetix"
+          ]
+        }
     </script>
 </head>
 
@@ -145,6 +151,7 @@
                     <a href="/" class="p-0">
                         <h4 class="text-white">
                             <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 50px;">
+
                         </h4>
                     </a>
 
@@ -206,5 +213,6 @@
 <script src="{{asset('frontend/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 <!-- Template Javascript -->
 <script src="{{asset('frontend/js/main.js')}}"></script>
+
 </body>
 </html>

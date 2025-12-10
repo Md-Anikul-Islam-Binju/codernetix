@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('join_type');
-            $table->string('expected_salary');
+            $table->string('expected_salary')->nullable();
             $table->string('cv_or_resume');
             $table->string('github_link')->nullable();
             $table->string('linkedin_link')->nullable();

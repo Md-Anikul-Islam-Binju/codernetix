@@ -70,7 +70,7 @@ class HomeController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'join_type' => $request->join_type,
-            'expected_salary' => $request->expected_salary,
+            'expected_salary' => $request->expected_salary??'',
             'cv_or_resume' => $cvName,
             'github_link' => $request->github_link,
             'linkedin_link' => $request->linkedin_link,

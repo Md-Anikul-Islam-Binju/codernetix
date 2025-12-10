@@ -77,7 +77,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Joining Type</label>
-                                <select name="join_type" class="form-control" required>
+                                <select name="join_type" id="join_type" class="form-control" required>
                                     <option value="Full Time">Full Time (Salary Based)</option>
                                     <option value="Commission Based">Commission Based</option>
                                     <option value="Contractual">Contractual</option>
@@ -89,7 +89,7 @@
                                 <input type="number" name="expected_salary" class="form-control">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" id="salary_field">
                                 <label class="form-label">CV / Resume *</label>
                                 <input type="file" name="cv_or_resume" class="form-control" accept=".pdf,.doc,.docx" required>
                             </div>
@@ -120,5 +120,27 @@
 
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const joinType = document.getElementById("join_type");
+            const salaryField = document.getElementById("salary_field");
+
+            function toggleSalaryField() {
+                if (joinType.value === "Full Time") {
+                    salaryField.style.display = "block";
+                } else {
+                    salaryField.style.display = "none";
+                }
+            }
+
+            // Initial check
+            toggleSalaryField();
+
+            // On change
+            joinType.addEventListener("change", toggleSalaryField);
+        });
+    </script>
+
 
 @endsection

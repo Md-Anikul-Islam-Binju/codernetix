@@ -93,8 +93,15 @@
                             </div>
                             <div class="col-md-5">
                                 <h1 class="display-5 mb-4">Workflow Process</h1>
-                                <p class="mb-4">Development takes place within a time-boxed sprint, supported by daily scrums for progress tracking. Each sprint ends with a review, a retrospective for improvement, and the delivery of a potentially shippable product increment. This cycle repeats until the final product is delivered, promoting collaboration, adaptability, and continuous improvement.
-                                </p>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">• Project planning and requirement analysis</li>
+                                    <li class="mb-2">• Time-boxed sprint-based development</li>
+                                    <li class="mb-2">• Daily scrum meetings for progress tracking</li>
+                                    <li class="mb-2">• Sprint review and product demonstration</li>
+                                    <li class="mb-2">• Sprint retrospective for continuous improvement</li>
+                                    <li class="mb-2">• Delivery of a shippable product increment</li>
+                                    <li>• Repeat cycle until final product completion</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

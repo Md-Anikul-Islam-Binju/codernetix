@@ -41,12 +41,28 @@
                             <td>{{$contactData->email}}</td>
                             <td>{{$contactData->phone}}</td>
                             <td>{{$contactData->subject}}</td>
-                            <td>{{$contactData->message}}</td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#messageNewModalId{{$contactData->id}}">Message</button>
+                            </td>
                             <td style="width: 100px;">
                                 <div class="d-flex">
                                     <a href="{{route('contact.destroy',$contactData->id)}}" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$contactData->id}}">Delete</a>
                                 </div>
                             </td>
+
+                            <div class="modal fade" id="messageNewModalId{{$contactData->id}}" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="messageNewModalLabel{{$contactData->id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="addNewModalLabel{{$contactData->id}}">Message</h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{$contactData->message}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                            <!-- Delete Modal -->
                             <div id="danger-header-modal{{$contactData->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="danger-header-modalLabel{{$contactData->id}}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">

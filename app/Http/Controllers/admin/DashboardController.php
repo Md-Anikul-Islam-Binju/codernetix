@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ApplyCandidate;
+use App\Models\Contact;
+use App\Models\Product;
+use App\Models\ProductRequest;
 use App\Models\ProjectHistory;
 use App\Models\ProjectPayment;
 use Illuminate\Http\Request;
@@ -16,6 +20,16 @@ class DashboardController extends Controller
         $totalProjectAmount = ProjectHistory::sum('project_budget');
         $totalProjectIncome = ProjectPayment::sum('project_amount_paid');
         $totalProjectDue = $totalProjectAmount-$totalProjectIncome;
+
+        //Total Ready Product
+        $totalProduct = Product::count();
+        //Total Ready Product Request
+        $totalProductRequest = ProductRequest::count();
+        //Total Contact Request
+        $totalContactRequest = Contact::count();
+        //Total Job Application
+        $totalJobApplication = ApplyCandidate::count();
+
         //Project
         $latestPayments = DB::table('project_payments as pp')
             ->select('pp.project_id', 'pp.project_due')
@@ -34,6 +48,7 @@ class DashboardController extends Controller
 
 
         return view('admin.dashboard',compact('totalProject','totalProjectAmount',
-        'totalProjectIncome','totalProjectDue','data','completeProject','ongoingProject'));
+        'totalProjectIncome','totalProjectDue','data','completeProject','ongoingProject',
+        'totalProduct','totalProductRequest','totalContactRequest','totalJobApplication'));
     }
 }

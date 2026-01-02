@@ -60,6 +60,54 @@
                 </div>
             </div>
         </div>
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card widget-flat text-bg-success">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-box-3-line widget-icon"></i>
+                    </div>
+                    <h6 class="text-uppercase mt-0" title="Products">Total Products</h6>
+                    <h2 class="my-2">{{ $totalProduct }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card widget-flat text-bg-warning">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-shopping-cart-line widget-icon"></i>
+                    </div>
+                    <h6 class="text-uppercase mt-0" title="Requests">Product Requests</h6>
+                    <h2 class="my-2">{{ $totalProductRequest }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card widget-flat text-bg-info">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-mail-line widget-icon"></i>
+                    </div>
+                    <h6 class="text-uppercase mt-0" title="Contacts">Contact Requests</h6>
+                    <h2 class="my-2">{{ $totalContactRequest }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6">
+            <div class="card widget-flat text-bg-secondary">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-user-add-line widget-icon"></i>
+                    </div>
+                    <h6 class="text-uppercase mt-0" title="Applications">Job Applications</h6>
+                    <h2 class="my-2">{{ $totalJobApplication }}</h2>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="row">

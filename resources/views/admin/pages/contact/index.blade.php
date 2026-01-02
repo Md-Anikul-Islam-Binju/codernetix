@@ -58,8 +58,11 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            {{$contactData->message}}
+                                            <pre style="font-family: inherit;">
+                                                  {{ $contactData->message }}
+                                            </pre>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

@@ -43,7 +43,11 @@
                             <td>
                                 <img src="{{asset('images/client/'. $clientData->logo )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
-                            <td>{{$clientData->link}}</td>
+                            <td>
+                                <a href="{{ $clientData->link }}" target="_blank" class="btn btn-primary btn-sm">
+                                    View Link
+                                </a>
+                            </td>
                             <td>{{$clientData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">

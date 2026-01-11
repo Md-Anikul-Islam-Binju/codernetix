@@ -43,7 +43,16 @@
                             <td>
                                 <img src="{{asset('images/project/'. $projectData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
-                            <td>{{$projectData->link? $projectData->link:'N/A'}}</td>
+
+
+
+                            <td>
+                                <a href="{{$projectData->link? $projectData->link:'N/A'}}" target="_blank" class="btn btn-primary btn-sm">
+                                    View Link
+                                </a>
+                            </td>
+
+
                             <td>{{$projectData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">

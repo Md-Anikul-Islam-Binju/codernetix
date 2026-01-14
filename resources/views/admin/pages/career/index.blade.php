@@ -40,7 +40,21 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$careerData->title}}</td>
-                            <td>{{$careerData->link ?  $careerData->link : 'N/A'  }}</td>
+
+
+                            <td>
+                                @if(!empty($careerData->link))
+                                    <a href="{{ $careerData->link }}"
+                                       target="_blank"
+                                       class="btn btn-primary btn-sm">
+                                        View Link
+                                    </a>
+                                @else
+                                    <span class="text-muted">N/A</span>
+                                @endif
+                            </td>
+
+
                             <td>{{date('d-m-Y',strtotime($careerData->created_at))}}</td>
                             <td>{{$careerData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">

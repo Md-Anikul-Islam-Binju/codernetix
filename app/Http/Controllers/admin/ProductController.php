@@ -33,6 +33,7 @@ class ProductController extends Controller
             $product->key_highlights = $request->key_highlights;
             $product->long_details = $request->long_details;
             $product->link = $request->link;
+            $product->credential = $request->credential;
             $product->image = $file;
             $product->save();
             Toastr::success('Product Added Successfully', 'Success');
@@ -57,6 +58,7 @@ class ProductController extends Controller
             $product->key_highlights = $request->key_highlights;
             $product->long_details = $request->long_details;
             $product->link = $request->link;
+            $product->credential = $request->credential;
             $product->status = $request->status;
             if ($request->image) {
                 $file = time() . '.' . $request->image->extension();

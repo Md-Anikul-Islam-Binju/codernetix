@@ -13,6 +13,7 @@ class Product extends Model
         'title',
         'image',
         'link',
+        'credential',
         'key_highlights',
         'long_details',
         'status',

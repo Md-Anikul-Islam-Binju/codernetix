@@ -31,6 +31,7 @@
                         <th>Title</th>
                         <th>Image</th>
                         <th>Link</th>
+                        <th>Credential</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -44,6 +45,50 @@
                                 <img src="{{asset('images/product/'. $productData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
                             <td>{{$productData->link? $productData->link:'N/A'}}</td>
+
+                            <td>
+                                @if($productData->credential)
+                                    @php
+                                        // example format: Email: xxx , Password: yyy
+                                        preg_match('/Email:\s*(.*?),\s*Password:\s*(.*)/', $productData->credential, $matches);
+                                        $email = $matches[1] ?? '';
+                                        $password = $matches[2] ?? '';
+                                    @endphp
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <!-- Hidden Credential -->
+                                        <span id="cred-{{ $productData->id }}"
+                                              class="credential-text d-none"
+                                              onclick="copyCredential('{{ $email }}', '{{ $password }}')"
+                                              style="cursor:pointer;">
+                                            <strong>Email:</strong> {{ $email }} <br>
+                                            <strong>Password:</strong> {{ $password }}
+                                        </span>
+
+                                        <!-- Eye Icon -->
+                                        <i class="fa fa-eye toggle-eye"
+                                           style="cursor:pointer;"
+                                           onclick="toggleCredential({{ $productData->id }})"></i>
+                                    </div>
+                                @else
+                                    N/A
+                                @endif
+                                    <script>
+                                        function toggleCredential(id) {
+                                            const el = document.getElementById('cred-' + id);
+                                            el.classList.toggle('d-none');
+                                        }
+
+                                        function copyCredential(email, password) {
+                                            const text = `Email: ${email}\nPassword: ${password}`;
+                                            navigator.clipboard.writeText(text).then(() => {
+                                                alert('Credential copied!');
+                                            });
+                                        }
+                                    </script>
+                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+                            </td>
                             <td>{{$productData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -108,7 +153,14 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="example-fileinput" class="form-label">Link</label>
-                                                            <input type="text" name="link" id="example-fileinput" class="form-control" value="{{$productData->link}}" >
+                                                            <input type="text" name="link" id="example-fileinput" class="form-control" value="{{$productData->link}}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="example-fileinput" class="form-label">Credential</label>
+                                                            <input type="text" name="credential" id="example-fileinput" class="form-control" value="{{$productData->credential}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,6 +257,13 @@
                                 <div class="mb-3">
                                     <label for="example-fileinput" class="form-label">Link</label>
                                     <input type="text" name="link" id="example-fileinput" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="example-fileinput" class="form-label">Credential</label>
+                                    <input type="text" name="credential" id="example-fileinput" class="form-control" value="{{$productData->credential}}">
                                 </div>
                             </div>
                         </div>

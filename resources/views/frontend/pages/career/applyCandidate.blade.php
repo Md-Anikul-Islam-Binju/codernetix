@@ -78,8 +78,8 @@
                             <div class="mb-3">
                                 <label class="form-label">Joining Type</label>
                                 <select name="join_type" id="join_type" class="form-control" required>
-                                    <option value="Full Time">Full Time (Salary Based)</option>
                                     <option value="Commission Based">Commission Based</option>
+                                    <option value="Full Time">Full Time (Salary Based)</option>
                                     <option value="Contractual">Contractual</option>
                                 </select>
                             </div>

@@ -109,6 +109,16 @@
                 </li>
 
                 <li class="side-nav-item">
+                    <a href="{{ route('reload.track') }}" class="side-nav-link">
+                        <i class="ri-refresh-line"></i>
+                        <span> Reload Track </span>
+                    </a>
+                </li>
+
+
+
+
+                <li class="side-nav-item">
                     <a href="{{route('slider.section')}}" class="side-nav-link">
                         <i class="ri-slideshow-3-line"></i>
                         <span> Slider </span>

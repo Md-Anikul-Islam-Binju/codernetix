@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\ProjectCategoryController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProjectHistoryController;
 use App\Http\Controllers\admin\ProjectPaymentHistoryController;
+use App\Http\Controllers\admin\ReloadController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -47,6 +48,10 @@ Route::post('/product-request', [ReadyProductController::class, 'storeProductReq
 Route::middleware('auth')->group(callback: function () {
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/reload-track', [ReloadController::class, 'index'])->name('reload.track'); // Admin page
+    Route::post('/page-reload-log', [ReloadController::class, 'store'])->name('page.reload.log'); // Log reload
+    Route::delete('/reload-log/delete', [ReloadController::class, 'deleteByDate'])->name('reload.log.delete');
 
     //Slider Section
     Route::get('/slider-section', [SliderController::class, 'index'])->name('slider.section');

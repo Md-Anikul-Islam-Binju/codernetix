@@ -124,7 +124,11 @@
                     <tr>
                         <td>{{ $log->id }}</td>
                         <td>{{ $log->page_url }}</td>
-                        <td>{{ $log->reloaded_at->format('Y-m-d H:i:s') }}</td>
+                        <td>
+                            Date : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('d F Y') }}<br>
+                            Time : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('g:i A') }}
+                        </td>
+
                     </tr>
                 @endforeach
                 </tbody>

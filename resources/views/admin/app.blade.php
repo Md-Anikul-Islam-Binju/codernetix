@@ -108,43 +108,53 @@
                     </a>
                 </li>
 
+
+                @can('reload-track-list')
                 <li class="side-nav-item">
                     <a href="{{ route('reload.track') }}" class="side-nav-link">
                         <i class="ri-refresh-line"></i>
                         <span> Reload Track </span>
                     </a>
                 </li>
+                @endcan
 
 
 
-
+                @can('slider-list')
                 <li class="side-nav-item">
                     <a href="{{route('slider.section')}}" class="side-nav-link">
                         <i class="ri-slideshow-3-line"></i>
                         <span> Slider </span>
                     </a>
                 </li>
+                @endcan
 
+                @can('technology-list')
                 <li class="side-nav-item">
                     <a href="{{route('technology.section')}}" class="side-nav-link">
                         <i class="ri-cpu-line"></i>
                         <span> Technology </span>
                     </a>
                 </li>
+                @endcan
 
+                @can('client-list')
                 <li class="side-nav-item">
                     <a href="{{route('client.section')}}" class="side-nav-link">
                         <i class="ri-user-star-line"></i>
                         <span> Client </span>
                     </a>
                 </li>
+                @endcan
 
+                @can('service-list')
                 <li class="side-nav-item">
                     <a href="{{route('service.section')}}" class="side-nav-link">
                         <i class="ri-tools-line"></i>
                         <span> Service </span>
                     </a>
                 </li>
+                @endcan
 
                 <li class="side-nav-item">
                     <a href="{{route('team.section')}}" class="side-nav-link">
@@ -211,6 +221,7 @@
                 </li>
 
 
+                @can('site-setting')
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                         <i class="ri-settings-3-line"></i>
@@ -235,6 +246,35 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
+
+
+
+                @can('role-and-permission-list')
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarPages1" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
+                            <i class="ri-rotate-lock-line"></i>
+                            <span>Permission Manage </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarPages1">
+                            <ul class="side-nav-second-level">
+                                @can('user-list')
+                                    <li>
+                                        <a href="{{url('users')}}">Create User</a>
+                                    </li>
+                                @endcan
+
+                                @can('role-list')
+                                    <li>
+                                        <a href="{{url('roles')}}">Role & Permission</a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </div>
+                    </li>
+                @endcan
+
 
                 <li class="side-nav-item">
                     <a href="{{ url('/') }}" target="_blank" class="side-nav-link" style="color: #00d084;">
@@ -323,6 +363,14 @@
             });
         });
 
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.form-control[multiple]').select2({
+            allowClear: true
+        });
     });
 </script>
 </body>

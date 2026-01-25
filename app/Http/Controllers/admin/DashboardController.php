@@ -51,4 +51,9 @@ class DashboardController extends Controller
         'totalProjectIncome','totalProjectDue','data','completeProject','ongoingProject',
         'totalProduct','totalProductRequest','totalContactRequest','totalJobApplication'));
     }
+    public function unauthorized()
+    {
+        return view('admin.unauthorized');
+    }
+
 }

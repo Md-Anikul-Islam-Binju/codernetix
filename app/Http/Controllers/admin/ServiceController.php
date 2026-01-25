@@ -5,9 +5,20 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Toastr;
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('service-list')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
     public function index()
     {
         $service = Service::all();

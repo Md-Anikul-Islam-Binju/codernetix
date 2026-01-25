@@ -5,10 +5,21 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Technology;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Toastr;
 
 class TechnologyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('technology-list')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
     public function index()
     {
         $technology = Technology::all();

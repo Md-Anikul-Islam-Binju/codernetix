@@ -22,8 +22,10 @@ use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectSectionController;
 use App\Http\Controllers\ReadyProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicePageController;
 use App\Http\Controllers\TeamSectionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -48,6 +50,7 @@ Route::post('/product-request', [ReadyProductController::class, 'storeProductReq
 Route::middleware('auth')->group(callback: function () {
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/unauthorized-action', [DashboardController::class, 'unauthorized'])->name('unauthorized.action');
 
     Route::get('/reload-track', [ReloadController::class, 'index'])->name('reload.track'); // Admin page
     Route::post('/page-reload-log', [ReloadController::class, 'store'])->name('page.reload.log'); // Log reload
@@ -155,6 +158,12 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/candidate-application/{job_id}', [CareerController::class, 'application'])->name('candidate.application');
     Route::get('/application-delete/{id}', [CareerController::class, 'applicationDelete'])->name('application.destroy');
 
+
+
+
+    //Role and User Section
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
 });
 
 

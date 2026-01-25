@@ -20,7 +20,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-end">
+                    @can('slider-create')
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add New</button>
+                    @endcan
                 </div>
             </div>
             <div class="card-body">
@@ -47,8 +49,12 @@
                             <td>{{$sliderData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
+                                    @can('slider-edit')
                                         <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$sliderData->id}}">Edit</button>
+                                    @endcan
+                                    @can('slider-delete')
                                         <a href="{{route('slider.destroy',$sliderData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$sliderData->id}}">Delete</a>
+                                    @endcan
                                 </div>
                             </td>
                             <!--Edit Modal -->

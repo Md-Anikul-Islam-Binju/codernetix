@@ -6,10 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\PageReloadLog;
 use App\Models\TrackedPage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class ReloadController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('reload-track-list')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
+
     public function index()
     {
         $trackedPages = TrackedPage::where('is_active', true)->get();

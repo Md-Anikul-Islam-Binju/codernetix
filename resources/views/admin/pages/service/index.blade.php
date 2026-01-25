@@ -20,7 +20,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-end">
+                    @can('service-create')
                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add New</button>
+                    @endcan
                 </div>
             </div>
             <div class="card-body">
@@ -45,8 +47,12 @@
                             <td>{{$serviceData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
+                                    @can('service-edit')
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$serviceData->id}}">Edit</button>
+                                    @endcan
+                                    @can('service-delete')
                                     <a href="{{route('service.destroy',$serviceData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$serviceData->id}}">Delete</a>
+                                    @endcan
                                 </div>
                             </td>
                             <!--Edit Modal -->

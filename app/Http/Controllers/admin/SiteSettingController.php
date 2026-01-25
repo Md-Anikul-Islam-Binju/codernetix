@@ -5,10 +5,21 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\SiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 
 class SiteSettingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('site-setting')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
     public function index()
     {
         $siteSettings = SiteSetting::where('id', 1)->first();

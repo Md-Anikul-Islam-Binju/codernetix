@@ -53,24 +53,42 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+//    public function store(Request $request): RedirectResponse
+//    {
+//        $this->validate($request, [
+//            'name' => 'required|unique:roles',
+//            'permission' => 'required',
+//        ]);
+//
+//        $permissionsID = array_map(
+//            function($value) { return (int)$value; },
+//            $request->input('permission')
+//        );
+//
+//        $role = Role::create(['name' => $request->input('name')]);
+//        $role->syncPermissions($permissionsID);
+//
+//        return redirect()->route('roles.index')
+//            ->with('success','Role created successfully');
+//    }
+
     public function store(Request $request): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+            'permission' => 'required|array',
         ]);
 
-        $permissionsID = array_map(
-            function($value) { return (int)$value; },
-            $request->input('permission')
-        );
+        // Create role (guard_name defaults to 'web')
+        $role = Role::create(['name' => $request->name]);
 
-        $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($permissionsID);
+        // Assign permissions (by name)
+        $role->syncPermissions($request->permission);
 
         return redirect()->route('roles.index')
-            ->with('success','Role created successfully');
+            ->with('success', 'Role created successfully');
     }
+
     /**
      * Display the specified resource.
      *

@@ -1,64 +1,4 @@
-{{--@extends('admin.app')--}}
-
-{{--@section('admin_content')--}}
-
-{{--    <div class="row mb-3">--}}
-{{--        <div class="col-12">--}}
-{{--            <div class="page-title-box">--}}
-{{--                <div class="page-title-right">--}}
-{{--                    <ol class="breadcrumb m-0">--}}
-{{--                        <li class="breadcrumb-item"><a href="javascript:void(0);">CoderNetix</a></li>--}}
-{{--                        <li class="breadcrumb-item"><a href="javascript:void(0);">Reload Tracked</a></li>--}}
-{{--                        <li class="breadcrumb-item active">Reload Tracked!</li>--}}
-{{--                    </ol>--}}
-{{--                </div>--}}
-{{--                <h4 class="page-title">Reload Tracked Pages</h4>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <div class="row mt-3">--}}
-{{--        <div class="col-12">--}}
-{{--            @foreach($trackedPages as $page)--}}
-{{--                <div class="mb-2">--}}
-{{--                    <span>{{ $page->page_url }}</span>--}}
-{{--                    <button class="btn btn-primary openBtn" data-url="{{ $page->page_url }}">--}}
-{{--                        <i class="ri-refresh-line"></i> Open & Log--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <script>--}}
-{{--        document.querySelectorAll('.openBtn').forEach(btn => {--}}
-{{--            btn.addEventListener('click', function () {--}}
-{{--                const url = this.dataset.url;--}}
-
-{{--                // 1️⃣ Open the URL in a new tab--}}
-{{--                window.open(url, '_blank');--}}
-
-{{--                // 2️⃣ Store reload info in the database--}}
-{{--                fetch("{{ route('page.reload.log') }}", {--}}
-{{--                    method: "POST",--}}
-{{--                    headers: {--}}
-{{--                        "X-CSRF-TOKEN": "{{ csrf_token() }}",--}}
-{{--                        "Content-Type": "application/json"--}}
-{{--                    },--}}
-{{--                    body: JSON.stringify({ page_url: url })--}}
-{{--                });--}}
-{{--            });--}}
-{{--        });--}}
-{{--    </script>--}}
-
-
-
-
-{{--@endsection--}}
-
-
 @extends('admin.app')
-
 @section('admin_content')
 
     <div class="row mb-3">
@@ -77,33 +17,114 @@
     </div>
 
     {{-- Tracked pages buttons --}}
+{{--    <div class="row mt-3">--}}
+{{--        <div class="col-12">--}}
+{{--            @foreach($trackedPages as $page)--}}
+{{--                <div class="mb-2">--}}
+{{--                    <span>{{ $page->page_url }}</span>--}}
+{{--                    <button class="btn btn-primary reloadBtn" data-url="{{ $page->page_url }}">--}}
+{{--                        <i class="ri-refresh-line"></i> Open / Reload--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
     <div class="row mt-3">
         <div class="col-12">
             @foreach($trackedPages as $page)
-                <div class="mb-2">
-                    <span>{{ $page->page_url }}</span>
-                    <button class="btn btn-primary reloadBtn" data-url="{{ $page->page_url }}">
-                        <i class="ri-refresh-line"></i> Open / Reload
-                    </button>
-                </div>
+                @php
+                    $name = str_contains($page->page_url, 'fiverr') ? 'Fiverr' :
+                            (str_contains($page->page_url, 'upwork') ? 'Upwork' : 'Page');
+                @endphp
+
+                <button class="btn btn-primary reloadBtn mb-2"
+                        data-url="{{ $page->page_url }}">
+                    <i class="ri-refresh-line"></i>
+                    Open / Reload {{ $name }}
+                </button>
             @endforeach
         </div>
     </div>
 
-    <hr>
 
-    {{-- Delete logs by date --}}
+
+
+
+
     <div class="row mt-4">
-        <div class="col-md-4">
-            <form action="{{ route('reload.log.delete') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete logs for selected date?')">
-                @csrf
-                @method('DELETE')
-                <label for="delete_date">Delete Logs by Date:</label>
-                <input type="date" name="date" id="delete_date" class="form-control mb-2" required>
-                <button type="submit" class="btn btn-danger">Delete Logs</button>
-            </form>
+        <div class="col-12">
+            <div class="d-flex justify-content-end">
+                <button type="button"
+                        class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteLogsByDateModal">
+                    Delete Logs
+                </button>
+            </div>
         </div>
     </div>
+
+
+    <div id="deleteLogsByDateModal"
+         class="modal fade"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="deleteLogsByDateLabel"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header modal-colored-header bg-danger">
+                    <h4 class="modal-title" id="deleteLogsByDateLabel">
+                        Delete Reload Logs
+                    </h4>
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <form action="{{ route('reload.log.delete') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="delete_date" class="form-label fw-bold">
+                                Select Date
+                            </label>
+                            <input type="date"
+                                   name="date"
+                                   id="delete_date"
+                                   class="form-control"
+                                   required>
+                        </div>
+
+                        <div class="alert alert-warning mb-0">
+                            <strong>Warning:</strong>
+                            All reload logs for the selected date will be permanently deleted.
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-light"
+                                data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit"
+                                class="btn btn-danger">
+                            Yes, Delete Logs
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
 
     <hr>
 

@@ -3,27 +3,27 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="page-title-box">
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">CoderNetix</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Create Role</a></li>
-                        <li class="breadcrumb-item active">Create Role!</li>
-                    </ol>
-                </div>
-                <h4 class="page-title">Create Role!</h4>
-                <div class="pull-right">
-                    <a class="btn btn-primary btn-sm mb-2" href="{{ route('roles.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
-                </div>
+            <div class="page-title-box d-flex justify-content-between align-items-center">
+                <h4 class="page-title">Create Role</h4>
+                <a class="btn btn-primary btn-sm" href="{{ route('roles.index') }}">
+                    <i class="fa fa-arrow-left"></i> Back
+                </a>
             </div>
         </div>
     </div>
 
+    {{-- SUCCESS MESSAGE --}}
+    @if(session('success'))
+        <div class="alert alert-success mt-2">
+            {{ session('success') }}
+        </div>
+    @endif
 
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
+    {{-- ERROR MESSAGE --}}
+    @if ($errors->any())
+        <div class="alert alert-danger mt-2">
+            <strong>Whoops!</strong> There were some problems with your input:
+            <ul class="mb-0">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
@@ -31,31 +31,29 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('roles.store') }}">
+    <form method="POST" action="{{ route('roles.store') }}" class="mt-3">
         @csrf
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" placeholder="Name" class="form-control">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Permission:</strong>
-                    <br/>
-                    @foreach($permission as $value)
-                        <label><input type="checkbox" name="permission[{{$value->id}}]" value="{{$value->id}}" class="name">
-                            {{ $value->name }}</label>
-                        <br/>
-                    @endforeach
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary btn-sm mb-3"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
-            </div>
+
+        <div class="form-group mb-3">
+            <label><strong>Role Name</strong></label>
+            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Enter role name">
         </div>
+
+        <div class="form-group mb-3">
+            <label><strong>Permissions</strong></label><br>
+            @foreach($permission as $value)
+                <label class="d-block">
+                    <input type="checkbox" name="permission[]" value="{{ $value->name }}"
+                        {{ (is_array(old('permission')) && in_array($value->name, old('permission'))) ? 'checked' : '' }}>
+                    {{ $value->name }}
+                </label>
+            @endforeach
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-floppy-disk"></i> Submit
+        </button>
     </form>
 
-
 @endsection
+

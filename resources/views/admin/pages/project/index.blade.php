@@ -20,7 +20,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-end">
+                    @can('project-create')
                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add New</button>
+                    @endcan
                 </div>
             </div>
             <div class="card-body">
@@ -56,8 +58,13 @@
                             <td>{{$projectData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
+                                    @can('project-edit')
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$projectData->id}}">Edit</button>
+                                    @endcan
+
+                                    @can('project-delete')
                                     <a href="{{route('project.destroy',$projectData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$projectData->id}}">Delete</a>
+                                    @endcan
                                 </div>
                             </td>
                             <!--Edit Modal -->

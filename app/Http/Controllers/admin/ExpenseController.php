@@ -6,10 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Expense;
 use App\Models\ExpenseCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class ExpenseController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('inventory-list')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
     public function index()
     {
         $expenseCategory = ExpenseCategory::latest()->get();

@@ -16,6 +16,7 @@
     </div>
 
     <div class="row">
+        @can('income-cart-summary')
         <div class="col-xxl-3 col-sm-6">
             <div class="card widget-flat text-bg-dark">
                 <div class="card-body">
@@ -60,6 +61,9 @@
                 </div>
             </div>
         </div>
+        @endcan
+
+        @can('site-summary')
         <div class="col-xxl-3 col-sm-6">
             <div class="card widget-flat text-bg-success">
                 <div class="card-body">
@@ -107,10 +111,12 @@
                 </div>
             </div>
         </div>
+        @endcan
 
     </div>
 
     <div class="row">
+        @can('payment-chart-summary')
         <div class="col-xl-6">
             <div class="card">
                 <div class="card-body">
@@ -151,7 +157,9 @@
                 </div>
             </div>
         </div>
+        @endcan
 
+        @can('project-chart-summary')
         <div class="col-xl-6">
             <div class="card">
                 <div class="card-body">
@@ -194,6 +202,7 @@
                 </div>
             </div>
         </div>
+        @endcan
     </div>
 
 

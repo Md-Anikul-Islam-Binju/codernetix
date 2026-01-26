@@ -156,20 +156,25 @@
                 </li>
                 @endcan
 
+                @can('team-list')
                 <li class="side-nav-item">
                     <a href="{{route('team.section')}}" class="side-nav-link">
                         <i class="ri-team-line"></i>
                         <span> Team </span>
                     </a>
                 </li>
+                @endcan
 
+                @can('project-list')
                 <li class="side-nav-item">
                     <a href="{{route('project.section')}}" class="side-nav-link">
                         <i class="ri-folder-chart-line"></i>
                         <span> Project </span>
                     </a>
                 </li>
+                @endcan
 
+                @can('inventory-list')
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPagesInventory" aria-expanded="false" aria-controls="sidebarPagesInventory" class="side-nav-link">
                         <i class="ri-archive-line"></i>
@@ -195,8 +200,10 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
 
 
+                @can('ready-product-list')
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPagesProduct" aria-expanded="false" aria-controls="sidebarPagesProduct" class="side-nav-link">
                         <i class="ri-box-3-line"></i>
@@ -219,6 +226,7 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
 
 
                 @can('site-setting')

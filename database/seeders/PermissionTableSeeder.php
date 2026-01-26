@@ -77,6 +77,13 @@ class PermissionTableSeeder extends Seeder
             'user-edit',
             'user-delete',
 
+            //Dashboard
+            'income-cart-summary',
+            'site-summary',
+            'payment-chart-summary',
+            'project-chart-summary',
+
+
 
 
 

@@ -7,10 +7,23 @@ use App\Models\ProjectCategory;
 use App\Models\ProjectHistory;
 use App\Models\ProjectPayment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class ProjectHistoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('inventory-list')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
+
     public function index()
     {
         $category = ProjectCategory::all();

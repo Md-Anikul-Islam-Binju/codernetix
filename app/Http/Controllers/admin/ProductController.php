@@ -7,10 +7,21 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (!Gate::allows('ready-product-list')) {
+                return redirect()->route('unauthorized.action');
+            }
+            return $next($request);
+        })->only('index');
+    }
     public function index()
     {
         $category = ProductCategory::latest()->get();

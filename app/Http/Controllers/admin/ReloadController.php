@@ -27,7 +27,8 @@ class ReloadController extends Controller
     {
         $trackedPages = TrackedPage::where('is_active', true)->get();
         $logs = PageReloadLog::orderBy('reloaded_at', 'desc')->get();
-        return view('admin.pages.reloadTrack.index', compact('trackedPages', 'logs'));
+        $totalReloads = PageReloadLog::count();
+        return view('admin.pages.reloadTrack.index', compact('trackedPages', 'logs','totalReloads'));
     }
 
     public function store(Request $request)

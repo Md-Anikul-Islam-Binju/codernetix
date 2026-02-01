@@ -16,19 +16,7 @@
         </div>
     </div>
 
-    {{-- Tracked pages buttons --}}
-{{--    <div class="row mt-3">--}}
-{{--        <div class="col-12">--}}
-{{--            @foreach($trackedPages as $page)--}}
-{{--                <div class="mb-2">--}}
-{{--                    <span>{{ $page->page_url }}</span>--}}
-{{--                    <button class="btn btn-primary reloadBtn" data-url="{{ $page->page_url }}">--}}
-{{--                        <i class="ri-refresh-line"></i> Open / Reload--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
-{{--    </div>--}}
+
 
     <div class="row mt-3">
         <div class="col-12">
@@ -132,6 +120,16 @@
     <div class="row mt-3">
         <div class="col-12">
             <h5>Reload Logs</h5>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-info d-flex justify-content-between align-items-center">
+                        <strong>Total Reload Logs</strong>
+                        <span class="badge bg-primary fs-5">
+                {{ $totalReloads }}
+            </span>
+                    </div>
+                </div>
+            </div>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -141,9 +139,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($logs as $log)
+                @foreach($logs as $key=>$log)
                     <tr>
-                        <td>{{ $log->id }}</td>
+                        <td>{{ $key+1 }}</td>
                         <td>{{ $log->page_url }}</td>
                         <td>
                             Date : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('d F Y') }}<br>

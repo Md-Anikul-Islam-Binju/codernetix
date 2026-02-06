@@ -77,7 +77,6 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/product-request', [ProductController::class, 'productRequest'])->name('request.product');
     Route::get('/product-request-delete/{id}', [ProductController::class, 'productRequestDelete'])->name('request.product.destroy');
 
-
     //Technology Section
     Route::get('/technology-section', [TechnologyController::class, 'index'])->name('technology.section');
     Route::post('/technology-store', [TechnologyController::class, 'store'])->name('technology.store');

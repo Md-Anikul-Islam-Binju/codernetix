@@ -20,18 +20,35 @@
 
     <div class="row mt-3">
         <div class="col-12">
-            @foreach($trackedPages as $page)
-                @php
-                    $name = str_contains($page->page_url, 'fiverr') ? 'Fiverr' :
-                            (str_contains($page->page_url, 'upwork') ? 'Upwork' : 'Page');
-                @endphp
+{{--            @foreach($trackedPages as $page)--}}
+{{--                @php--}}
+{{--                    $name = str_contains($page->page_url, 'fiverr') ? 'Fiverr' :--}}
+{{--                            (str_contains($page->page_url, 'upwork') ? 'Upwork' : 'Page');--}}
+{{--                @endphp--}}
 
-                <button class="btn btn-primary reloadBtn mb-2"
-                        data-url="{{ $page->page_url }}">
-                    <i class="ri-refresh-line"></i>
-                    Open / Reload {{ $name }}
-                </button>
-            @endforeach
+{{--                <button class="btn btn-primary reloadBtn mb-2"--}}
+{{--                        data-url="{{ $page->page_url }}">--}}
+{{--                    <i class="ri-refresh-line"></i>--}}
+{{--                    Open / Reload {{ $name }}--}}
+{{--                </button>--}}
+{{--            @endforeach--}}
+                @foreach($trackedPages as $page)
+                    @php
+                        $isFiverr = str_contains($page->page_url, 'fiverr');
+                        $isUpwork = str_contains($page->page_url, 'upwork');
+
+                        $name = $isFiverr ? 'Fiverr' : ($isUpwork ? 'Upwork' : 'Page');
+
+                        $btnClass = $isFiverr ? 'btn-success' : ($isUpwork ? 'btn-dark' : 'btn-secondary');
+                    @endphp
+
+                    <button class="btn {{ $btnClass }} reloadBtn mb-2"
+                            data-url="{{ $page->page_url }}">
+                        <i class="ri-refresh-line"></i>
+                        Open / Reload {{ $name }}
+                    </button>
+                @endforeach
+
         </div>
     </div>
 
@@ -139,17 +156,44 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($logs as $key=>$log)
-                    <tr>
-                        <td>{{ $key+1 }}</td>
-                        <td>{{ $log->page_url }}</td>
-                        <td>
-                            Date : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('d F Y') }}<br>
-                            Time : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('g:i A') }}
-                        </td>
+{{--                @foreach($logs as $key=>$log)--}}
+{{--                    <tr>--}}
+{{--                        <td>{{ $key+1 }}</td>--}}
+{{--                        <td>{{ $log->page_url }}</td>--}}
+{{--                        <td>--}}
+{{--                            Date : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('d F Y') }}<br>--}}
+{{--                            Time : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('g:i A') }}--}}
+{{--                        </td>--}}
 
-                    </tr>
-                @endforeach
+{{--                    </tr>--}}
+{{--                @endforeach--}}
+                    @foreach($logs as $key => $log)
+                        @php
+                            $isFiverr = str_contains($log->page_url, 'fiverr');
+                            $isUpwork = str_contains($log->page_url, 'upwork');
+
+                            $rowClass = $isFiverr
+                                ? 'table-success'
+                                : ($isUpwork ? 'table-primary' : '');
+                        @endphp
+
+                        <tr class="{{ $rowClass }}">
+                            <td>{{ $key + 1 }}</td>
+                            <td>
+                                {{ $log->page_url }}
+                                <br>
+                                @if($isFiverr)
+                                    <span class="badge bg-success mt-1">Fiverr</span>
+                                @elseif($isUpwork)
+                                    <span class="badge bg-primary mt-1">Upwork</span>
+                                @endif
+                            </td>
+                            <td>
+                                Date : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('d F Y') }}<br>
+                                Time : {{ \Carbon\Carbon::parse($log->reloaded_at)->format('g:i A') }}
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

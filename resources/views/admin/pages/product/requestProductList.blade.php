@@ -28,6 +28,7 @@
                         <th>Client Email</th>
                         <th>Client Phone</th>
                         <th>Client Address</th>
+                        <th>Request Date</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -40,6 +41,7 @@
                             <td>{{$productRequestsData->email}}</td>
                             <td>{{$productRequestsData->phone}}</td>
                             <td>{{$productRequestsData->address}}</td>
+                            <td>{{$productRequestsData->created_at->format('d M Y')}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex">
                                     <a href="{{route('request.product.destroy',$productRequestsData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$productRequestsData->id}}">Delete</a>

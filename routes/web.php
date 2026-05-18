@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
+use App\Http\Controllers\admin\GalleryImageController;
 use App\Http\Controllers\admin\ProductCategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProjectCategoryController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TechnologyController;
 use App\Http\Controllers\ContactPageController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectSectionController;
 use App\Http\Controllers\ReadyProductController;
@@ -35,7 +37,7 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('p
 Route::get('/career', [HomeController::class, 'career'])->name('career');
 Route::get('career/{id}', [HomeController::class, 'applyCandidate'])->name('career.details');
 Route::post('career/apply', [HomeController::class, 'applyCandidateStore'])->name('apply.candidate.store');
-
+Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
 
 Route::get('/about', [AboutPageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactPageController::class, 'contact'])->name('contact');
@@ -61,6 +63,14 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');
     Route::put('/slider-update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::get('/slider-delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+
+
+    //Gallery Section
+    Route::get('/gallery-section', [GalleryImageController::class, 'index'])->name('gallery.section');
+    Route::post('/gallery-store', [GalleryImageController::class, 'store'])->name('gallery.store');
+    Route::put('/gallery-update/{id}', [GalleryImageController::class, 'update'])->name('gallery.update');
+    Route::get('/gallery-delete/{id}', [GalleryImageController::class, 'destroy'])->name('gallery.destroy');
+
 
     //Project Section
     Route::get('/project-section', [ProjectController::class, 'index'])->name('project.section');

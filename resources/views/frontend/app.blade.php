@@ -124,6 +124,8 @@
                         <a href="{{ route('product') }}" class="dropdown-item {{ request()->routeIs('product') ? 'active' : '' }}">Product</a>
                         <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Team</a>
                         <a href="{{route('career')}}" class="dropdown-item">Career</a>
+                        <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
+
 
 
                     </div>

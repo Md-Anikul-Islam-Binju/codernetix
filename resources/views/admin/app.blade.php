@@ -250,6 +250,10 @@
                                 <a href="{{route('career.section')}}">Career</a>
                             </li>
 
+                            <li>
+                                <a href="{{route('gallery.section')}}">Gallery</a>
+                            </li>
+
 
                         </ul>
                     </div>

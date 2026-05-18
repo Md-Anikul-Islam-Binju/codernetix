@@ -22,6 +22,12 @@ class PermissionTableSeeder extends Seeder
             'slider-edit',
             'slider-delete',
 
+            //Client
+            'gallery-list',
+            'gallery-create',
+            'gallery-edit',
+            'gallery-delete',
+
             //Technology
             'technology-list',
             'technology-create',

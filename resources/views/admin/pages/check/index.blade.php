@@ -32,6 +32,8 @@
                         <th>S/N</th>
                         <th>Work Title</th>
                         <th>Date</th>
+                        <th>Work Assign</th>
+                        <th>Work Completed Date</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -42,7 +44,13 @@
                             <td>{{$key+1}}</td>
                             <td>{{$checkData->title}}</td>
                             <td>{{ $checkData->created_at->format('d F Y') }}</td>
-
+                            <td>{{$checkData->user ? $checkData->user->name : 'N/A'}}</td>
+                            <td>
+                                {{ $checkData->complete_date
+                                    ? \Carbon\Carbon::parse($checkData->complete_date)->format('d F Y')
+                                    : 'N/A'
+                                }}
+                            </td>
                             <td>
                                 @if($checkData->status == 0)
                                     <span class="badge bg-danger">Pending</span>
@@ -73,6 +81,13 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="complete_date" class="form-label">Completed Date</label>
+                                                            <input type="date" id="complete_date" name="complete_date"
+                                                                   class="form-control" placeholder="Enter Date" value="{{ $checkData->complete_date }}">
+                                                        </div>
+                                                    </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="example-select" class="form-label">Status</label>
@@ -133,6 +148,17 @@
                                     <label for="title" class="form-label">Title</label>
                                     <input type="text" id="title" name="title"
                                            class="form-control" placeholder="Enter Title">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Task Assign</label>
+                                    <select name="assign_id" class="form-select">
+                                        @foreach($users as $user)
+                                         <option value="{{$user->id}}">{{$user->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>

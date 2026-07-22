@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->integer('assign_id')->nullable();
+            $table->date('complete_date')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });

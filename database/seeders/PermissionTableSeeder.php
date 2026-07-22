@@ -72,6 +72,12 @@ class PermissionTableSeeder extends Seeder
             'career-list',
             'gallery-view',
 
+            //Check Setting
+            'check-list',
+            'check-create',
+            'check-edit',
+            'check-delete',
+
             //For roll and permission
             'role-list',
             'role-create',

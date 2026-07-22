@@ -119,6 +119,16 @@
                 @endcan
 
 
+                @can('check-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('check.section')}}" class="side-nav-link">
+                            <i class="ri-clipboard-line"></i>
+                            <span> Check List </span>
+                        </a>
+                    </li>
+                @endcan
+
+
 
                 @can('slider-list')
                 <li class="side-nav-item">

@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\admin\CareerController;
+use App\Http\Controllers\admin\CheckController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\DashboardController;
@@ -63,6 +64,12 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');
     Route::put('/slider-update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::get('/slider-delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+
+    //Check Section
+    Route::get('/check-section', [CheckController::class, 'index'])->name('check.section');
+    Route::post('/check-store', [CheckController::class, 'store'])->name('check.store');
+    Route::put('/check-update/{id}', [CheckController::class, 'update'])->name('check.update');
+    Route::get('/check-delete/{id}', [CheckController::class, 'destroy'])->name('check.destroy');
 
 
     //Gallery Section

@@ -183,13 +183,16 @@
                     </a>
                     <div class="collapse" id="sidebarPagesInventory">
                         <ul class="side-nav-second-level">
+                            @can('income-list')
                             <li>
                                 <a href="{{route('project.category.section')}}">Project Category</a>
                             </li>
                             <li>
                                 <a href="{{route('project.history.section')}}">Project Income History</a>
                             </li>
+                            @endcan
 
+                            @can('expense-list')
                             <li>
                                 <a href="{{route('expense.category.section')}}">Expense Category</a>
                             </li>
@@ -197,6 +200,7 @@
                             <li>
                                 <a href="{{route('expense.section')}}">Expense History</a>
                             </li>
+                            @endcan
                         </ul>
                     </div>
                 </li>
@@ -241,19 +245,21 @@
                             <li>
                                 <a href="{{route('site.setting')}}">Site Setting</a>
                             </li>
-
+                            @can('contact-list')
                             <li>
                                 <a href="{{route('contact.section')}}">Contact</a>
                             </li>
-
+                            @endcan
+                            @can('career-list')
                             <li>
                                 <a href="{{route('career.section')}}">Career</a>
                             </li>
-
+                            @endcan
+                            @can('gallery-view')
                             <li>
                                 <a href="{{route('gallery.section')}}">Gallery</a>
                             </li>
-
+                            @endcan
 
                         </ul>
                     </div>

@@ -60,12 +60,17 @@ class PermissionTableSeeder extends Seeder
 
             //Inventory
             'inventory-list',
+            'income-list',
+            'expense-list',
 
             //Ready Product
             'ready-product-list',
 
             //Site Setting
             'site-setting',
+            'contact-list',
+            'career-list',
+            'gallery-view',
 
             //For roll and permission
             'role-list',

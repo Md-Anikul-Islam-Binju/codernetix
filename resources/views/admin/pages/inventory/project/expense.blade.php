@@ -1,5 +1,35 @@
 @extends('admin.app')
 @section('admin_content')
+    <style>
+        @media print {
+
+            .btn,
+            .dataTables_filter,
+            .dataTables_length,
+            .dataTables_paginate,
+            .dataTables_info,
+            .breadcrumb,
+            .page-title-right {
+                display: none !important;
+            }
+
+            tfoot{
+                display: table-footer-group;
+            }
+
+            table{
+                width:100% !important;
+                border-collapse:collapse;
+            }
+
+            th,td{
+                border:1px solid #000 !important;
+                padding:6px;
+            }
+
+        }
+    </style>
+
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
@@ -161,9 +191,17 @@
                     @endforeach
                     </tbody>
 
+{{--                    <tfoot>--}}
+{{--                    <tr>--}}
+{{--                        <td colspan="6"><strong>Total: {{ $totalAmount }}</strong></td>--}}
+{{--                    </tr>--}}
+{{--                    </tfoot>--}}
+
                     <tfoot>
                     <tr>
-                        <td colspan="6"><strong>Total: {{ $totalAmount }}</strong></td>
+                        <th colspan="3" class="text-end">Total</th>
+                        <th>{{ number_format($totalAmount,2) }}</th>
+                        <th colspan="2"></th>
                     </tr>
                     </tfoot>
 
@@ -229,28 +267,94 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>--}}
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>--}}
+{{--    <script>--}}
+{{--        function exportTableToPDF(filename, heading) {--}}
+{{--            const { jsPDF } = window.jspdf;--}}
+{{--            const doc = new jsPDF();--}}
+{{--            doc.text(heading, doc.internal.pageSize.getWidth() / 2, 20, { align: 'center' });--}}
+{{--            let rows = document.querySelectorAll("table tr");--}}
+{{--            let data = [];--}}
+{{--            for (let i = 0; i < rows.length; i++) {--}}
+{{--                let row = [],--}}
+{{--                    cols = rows[i].querySelectorAll("td, th");--}}
+{{--                for (let j = 0; j < cols.length - 1; j++)  // <- Fixed here--}}
+{{--                    row.push(cols[j].innerText);--}}
+{{--                data.push(row);--}}
+{{--            }--}}
+{{--            doc.autoTable({--}}
+{{--                head: [data[0]],--}}
+{{--                body: data.slice(1),--}}
+{{--                startY: 30--}}
+{{--            });--}}
+{{--            doc.save(filename);--}}
+{{--        }--}}
+{{--    </script>--}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
     <script>
         function exportTableToPDF(filename, heading) {
+
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            doc.text(heading, doc.internal.pageSize.getWidth() / 2, 20, { align: 'center' });
-            let rows = document.querySelectorAll("table tr");
-            let data = [];
-            for (let i = 0; i < rows.length; i++) {
-                let row = [],
-                    cols = rows[i].querySelectorAll("td, th");
-                for (let j = 0; j < cols.length - 1; j++)  // <- Fixed here
-                    row.push(cols[j].innerText);
-                data.push(row);
-            }
-            doc.autoTable({
-                head: [data[0]],
-                body: data.slice(1),
-                startY: 30
+            const doc = new jsPDF("p", "mm", "a4");
+
+            // Heading
+            doc.setFontSize(16);
+            doc.text(heading, 105, 15, { align: "center" });
+
+            let body = [];
+            let total = 0;
+
+            // Only table body rows
+            document.querySelectorAll("#basic-datatable tbody tr").forEach(function(row){
+
+                let cols = row.querySelectorAll("td");
+
+                let amount = parseFloat(cols[3].innerText.replace(/,/g,'')) || 0;
+                total += amount;
+
+                body.push([
+                    cols[0].innerText,
+                    cols[1].innerText,
+                    cols[2].innerText,
+                    amount.toFixed(2),
+                    cols[4].innerText
+                ]);
+
             });
+
+            doc.autoTable({
+                head: [[
+                    "S/N",
+                    "Category",
+                    "Title",
+                    "Amount",
+                    "Date"
+                ]],
+                body: body,
+                startY: 22,
+                theme: "grid",
+                styles: {
+                    fontSize: 10,
+                    cellPadding: 3
+                },
+                headStyles: {
+                    fillColor: [41, 128, 185]
+                }
+            });
+
+            // Print Total
+            let finalY = doc.lastAutoTable.finalY + 8;
+
+            doc.setFontSize(12);
+            doc.setFont(undefined, "bold");
+            doc.text("Total Amount : " + total.toFixed(2), 14, finalY);
+
             doc.save(filename);
         }
     </script>
+
 @endsection

@@ -250,11 +250,13 @@
                                 <a href="{{route('contact.section')}}">Contact</a>
                             </li>
                             @endcan
+
                             @can('career-list')
                             <li>
                                 <a href="{{route('career.section')}}">Career</a>
                             </li>
                             @endcan
+
                             @can('gallery-view')
                             <li>
                                 <a href="{{route('gallery.section')}}">Gallery</a>

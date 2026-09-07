@@ -456,16 +456,17 @@
 
 
                                     {{-- Long Details --}}
+                                    {{-- Long Details --}}
                                     <div class="col-md-12">
 
                                         <label class="form-label">
                                             Details
                                         </label>
 
-
-
-
-                                        <textarea id="summernoteEditLong" name="long_details">{{ $importantDocument->long_details }}</textarea>
+                                        <textarea
+                                            id="summernoteEditLong{{ $importantDocument?->id ?? 'new' }}"
+                                            name="long_details"
+                                        >{{ $importantDocument?->long_details ?? '' }}</textarea>
 
                                         @error('long_details')
                                         <small class="text-danger">

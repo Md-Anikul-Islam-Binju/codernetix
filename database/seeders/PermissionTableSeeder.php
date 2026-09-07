@@ -86,6 +86,7 @@ class PermissionTableSeeder extends Seeder
 
             //For Role and permission
             'role-and-permission-list',
+            'important-document',
 
 
             //For User

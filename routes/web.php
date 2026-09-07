@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\GalleryImageController;
+use App\Http\Controllers\admin\ImportantDocumentController;
 use App\Http\Controllers\admin\ProductCategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProjectCategoryController;
@@ -174,7 +175,8 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/candidate-application/{job_id}', [CareerController::class, 'application'])->name('candidate.application');
     Route::get('/application-delete/{id}', [CareerController::class, 'applicationDelete'])->name('application.destroy');
 
-
+    Route::get('/important-documents', [ImportantDocumentController::class, 'index'])->name('important.documents.index');
+    Route::post('/important-documents/create-or-update/{id?}', [ImportantDocumentController::class, 'createOrUpdate'])->name('important.documents.createOrUpdate');
 
 
     //Role and User Section

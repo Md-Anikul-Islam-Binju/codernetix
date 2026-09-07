@@ -119,6 +119,16 @@
                 @endcan
 
 
+                @can('important-document')
+                    <li class="side-nav-item">
+                        <a href="{{ route('important.documents.index') }}" class="side-nav-link">
+                            <i class="ri-file-text-line"></i>
+                            <span> Important Documents </span>
+                        </a>
+                    </li>
+                @endcan
+
+
                 @can('check-list')
                     <li class="side-nav-item">
                         <a href="{{route('check.section')}}" class="side-nav-link">
@@ -397,11 +407,13 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript">
+
     $(document).ready(function() {
-        $('.form-control[multiple]').select2({
+        $('.form-control[multiple]:not([type="file"])').select2({
             allowClear: true
         });
     });
+
 </script>
 </body>
 </html>

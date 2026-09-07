@@ -177,7 +177,7 @@ Route::middleware('auth')->group(callback: function () {
 
     Route::get('/important-documents', [ImportantDocumentController::class, 'index'])->name('important.documents.index');
     Route::post('/important-documents/create-or-update/{id?}', [ImportantDocumentController::class, 'createOrUpdate'])->name('important.documents.createOrUpdate');
-
+    Route::delete('/important-documents/{id}/delete-file/{field}/{index}', [ImportantDocumentController::class, 'deleteFile'])->name('important.documents.deleteFile');
 
     //Role and User Section
     Route::resource('roles', RoleController::class);

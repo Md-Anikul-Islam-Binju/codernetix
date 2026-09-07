@@ -187,4 +187,134 @@ class ImportantDocumentController extends Controller
             ->back()
             ->with('success', $message);
     }
+
+    public function deleteFile($id, $field, $index = null)
+    {
+        $setting = ImportantDocument::findOrFail($id);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Single Documents
+        |--------------------------------------------------------------------------
+        */
+
+        $singleFields = [
+            'tread_licence',
+            'tin_certificate',
+            'bin_certificate',
+            'company_pad_doc',
+            'company_domain_renew_invoice',
+        ];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Multiple Documents
+        |--------------------------------------------------------------------------
+        */
+
+        $multipleFields = [
+            'old_tread_licence_multiple',
+            'vat_certificate_multiple',
+            'tin_return_certificate_multiple',
+        ];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Validate Field
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            !in_array($field, $singleFields) &&
+            !in_array($field, $multipleFields)
+        ) {
+            abort(404);
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Delete Single Document
+        |--------------------------------------------------------------------------
+        */
+
+        if (in_array($field, $singleFields)) {
+
+            $file = $setting->$field;
+
+
+            // File exists?
+            if ($file && file_exists(public_path($file))) {
+
+                unlink(public_path($file));
+
+            }
+
+
+            // Remove database value
+            $setting->$field = null;
+
+            $setting->save();
+
+
+            return redirect()
+                ->back()
+                ->with(
+                    'success',
+                    'Document deleted successfully!'
+                );
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Delete Multiple Document
+        |--------------------------------------------------------------------------
+        */
+
+        $files = $setting->$field ?? [];
+
+
+        if (!isset($files[$index])) {
+
+            return redirect()
+                ->back()
+                ->with(
+                    'error',
+                    'Document not found.'
+                );
+        }
+
+
+        $file = $files[$index];
+
+
+        // Delete physical file
+        if ($file && file_exists(public_path($file))) {
+
+            unlink(public_path($file));
+
+        }
+
+
+        // Remove array item
+        unset($files[$index]);
+
+
+        // Re-index array
+        $setting->$field = array_values($files);
+
+        $setting->save();
+
+
+        return redirect()
+            ->back()
+            ->with(
+                'success',
+                'Document deleted successfully!'
+            );
+    }
+
 }

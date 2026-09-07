@@ -1,3 +1,4 @@
+
 @extends('admin.app')
 
 @section('admin_content')
@@ -13,13 +14,17 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
+
                                 <li class="breadcrumb-item">
-                                    <a href="/dashboard">Dashboard</a>
+                                    <a href="/dashboard">
+                                        Dashboard
+                                    </a>
                                 </li>
 
                                 <li class="breadcrumb-item active">
                                     Important Documents
                                 </li>
+
                             </ol>
                         </div>
 
@@ -51,9 +56,9 @@
 
                             <form
                                 action="{{ route(
-                                'important.documents.createOrUpdate',
-                                $importantDocument ? $importantDocument->id : null
-                            ) }}"
+                                    'important.documents.createOrUpdate',
+                                    $importantDocument ? $importantDocument->id : null
+                                ) }}"
                                 method="POST"
                                 enctype="multipart/form-data"
                             >
@@ -63,7 +68,11 @@
 
                                 <div class="row g-3">
 
+
+                                    {{-- ========================================================= --}}
                                     {{-- Trade Licence --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
@@ -77,33 +86,63 @@
                                             accept=".pdf,.doc,.docx"
                                         >
 
+
                                         @if($importantDocument?->tread_licence)
 
                                             <div class="mt-2">
 
-                                                <a
-                                                    href="{{ asset($importantDocument->tread_licence) }}"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-outline-primary"
-                                                >
-                                                    <i class="bi bi-file-earmark-text"></i>
-                                                    View Current File
-                                                </a>
+                                                <div class="d-flex gap-2">
+
+                                                    {{-- View --}}
+                                                    <a
+                                                        href="{{ asset($importantDocument->tread_licence) }}"
+                                                        target="_blank"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                    >
+                                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                                        View Current File
+                                                    </a>
+
+
+                                                    {{-- Delete --}}
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteDocument(
+                                                            '{{ route('important.documents.deleteFile', [
+                                                                $importantDocument->id,
+                                                                'tread_licence',
+                                                                0
+                                                            ]) }}'
+                                                        )"
+                                                    >
+                                                        <i class="bi bi-trash me-1"></i>
+                                                        Delete
+                                                    </button>
+
+                                                </div>
 
                                             </div>
 
                                         @endif
 
+
                                         @error('tread_licence')
+
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
 
+
+                                    {{-- ========================================================= --}}
                                     {{-- TIN Certificate --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
@@ -117,33 +156,63 @@
                                             accept=".pdf,.doc,.docx"
                                         >
 
+
                                         @if($importantDocument?->tin_certificate)
 
                                             <div class="mt-2">
 
-                                                <a
-                                                    href="{{ asset($importantDocument->tin_certificate) }}"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-outline-primary"
-                                                >
-                                                    <i class="bi bi-file-earmark-text"></i>
-                                                    View Current File
-                                                </a>
+                                                <div class="d-flex gap-2">
+
+                                                    {{-- View --}}
+                                                    <a
+                                                        href="{{ asset($importantDocument->tin_certificate) }}"
+                                                        target="_blank"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                    >
+                                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                                        View Current File
+                                                    </a>
+
+
+                                                    {{-- Delete --}}
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteDocument(
+                                                            '{{ route('important.documents.deleteFile', [
+                                                                $importantDocument->id,
+                                                                'tin_certificate',
+                                                                0
+                                                            ]) }}'
+                                                        )"
+                                                    >
+                                                        <i class="bi bi-trash me-1"></i>
+                                                        Delete
+                                                    </button>
+
+                                                </div>
 
                                             </div>
 
                                         @endif
 
+
                                         @error('tin_certificate')
+
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
 
+
+                                    {{-- ========================================================= --}}
                                     {{-- BIN Certificate --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
@@ -157,33 +226,63 @@
                                             accept=".pdf,.doc,.docx"
                                         >
 
+
                                         @if($importantDocument?->bin_certificate)
 
                                             <div class="mt-2">
 
-                                                <a
-                                                    href="{{ asset($importantDocument->bin_certificate) }}"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-outline-primary"
-                                                >
-                                                    <i class="bi bi-file-earmark-text"></i>
-                                                    View Current File
-                                                </a>
+                                                <div class="d-flex gap-2">
+
+                                                    {{-- View --}}
+                                                    <a
+                                                        href="{{ asset($importantDocument->bin_certificate) }}"
+                                                        target="_blank"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                    >
+                                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                                        View Current File
+                                                    </a>
+
+
+                                                    {{-- Delete --}}
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteDocument(
+                                                            '{{ route('important.documents.deleteFile', [
+                                                                $importantDocument->id,
+                                                                'bin_certificate',
+                                                                0
+                                                            ]) }}'
+                                                        )"
+                                                    >
+                                                        <i class="bi bi-trash me-1"></i>
+                                                        Delete
+                                                    </button>
+
+                                                </div>
 
                                             </div>
 
                                         @endif
 
+
                                         @error('bin_certificate')
+
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
 
+
+                                    {{-- ========================================================= --}}
                                     {{-- Company Pad --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
@@ -197,33 +296,63 @@
                                             accept=".pdf,.doc,.docx"
                                         >
 
+
                                         @if($importantDocument?->company_pad_doc)
 
                                             <div class="mt-2">
 
-                                                <a
-                                                    href="{{ asset($importantDocument->company_pad_doc) }}"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-outline-primary"
-                                                >
-                                                    <i class="bi bi-file-earmark-text"></i>
-                                                    View Current File
-                                                </a>
+                                                <div class="d-flex gap-2">
+
+                                                    {{-- View --}}
+                                                    <a
+                                                        href="{{ asset($importantDocument->company_pad_doc) }}"
+                                                        target="_blank"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                    >
+                                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                                        View Current File
+                                                    </a>
+
+
+                                                    {{-- Delete --}}
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteDocument(
+                                                            '{{ route('important.documents.deleteFile', [
+                                                                $importantDocument->id,
+                                                                'company_pad_doc',
+                                                                0
+                                                            ]) }}'
+                                                        )"
+                                                    >
+                                                        <i class="bi bi-trash me-1"></i>
+                                                        Delete
+                                                    </button>
+
+                                                </div>
 
                                             </div>
 
                                         @endif
 
+
                                         @error('company_pad_doc')
+
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
 
-                                    {{-- Domain Renewal Invoice --}}
+
+                                    {{-- ========================================================= --}}
+                                    {{-- Company Domain Renew Invoice --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
@@ -237,39 +366,73 @@
                                             accept=".pdf,.doc,.docx"
                                         >
 
+
                                         @if($importantDocument?->company_domain_renew_invoice)
 
                                             <div class="mt-2">
 
-                                                <a
-                                                    href="{{ asset($importantDocument->company_domain_renew_invoice) }}"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-outline-primary"
-                                                >
-                                                    <i class="bi bi-file-earmark-text"></i>
-                                                    View Current File
-                                                </a>
+                                                <div class="d-flex gap-2">
+
+                                                    {{-- View --}}
+                                                    <a
+                                                        href="{{ asset($importantDocument->company_domain_renew_invoice) }}"
+                                                        target="_blank"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                    >
+                                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                                        View Current File
+                                                    </a>
+
+
+                                                    {{-- Delete --}}
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteDocument(
+                                                            '{{ route('important.documents.deleteFile', [
+                                                                $importantDocument->id,
+                                                                'company_domain_renew_invoice',
+                                                                0
+                                                            ]) }}'
+                                                        )"
+                                                    >
+                                                        <i class="bi bi-trash me-1"></i>
+                                                        Delete
+                                                    </button>
+
+                                                </div>
 
                                             </div>
 
                                         @endif
 
+
                                         @error('company_domain_renew_invoice')
+
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
 
+
+                                    {{-- ========================================================= --}}
                                     {{-- Old Trade Licence Multiple --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
+
                                             <i class="bi bi-files me-1"></i>
+
                                             Old Trade Licence Documents
+
                                         </label>
+
 
                                         <input
                                             type="file"
@@ -280,8 +443,16 @@
                                             multiple
                                         >
 
-                                        <div id="old-tread-file-list" class="mt-2"></div>
 
+                                        {{-- New Selected Files --}}
+                                        <div
+                                            id="old-tread-file-list"
+                                            class="mt-2"
+                                        ></div>
+
+
+
+                                        {{-- Existing Files --}}
                                         @if($importantDocument?->old_tread_licence_multiple)
 
                                             <div class="mt-3">
@@ -290,18 +461,63 @@
                                                     Existing Documents:
                                                 </strong>
 
-                                                @foreach($importantDocument->old_tread_licence_multiple as $key => $file)
 
-                                                    <div class="mb-2">
+                                                @foreach(
+                                                    $importantDocument->old_tread_licence_multiple
+                                                    as $key => $file
+                                                )
 
-                                                        <a
-                                                            href="{{ asset($file) }}"
-                                                            target="_blank"
-                                                            class="btn btn-sm btn-outline-primary"
-                                                        >
-                                                            <i class="bi bi-file-earmark-text me-1"></i>
-                                                            View Document {{ $key + 1 }}
-                                                        </a>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-between border rounded p-2 mb-2"
+                                                    >
+
+                                                        <div>
+
+                                                            <i
+                                                                class="bi bi-file-earmark-text me-2"
+                                                            ></i>
+
+                                                            Document {{ $key + 1 }}
+
+                                                        </div>
+
+
+                                                        <div class="d-flex gap-2">
+
+                                                            {{-- View --}}
+                                                            <a
+                                                                href="{{ asset($file) }}"
+                                                                target="_blank"
+                                                                class="btn btn-sm btn-outline-primary"
+                                                            >
+
+                                                                <i class="bi bi-eye me-1"></i>
+
+                                                                View
+
+                                                            </a>
+
+
+                                                            {{-- Delete --}}
+                                                            <button
+                                                                type="button"
+                                                                class="btn btn-sm btn-outline-danger"
+                                                                onclick="deleteDocument(
+                                                                    '{{ route('important.documents.deleteFile', [
+                                                                        $importantDocument->id,
+                                                                        'old_tread_licence_multiple',
+                                                                        $key
+                                                                    ]) }}'
+                                                                )"
+                                                            >
+
+                                                                <i class="bi bi-trash me-1"></i>
+
+                                                                Delete
+
+                                                            </button>
+
+                                                        </div>
 
                                                     </div>
 
@@ -311,27 +527,42 @@
 
                                         @endif
 
+
                                         @error('old_tread_licence_multiple')
+
                                         <small class="text-danger d-block">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
+
                                         @error('old_tread_licence_multiple.*')
+
                                         <small class="text-danger d-block">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
+
+
+                                    {{-- ========================================================= --}}
                                     {{-- VAT Certificate Multiple --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
+
                                             <i class="bi bi-file-earmark-spreadsheet me-1"></i>
+
                                             VAT Certificate Documents
+
                                         </label>
+
 
                                         <input
                                             type="file"
@@ -342,8 +573,16 @@
                                             multiple
                                         >
 
-                                        <div id="vat-file-list" class="mt-2"></div>
 
+                                        {{-- New Selected Files --}}
+                                        <div
+                                            id="vat-file-list"
+                                            class="mt-2"
+                                        ></div>
+
+
+
+                                        {{-- Existing Files --}}
                                         @if($importantDocument?->vat_certificate_multiple)
 
                                             <div class="mt-3">
@@ -352,18 +591,63 @@
                                                     Existing Documents:
                                                 </strong>
 
-                                                @foreach($importantDocument->vat_certificate_multiple as $key => $file)
 
-                                                    <div class="mb-2">
+                                                @foreach(
+                                                    $importantDocument->vat_certificate_multiple
+                                                    as $key => $file
+                                                )
 
-                                                        <a
-                                                            href="{{ asset($file) }}"
-                                                            target="_blank"
-                                                            class="btn btn-sm btn-outline-primary"
-                                                        >
-                                                            <i class="bi bi-file-earmark-text me-1"></i>
-                                                            View Document {{ $key + 1 }}
-                                                        </a>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-between border rounded p-2 mb-2"
+                                                    >
+
+                                                        <div>
+
+                                                            <i
+                                                                class="bi bi-file-earmark-text me-2"
+                                                            ></i>
+
+                                                            Document {{ $key + 1 }}
+
+                                                        </div>
+
+
+                                                        <div class="d-flex gap-2">
+
+                                                            {{-- View --}}
+                                                            <a
+                                                                href="{{ asset($file) }}"
+                                                                target="_blank"
+                                                                class="btn btn-sm btn-outline-primary"
+                                                            >
+
+                                                                <i class="bi bi-eye me-1"></i>
+
+                                                                View
+
+                                                            </a>
+
+
+                                                            {{-- Delete --}}
+                                                            <button
+                                                                type="button"
+                                                                class="btn btn-sm btn-outline-danger"
+                                                                onclick="deleteDocument(
+                                                                    '{{ route('important.documents.deleteFile', [
+                                                                        $importantDocument->id,
+                                                                        'vat_certificate_multiple',
+                                                                        $key
+                                                                    ]) }}'
+                                                                )"
+                                                            >
+
+                                                                <i class="bi bi-trash me-1"></i>
+
+                                                                Delete
+
+                                                            </button>
+
+                                                        </div>
 
                                                     </div>
 
@@ -373,27 +657,42 @@
 
                                         @endif
 
+
                                         @error('vat_certificate_multiple')
+
                                         <small class="text-danger d-block">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
+
                                         @error('vat_certificate_multiple.*')
+
                                         <small class="text-danger d-block">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
+
+
+                                    {{-- ========================================================= --}}
                                     {{-- TIN Return Certificate Multiple --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-6">
 
                                         <label class="form-label">
+
                                             <i class="bi bi-file-earmark-text me-1"></i>
+
                                             TIN Return Certificate Documents
+
                                         </label>
+
 
                                         <input
                                             type="file"
@@ -404,12 +703,16 @@
                                             multiple
                                         >
 
+
+                                        {{-- New Selected Files --}}
                                         <div
                                             id="tin-return-file-list"
                                             class="mt-2"
                                         ></div>
 
 
+
+                                        {{-- Existing Files --}}
                                         @if($importantDocument?->tin_return_certificate_multiple)
 
                                             <div class="mt-3">
@@ -418,18 +721,63 @@
                                                     Existing Documents:
                                                 </strong>
 
-                                                @foreach($importantDocument->tin_return_certificate_multiple as $key => $file)
 
-                                                    <div class="mb-2">
+                                                @foreach(
+                                                    $importantDocument->tin_return_certificate_multiple
+                                                    as $key => $file
+                                                )
 
-                                                        <a
-                                                            href="{{ asset($file) }}"
-                                                            target="_blank"
-                                                            class="btn btn-sm btn-outline-primary"
-                                                        >
-                                                            <i class="bi bi-file-earmark-text me-1"></i>
-                                                            View Document {{ $key + 1 }}
-                                                        </a>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-between border rounded p-2 mb-2"
+                                                    >
+
+                                                        <div>
+
+                                                            <i
+                                                                class="bi bi-file-earmark-text me-2"
+                                                            ></i>
+
+                                                            Document {{ $key + 1 }}
+
+                                                        </div>
+
+
+                                                        <div class="d-flex gap-2">
+
+                                                            {{-- View --}}
+                                                            <a
+                                                                href="{{ asset($file) }}"
+                                                                target="_blank"
+                                                                class="btn btn-sm btn-outline-primary"
+                                                            >
+
+                                                                <i class="bi bi-eye me-1"></i>
+
+                                                                View
+
+                                                            </a>
+
+
+                                                            {{-- Delete --}}
+                                                            <button
+                                                                type="button"
+                                                                class="btn btn-sm btn-outline-danger"
+                                                                onclick="deleteDocument(
+                                                                    '{{ route('important.documents.deleteFile', [
+                                                                        $importantDocument->id,
+                                                                        'tin_return_certificate_multiple',
+                                                                        $key
+                                                                    ]) }}'
+                                                                )"
+                                                            >
+
+                                                                <i class="bi bi-trash me-1"></i>
+
+                                                                Delete
+
+                                                            </button>
+
+                                                        </div>
 
                                                     </div>
 
@@ -441,43 +789,60 @@
 
 
                                         @error('tin_return_certificate_multiple')
+
                                         <small class="text-danger d-block">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
+
                                         @error('tin_return_certificate_multiple.*')
+
                                         <small class="text-danger d-block">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
 
+
+                                    {{-- ========================================================= --}}
                                     {{-- Long Details --}}
-                                    {{-- Long Details --}}
+                                    {{-- ========================================================= --}}
+
                                     <div class="col-md-12">
 
                                         <label class="form-label">
                                             Details
                                         </label>
 
+
                                         <textarea
                                             id="summernoteEditLong{{ $importantDocument?->id ?? 'new' }}"
                                             name="long_details"
                                         >{{ $importantDocument?->long_details ?? '' }}</textarea>
 
+
                                         @error('long_details')
+
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
+
                                         @enderror
 
                                     </div>
 
                                 </div>
 
+
+
+                                {{-- ========================================================= --}}
+                                {{-- Save Button --}}
+                                {{-- ========================================================= --}}
 
                                 <div class="mt-4">
 
@@ -485,11 +850,15 @@
                                         type="submit"
                                         class="btn btn-primary"
                                     >
-                                        <i class="bi bi-save"></i>
+
+                                        <i class="bi bi-save me-1"></i>
+
                                         Save
+
                                     </button>
 
                                 </div>
+
 
                             </form>
 
@@ -504,21 +873,85 @@
         </div>
     </div>
 
-    <!-- File Preview -->
+
+
+    {{-- ============================================================= --}}
+    {{-- Delete Form --}}
+    {{-- ============================================================= --}}
+
+    <form
+        id="delete-document-form"
+        method="POST"
+        style="display: none;"
+    >
+
+        @csrf
+
+        @method('DELETE')
+
+    </form>
+
+
+
+    {{-- ============================================================= --}}
+    {{-- JavaScript --}}
+    {{-- ============================================================= --}}
+
     <script>
+
+        /*
+        |--------------------------------------------------------------------------
+        | Delete Document
+        |--------------------------------------------------------------------------
+        */
+
+        function deleteDocument(url) {
+
+            const confirmation = confirm(
+                'Are you sure you want to delete this document?'
+            );
+
+
+            if (!confirmation) {
+                return;
+            }
+
+
+            const form = document.getElementById(
+                'delete-document-form'
+            );
+
+
+            form.action = url;
+
+            form.submit();
+
+        }
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Selected File Preview
+        |--------------------------------------------------------------------------
+        */
 
         function showSelectedFiles(inputId, listId) {
 
             const input = document.getElementById(inputId);
+
             const list = document.getElementById(listId);
+
 
             if (!input || !list) {
                 return;
             }
 
+
             input.addEventListener('change', function () {
 
                 list.innerHTML = '';
+
 
                 if (this.files.length === 0) {
                     return;
@@ -530,6 +963,7 @@
                 title.className = 'd-block mb-2';
 
                 title.innerText = 'Selected Documents:';
+
 
                 list.appendChild(title);
 
@@ -543,14 +977,22 @@
 
 
                     div.innerHTML = `
+
                         <div>
+
                             <i class="bi bi-file-earmark-text me-2"></i>
+
                             ${file.name}
+
                         </div>
 
+
                         <small class="text-muted">
+
                             ${(file.size / 1024 / 1024).toFixed(2)} MB
+
                         </small>
+
                     `;
 
 
@@ -563,26 +1005,45 @@
         }
 
 
-        // Old Trade Licence
+
+        /*
+        |--------------------------------------------------------------------------
+        | Old Trade Licence
+        |--------------------------------------------------------------------------
+        */
+
         showSelectedFiles(
             'old_tread_licence_multiple',
             'old-tread-file-list'
         );
 
 
-        // VAT Certificate
+
+        /*
+        |--------------------------------------------------------------------------
+        | VAT Certificate
+        |--------------------------------------------------------------------------
+        */
+
         showSelectedFiles(
             'vat_certificate_multiple',
             'vat-file-list'
         );
 
 
-        // TIN Return Certificate
+
+        /*
+        |--------------------------------------------------------------------------
+        | TIN Return Certificate
+        |--------------------------------------------------------------------------
+        */
+
         showSelectedFiles(
             'tin_return_certificate_multiple',
             'tin-return-file-list'
         );
 
     </script>
+
 
 @endsection

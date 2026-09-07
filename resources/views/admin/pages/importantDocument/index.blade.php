@@ -465,7 +465,7 @@
 
 
 
-                                        <textarea id="summernoteEditLong{{ $importantDocument->id }}" name="long_details">{{ $importantDocument->long_details }}</textarea>
+                                        <textarea id="summernoteEditLong" name="long_details">{{ $importantDocument->long_details }}</textarea>
 
                                         @error('long_details')
                                         <small class="text-danger">

@@ -138,6 +138,16 @@
                     </li>
                 @endcan
 
+                @can('egp-list')
+                    <li class="side-nav-item">
+                        <a href="{{ route('egp.section') }}" class="side-nav-link">
+                            <i class="ri-file-list-3-line"></i>
+                            <span> E-GP </span>
+                        </a>
+                    </li>
+                @endcan
+
+
 
 
                 @can('slider-list')

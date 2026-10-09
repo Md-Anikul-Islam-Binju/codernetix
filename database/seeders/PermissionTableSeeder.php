@@ -22,6 +22,13 @@ class PermissionTableSeeder extends Seeder
             'slider-edit',
             'slider-delete',
 
+            //egp
+            'egp-list',
+            'egp-create',
+            'egp-edit',
+            'egp-delete',
+
+
             //Client
             'gallery-list',
             'gallery-create',

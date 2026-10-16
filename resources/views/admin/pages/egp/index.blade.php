@@ -79,7 +79,15 @@
                     @foreach($egps as $key => $egp)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $egp->title }}</td>
+                            <td>
+                                <span class="d-inline-block text-truncate"
+                                      style="max-width: 300px; vertical-align: middle;"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-placement="top"
+                                      title="{{ $egp->title }}">
+                                    {{ $egp->title }}
+                                </span>
+                            </td>
                             <td>{{ $egp->tender_id }}</td>
                             <td>{{ \Carbon\Carbon::parse($egp->start_date)->format('d M Y') }}</td>
                             <td>{{ \Carbon\Carbon::parse($egp->end_date)->format('d M Y') }}</td>

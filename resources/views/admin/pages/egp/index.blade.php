@@ -1,7 +1,17 @@
 
 @extends('admin.app')
 @section('admin_content')
-
+    <style>
+        .tooltip.light-tooltip .tooltip-inner {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border: 1px solid #333333;
+        }
+        .tooltip.light-tooltip.bs-tooltip-top .tooltip-arrow::before,
+        .tooltip.light-tooltip.bs-tooltip-auto[data-popper-placement^="top"] .tooltip-arrow::before {
+            border-top-color: #000000 !important;
+        }
+    </style>
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
@@ -84,6 +94,7 @@
                                       style="max-width: 300px; vertical-align: middle;"
                                       data-bs-toggle="tooltip"
                                       data-bs-placement="top"
+                                      data-bs-custom-class="light-tooltip"
                                       title="{{ $egp->title }}">
                                     {{ $egp->title }}
                                 </span>

@@ -1,41 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
 @php
+    // Existing database-driven site settings are preserved.
     $siteSetting = DB::table('site_settings')->first();
+
+    $baseUrl = 'https://codernetix.com';
+    $currentPath = request()->path();
+    $canonicalUrl = $currentPath === '/' ? $baseUrl . '/' : $baseUrl . '/' . ltrim($currentPath, '/');
+
+    // Each page can override these with @section('seo_title') etc.
+    $pageSeo = [
+        '/' => [
+            'title' => 'CoderNetix | Software & IT Solutions Company in Bangladesh',
+            'description' => 'CoderNetix is a software and IT solutions company in Bangladesh offering custom software, web and mobile app development, and AI/ML solutions.',
+        ],
+        'about' => [
+            'title' => 'About CoderNetix | Software Development Company',
+            'description' => 'Learn about CoderNetix, a Bangladesh-based IT solutions company delivering custom software, web applications, mobile apps, and AI/ML solutions.',
+        ],
+        'service' => [
+            'title' => 'Software Development & IT Services | CoderNetix',
+            'description' => 'Explore CoderNetix IT services, including custom software development, web and mobile applications, AI/ML solutions, and cloud migration.',
+        ],
+        'contact' => [
+            'title' => 'Contact CoderNetix | IT & Software Solutions',
+            'description' => 'Contact CoderNetix in Dhaka, Bangladesh to discuss your software, web development, mobile application, or AI/ML project.',
+        ],
+    ];
+    $defaultSeo = $pageSeo[$currentPath] ?? [
+        'title' => 'CoderNetix | Software & IT Solutions',
+        'description' => 'Discover custom software, web application, mobile app, and AI/ML solutions from CoderNetix in Bangladesh.',
+    ];
+    $seoTitle = trim($__env->yieldContent('seo_title', $defaultSeo['title']));
+    $seoDescription = trim($__env->yieldContent('seo_description', $defaultSeo['description']));
+
+    // Choose a real, publicly accessible image URL from the database.
+    $logoPath = trim((string) ($siteSetting->logo ?? ''), '/');
+    $previewPath = trim((string) ($siteSetting->site_preview_image ?? ''), '/');
+    $faviconPath = trim((string) ($siteSetting->favicon ?? ''), '/');
+    $logoUrl = $logoPath !== '' ? url($logoPath) : null;
+    $socialImageUrl = $previewPath !== '' ? url($previewPath) : $logoUrl;
+    $faviconUrl = $faviconPath !== '' ? url($faviconPath) : null;
+
+    $socialProfiles = array_values(array_filter([
+        $siteSetting->facebook_link ?? null,
+        $siteSetting->linkedin_link ?? null,
+        $siteSetting->twitter_link ?? null,
+    ], fn ($link) => is_string($link) && filter_var($link, FILTER_VALIDATE_URL)));
+
+    $organizationSchema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
+        'name' => 'CoderNetix',
+        'url' => $baseUrl . '/',
+        'description' => $pageSeo['/']['description'],
+    ];
+    if ($logoUrl) {
+        $organizationSchema['logo'] = $logoUrl;
+    }
+    if ($socialProfiles) {
+        $organizationSchema['sameAs'] = $socialProfiles;
+    }
 @endphp
+    <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>CoderNetix | IT Solutions, Web & Mobile App Development Services</title>
-    <meta name="description" content="CoderNetix delivers expert IT solutions including web application development, mobile app development, custom website creation, and game development. Boost your business with our tailored software solutions.">
-    <meta name="keywords" content="CoderNetix, IT solutions, web development, mobile app development, software company, custom websites, game development, digital solutions, IT services Bangladesh, software development company">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://codernetix.com" />
+    <!-- SEO: allow child pages to override title/description -->
+    <title>{{ $seoTitle }}</title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
 
-    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
-    <meta property="og:site_name" content="CoderNetix">
-    <meta property="og:title" content="CoderNetix | IT Solutions, Web & Mobile App Development Services">
-    <meta property="og:description" content="We offer world-class IT services: web apps, mobile apps, custom websites, and game development. Discover innovative solutions with CoderNetix.">
-    <meta property="og:image" content="{{ URL::to('/'.$siteSetting->site_preview_image) }}">
-    <meta property="og:url" content="https://codernetix.com">
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CoderNetix">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    @if($socialImageUrl)
+        <meta property="og:image" content="{{ $socialImageUrl }}">
+        <meta name="twitter:image" content="{{ $socialImageUrl }}">
+    @endif
 
-    <!-- Twitter Card (X) -->
+    <!-- X / Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CoderNetix | IT Solutions & Development Services">
-    <meta name="twitter:description" content="Expert IT services in web & mobile app development, custom websites, and game development. Powered by CoderNetix.">
-    <meta name="twitter:image" content="{{ URL::to('/'.$siteSetting->site_preview_image) }}">
-    <meta name="twitter:site" content="@CoderNetix">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDescription }}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ URL::to('/'.$siteSetting->favicon) }}">
-    <link rel="icon" href="{{ URL::to('/'.$siteSetting->favicon) }}" sizes="32x32">
-    <link rel="icon" href="{{ URL::to('/'.$siteSetting->favicon) }}" sizes="192x192">
-    <link rel="apple-touch-icon" href="{{ URL::to('/'.$siteSetting->favicon) }}">
-
-
+    @if($faviconUrl)
+        <link rel="icon" href="{{ $faviconUrl }}">
+        <link rel="apple-touch-icon" href="{{ $faviconUrl }}">
+    @endif
 
     <!-- Preload & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,25 +111,12 @@
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/custom.css')}}" rel="stylesheet">
 
-    <!-- Structured Data (JSON-LD for Google Rich Snippets) -->
-    <!-- SINGLE & CORRECT JSON-LD (Google Logo + Brand Box) -->
+    <!-- Organization structured data. Social URLs come from current site settings. -->
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "CoderNetix",
-          "url": "https://codernetix.com",
-          "logo": "{{ URL::to('/'.$siteSetting->logo) }}",
-          "description": "CoderNetix delivers expert IT solutions including web application development, mobile apps, custom website creation, and game development.",
-          "sameAs": [
-            "https://www.facebook.com/CoderNetix",
-            "https://www.linkedin.com/company/codernetix",
-            "https://twitter.com/CoderNetix"
-          ]
-        }
+        @json($organizationSchema)
     </script>
+    @stack('head')
 </head>
-
 
 <body>
 <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -85,8 +129,8 @@
     <div class="row gx-0 align-items-center">
         <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
             <div class="d-flex flex-wrap">
-                <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+88{{$siteSetting->phone}}</a>
-                <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>{{$siteSetting->email}}</a>
+                <a href="tel:+88{{ $siteSetting->phone ?? '' }}" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+88{{$siteSetting->phone}}</a>
+                <a href="mailto:{{ $siteSetting->email ?? '' }}" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>{{$siteSetting->email}}</a>
             </div>
         </div>
         <div class="col-lg-4 text-center text-lg-end">
@@ -101,7 +145,7 @@
     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a href="{{route('home')}}" class="navbar-brand p-0">
             <span class="logo-lg">
-                <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 80px;">
+                <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="CoderNetix logo" style="height: 80px;">
             </span>
         </a>
 
@@ -150,9 +194,9 @@
                 <div class="footer-item">
 
 
-                    <a href="/" class="p-0">
+                    <a href="{{ route('home') }}" class="p-0">
                         <h4 class="text-white">
-                            <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="logo" style="height: 50px;">
+                            <img src="{{URL::to('/'.$siteSetting->logo)}}" alt="CoderNetix logo" style="height: 50px;">
 
                         </h4>
                     </a>
@@ -191,9 +235,9 @@
                         <p class="text-white mb-0">+88{{$siteSetting->phone}}</p>
                     </div>
                     <div class="d-flex">
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->facebook_link}}" target="_blank"><i class="fab fa-facebook-f text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{$siteSetting->twitter_link}}" target="_blank"><i class="fab fa-twitter text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="{{$siteSetting->linkedin_link}}" target="_blank"><i class="fab fa-linkedin-in text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{ $siteSetting->facebook_link ?? '#' }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{ $siteSetting->twitter_link ?? '#' }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="{{ $siteSetting->linkedin_link ?? '#' }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in text-white"></i></a>
                     </div>
                 </div>
             </div>
@@ -215,6 +259,7 @@
 <script src="{{asset('frontend/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 <!-- Template Javascript -->
 <script src="{{asset('frontend/js/main.js')}}"></script>
+@stack('scripts')
 
 </body>
 </html>

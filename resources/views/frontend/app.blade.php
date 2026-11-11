@@ -29,8 +29,12 @@
         'title' => 'CoderNetix | Software & IT Solutions',
         'description' => 'Discover custom software, web application, mobile app, and AI/ML solutions from CoderNetix in Bangladesh.',
     ];
+    // Normalize any HTML entities from child Blade sections before Blade escapes output.
+    // Keep {{ ... }} in the HTML; do NOT switch to unescaped {!! ... !!}.
     $seoTitle = trim($__env->yieldContent('seo_title', $defaultSeo['title']));
     $seoDescription = trim($__env->yieldContent('seo_description', $defaultSeo['description']));
+    $seoTitle = html_entity_decode(html_entity_decode($seoTitle, ENT_QUOTES | ENT_HTML5, 'UTF-8'), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $seoDescription = html_entity_decode(html_entity_decode($seoDescription, ENT_QUOTES | ENT_HTML5, 'UTF-8'), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
     // Choose a real, publicly accessible image URL from the database.
     $logoPath = trim((string) ($siteSetting->logo ?? ''), '/');
@@ -60,7 +64,7 @@
         $organizationSchema['sameAs'] = $socialProfiles;
     }
 @endphp
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
